@@ -1,0 +1,25 @@
+{
+  "number": 77,
+  "slug": "connection-banner",
+  "title": "連線狀態",
+  "desc": "Connection Banner，離線說明影響、恢復後回報同步",
+  "category": "feedback",
+  "aliases": "offline online network connection sync 離線 連線 網路 同步 斷線",
+  "guide": {
+    "use": "會在背景存取網路的應用：離線時說明還能做什麼、變更會怎麼處理，恢復後回報同步結果。",
+    "avoid": "只說「網路錯誤」而不說影響；或在離線時鎖住整個畫面，讓使用者連已有的內容都看不到。"
+  },
+  "states": ["offline", "success"],
+  "note": "同時監聽瀏覽器真實的 online／offline 事件；離線時的變更計入待同步數量，恢復連線後顯示同步進度，完成 2.5 秒後收起橫幅。橫幅是 role=\"status\"，不搶焦點。",
+  "anatomy": [
+    "橫幅 .cn-banner（role=\"status\"；恢復連線時 .online）：狀態點 .cn-dot 與說明 .cn-text",
+    "內容區 .cn-doc：顯示待同步數量",
+    "模擬按鈕 .cn-toggle（實際產品不需要）"
+  ],
+  "keyboard": [["Tab → Enter／空白鍵", "操作內容；橫幅本身不取得焦點，由讀屏播報"]],
+  "content": [
+    "說明影響與處理方式：「變更會先存在這台裝置，連線後自動同步」",
+    "恢復後回報結果：「已同步 2 項變更」",
+    "不要怪使用者：不寫「您的網路有問題」"
+  ]
+}

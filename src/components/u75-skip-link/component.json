@@ -1,0 +1,24 @@
+{
+  "number": 75,
+  "slug": "skip-link",
+  "title": "跳至主內容",
+  "desc": "Skip Link，略過重複的頁首導覽",
+  "category": "nav",
+  "aliases": "skip link skip to content bypass blocks 跳過 跳至主內容 略過導覽 無障礙",
+  "guide": {
+    "use": "每個網頁都要有：頁首導覽在主內容之前時，讓鍵盤使用者一鍵略過。",
+    "avoid": "永久隱藏（display:none 會讓它無法聚焦）；或連到沒有 tabindex=\"-1\" 的容器，焦點不會真的移過去。"
+  },
+  "states": ["active"],
+  "note": "連結是頁面第一個可聚焦元素，平常移出畫面、聚焦時才滑入。點擊後焦點移到 main（tabindex=\"-1\"），下一個 Tab 就是內文第一個連結。對應 WCAG 2.4.1 略過區塊。",
+  "anatomy": [
+    "跳過連結 .sk-link（頁面第一個可聚焦元素，聚焦時才顯示）",
+    "頁首 .sk-header 與重複的導覽連結",
+    "主內容 .sk-main（main，tabindex=\"-1\"，接收焦點）"
+  ],
+  "keyboard": [
+    ["Tab（頁面開頭）", "顯示「跳至主內容」"],
+    ["Enter", "焦點移到主內容，下一個 Tab 從內文開始"]
+  ],
+  "content": ["固定寫「跳至主內容」，不用「Skip」或圖示"]
+}

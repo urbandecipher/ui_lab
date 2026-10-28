@@ -1,0 +1,27 @@
+{
+  "number": 82,
+  "slug": "lightbox",
+  "title": "圖片燈箱",
+  "desc": "Lightbox，縮圖放大檢視與左右切換",
+  "category": "display",
+  "aliases": "lightbox gallery image viewer photo zoom 燈箱 相簿 圖片 放大 相片 檢視",
+  "guide": {
+    "use": "相片、作品集、商品圖：縮圖瀏覽、點擊放大，在放大狀態左右切換。",
+    "avoid": "單張圖片且已經夠大（直接顯示），或圖片承載必要資訊卻只能在燈箱裡看到。"
+  },
+  "states": ["expanded"],
+  "note": "以原生 dialog 開啟（焦點鎖定、Esc 關閉）。縮圖名稱寫出位置「第 2 張，共 6 張」；切換時播報圖名。關閉後焦點回到最後看到的那張縮圖，而不是一開始點的那張。支援滑動切換。",
+  "anatomy": [
+    "縮圖格 .lb-grid（ul）與縮圖按鈕 .lb-thumb（名稱含圖名與位置）",
+    "燈箱 dialog.lb-dialog（aria-labelledby 指向圖說）",
+    "圖片區 .lb-stage（role=\"img\"）與上下張 .lb-nav",
+    "資訊列 .lb-bar：圖說 .lb-caption、張數 .lb-count、關閉"
+  ],
+  "keyboard": [
+    ["Enter／空白鍵（縮圖）", "開啟燈箱，焦點在「關閉」"],
+    ["← ／ →", "上一張／下一張（循環）"],
+    ["Tab", "在燈箱內的按鈕間循環"],
+    ["Esc", "關閉並回到目前這張的縮圖"]
+  ],
+  "content": ["每張圖都要有圖說，縮圖名稱說明動作：「放大檢視：山間步道」", "張數寫成「2 / 6」"]
+}

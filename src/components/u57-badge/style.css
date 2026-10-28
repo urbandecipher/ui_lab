@@ -46,33 +46,3 @@
   gap: 6px;
   width: 100%;
 }
-.pill {
-  font-size: calc(11px * var(--font-scale));
-  font-weight: 600;
-  padding: 3px 9px;
-  border-radius: var(--pill);
-  background: var(--panel-2);
-  color: var(--text-dim);
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-}
-.pill::before {
-  content: '';
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: currentColor;
-}
-.pill-ok {
-  background: color-mix(in srgb, var(--ok) 12%, transparent);
-  color: var(--ok);
-}
-.pill-warn {
-  background: color-mix(in srgb, var(--warn) 14%, transparent);
-  color: var(--warn);
-}
-.pill-err {
-  background: color-mix(in srgb, var(--err) 11%, transparent);
-  color: var(--err);
-}

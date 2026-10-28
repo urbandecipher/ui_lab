@@ -1,6 +1,6 @@
 # UI LAB — 互動元件規範集
 
-與框架無關的前端互動規範集。66 個元件，每個都能直接操作、切換狀態，附「何時用／何時不用」、結構拆解、鍵盤操作表、文案規則（遊戲元件另附 Godot 4 節點對應），並匯出可離線執行的 HTML、CSS 與 JavaScript。頁面內含設計變數總表，可下載 tokens.css／tokens.json。
+與框架無關的前端互動規範集。90 個元件，每個都能直接操作、切換狀態，附「何時用／何時不用」、結構拆解、鍵盤操作表、文案規則（遊戲元件另附 Godot 4 節點對應），並匯出可離線執行的 HTML、CSS 與 JavaScript。頁面內含設計變數總表（可下載 tokens.css／tokens.json）與總則（文案總則、用詞對照、可勾選的無障礙檢查清單）。
 
 - **交付物**：`dist/ui-lab-minimal.html`，單一檔案、零外部相依，直接用瀏覽器開啟。
 - **原始碼**：`src/`，每個元件一個資料夾，由 `build.mjs` 組成單檔。
@@ -21,6 +21,7 @@ src/
   page.html               頁面骨架（標題、搜尋列、工作台、版本紀錄），以 <!--@…--> 佔位
   categories.json         分類：順序、名稱、說明
   state-labels.json       狀態代碼 → 中文名稱（狀態選單用）
+  guidelines.json         總則：文案規則、用詞對照、無障礙檢查清單（引用的元件編號會在建置時檢查）
   styles/
     tokens.css            設計變數（顏色、圓角、間距、陰影、字體、動態時間、深色與外觀變體）；頁面總表由此自動產生
     base.css              多個元件共用的規則
@@ -64,7 +65,12 @@ tests/                    Playwright 測試（smoke、同頁多實例）
 
 4. `node build.mjs`，分類數量、搜尋、檢視器、匯出都會自動更新。
 
-**規則**：`markup.html` 不寫 inline 事件（`onclick` 等）；元件內的 ID 可以照常寫，執行時會自動加前綴，所以同一頁可放多個相同元件。
+**規則**：
+
+- `markup.html` 不寫 inline 事件（`onclick` 等）。
+- 元件內的 ID 照常寫，執行時自動加前綴；`label[for]`、`aria-*` 參照與 `href="#id"` 錨點會一起更新，同一頁可放多個相同元件。
+- 只能使用 `styles/` 的共用樣式或自己的 `style.css`；用到其他元件的樣式時建置會報錯（否則匯出會缺樣式），請把規則移到 `styles/base.css`。
+- 新元件優先使用設計變數：字級 `--text-*`、層級 `--z-*`、緩動 `--ease-*`。
 
 ## 匯出
 
@@ -85,6 +91,7 @@ pip install playwright && python -m playwright install chromium
 python tests/smoke.py dist/ui-lab-minimal.html          # 互動、每個元件 × 每個狀態、手機寬度
 python tests/multi_instance.py dist/ui-lab-minimal.html # 每個元件放兩份：ID 不重複、互不干擾
 python tests/new_components.py dist/ui-lab-minimal.html # U63–U66 互動細節（游標、上限、自動載入、時段）
+python tests/v6_components.py dist/ui-lab-minimal.html  # U67–U90 互動細節（57 項）
 ```
 
 ## 持續檢查與發佈

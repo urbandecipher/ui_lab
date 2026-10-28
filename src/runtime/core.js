@@ -30,6 +30,9 @@
       el.id = next;
     });
     root.querySelectorAll('*').forEach(el => {
+      // In-component anchors (#id) follow their renamed targets too.
+      const href = el.getAttribute('href');
+      if (href && href.startsWith('#') && map.has(href.slice(1))) el.setAttribute('href', '#' + map.get(href.slice(1)));
       for (const name of ID_REFS) {
         const value = el.getAttribute(name);
         if (value)
@@ -235,6 +238,6 @@
     };
   }
 
-  global.UILab = {define, mount: mountDemo, version: '5.2'};
+  global.UILab = {define, mount: mountDemo, version: '6.0'};
   global.mountDemo = mountDemo;
 })(window);

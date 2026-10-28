@@ -10,7 +10,7 @@
   border: 1px solid var(--line);
   border-radius: var(--radius-s);
   overflow: hidden;
-  z-index: 5;
+  z-index: var(--z-dropdown);
   display: none;
   box-shadow: var(--shadow-md);
   padding: 4px;

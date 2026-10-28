@@ -1,0 +1,90 @@
+.kb {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.kb-board {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 6px;
+}
+.kb-col {
+  background: var(--panel-2);
+  border-radius: var(--radius-s);
+  padding: 6px;
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.kb-col.drop {
+  outline: 2px dashed var(--cat-manip);
+  outline-offset: -2px;
+}
+.kb-col h4 {
+  display: flex;
+  justify-content: space-between;
+  font-size: var(--text-xs);
+  color: var(--text-dim);
+  padding: 2px 4px;
+}
+.kb-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+.kb-card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 7px 8px;
+  font-size: var(--text-xs);
+  line-height: 1.45;
+  cursor: grab;
+  outline: none;
+}
+.kb-card:focus-visible {
+  box-shadow: 0 0 0 2px var(--accent);
+}
+.kb-card.grabbed {
+  border-color: var(--cat-manip);
+  box-shadow:
+    0 0 0 2px var(--cat-manip),
+    var(--shadow-md);
+  transform: rotate(-1.5deg);
+}
+.kb-card.dragging {
+  opacity: 0.4;
+}
+.kb-moves {
+  display: flex;
+  justify-content: flex-end;
+  gap: 2px;
+  margin-top: 4px;
+}
+.kb-moves button {
+  width: 24px;
+  height: 22px;
+  border: 1px solid var(--line-2);
+  border-radius: 6px;
+  background: var(--panel);
+  color: var(--text-dim);
+  font-size: 11px;
+  cursor: pointer;
+}
+.kb-moves button:disabled {
+  visibility: hidden;
+}
+.kb-help {
+  font-size: var(--text-xs);
+  color: var(--text-dim);
+}
+@media (pointer: coarse) {
+  .kb-moves button {
+    width: 36px;
+    height: 32px;
+  }
+}

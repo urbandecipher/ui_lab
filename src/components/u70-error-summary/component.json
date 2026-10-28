@@ -1,0 +1,29 @@
+{
+  "number": 70,
+  "slug": "error-summary",
+  "title": "表單錯誤摘要",
+  "desc": "Error Summary，送出後集中列出錯誤並跳到欄位",
+  "category": "input",
+  "aliases": "error summary form validation 表單 錯誤 摘要 驗證 送出 必填",
+  "guide": {
+    "use": "超過 3 個欄位的表單；送出後在表單頂端列出所有錯誤，每項都能跳到對應欄位。",
+    "avoid": "只有一兩個欄位（欄位旁的錯誤就夠），或在使用者還在輸入時就跳出摘要。"
+  },
+  "states": ["error", "success"],
+  "note": "送出時才驗證：焦點移到摘要（tabindex=\"-1\"），讀屏會讀出標題與錯誤數量；每個錯誤是連到欄位的連結。欄位旁的錯誤同時以 aria-describedby 關聯，修正後立即消失。",
+  "anatomy": [
+    "錯誤摘要 .es-summary（region，送出失敗時取得焦點）：標題 .es-title 與錯誤連結 .es-list",
+    "欄位 .es-field（.field-wrap，錯誤時 .error）：label、輸入框（aria-invalid、aria-describedby）、欄位訊息 .field-msg",
+    "送出按鈕 .es-submit 與成功訊息 .es-done"
+  ],
+  "keyboard": [
+    ["Enter（輸入框中）／送出按鈕", "驗證；有錯時焦點移到摘要"],
+    ["Tab", "從摘要依序到每個錯誤連結"],
+    ["Enter（錯誤連結）", "跳到對應欄位"]
+  ],
+  "content": [
+    "標題寫數量與動作：「請修正 2 個問題後再送出」",
+    "摘要與欄位旁用同一句錯誤，且說怎麼修：「電子郵件格式應為 name@example.com」",
+    "必填錯誤寫成要求：「請輸入姓名」，不要寫「姓名為必填欄位」"
+  ]
+}

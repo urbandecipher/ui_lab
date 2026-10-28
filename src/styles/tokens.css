@@ -67,6 +67,34 @@
   --space-grid: 20px;
   --motion-fast: 0.16s;
   --motion-normal: 0.3s;
+  --motion-slow: 0.5s;
+
+  /* 緩動曲線 */
+  --ease-standard: cubic-bezier(0.4, 0.2, 0.2, 1);
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-spring: cubic-bezier(0.34, 1.4, 0.64, 1);
+
+  /* 字級：隨外觀設定的字級倍率縮放（v6 起新元件使用，舊元件逐步改用） */
+  --text-xs: calc(11px * var(--font-scale));
+  --text-sm: calc(12px * var(--font-scale));
+  --text-md: calc(13.5px * var(--font-scale));
+  --text-lg: calc(16px * var(--font-scale));
+  --text-xl: calc(21px * var(--font-scale));
+  --text-2xl: calc(30px * var(--font-scale));
+
+  /* 層級：數字越大越上層；原生 dialog 另在瀏覽器頂層，不受影響 */
+  --z-raised: 3;
+  --z-dropdown: 6;
+  --z-sticky: 40;
+  --z-toast: 60;
+  --z-popover: 90;
+  --z-overlay: 100;
+
+  /* 斷點：CSS 的 @media 無法使用變數，這裡作為 JS、設計稿與其他平台的共同依據 */
+  --bp-sm: 640px;
+  --bp-md: 760px;
+  --bp-lg: 1000px;
 }
 :root[data-density='compact'] {
   --space-card: 16px;

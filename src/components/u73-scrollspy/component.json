@@ -1,0 +1,24 @@
+{
+  "number": 73,
+  "slug": "scrollspy",
+  "title": "目錄捲動追蹤",
+  "desc": "Scrollspy，捲動時標示目前段落",
+  "category": "nav",
+  "aliases": "scrollspy table of contents toc anchor 目錄 錨點 段落 捲動 追蹤 本頁",
+  "guide": {
+    "use": "長篇文件或設定頁：目錄同時當導覽與「我在哪」的指示。",
+    "avoid": "內容短到一個畫面看得完；或段落少於 3 個。"
+  },
+  "states": ["selected"],
+  "note": "目錄連到段落的 id（實例化時自動加前綴）；目前段落以 aria-current=\"location\" 標示。點目錄時捲到段落並把焦點移到標題（tabindex=\"-1\"），鍵盤使用者接著按 Tab 就從該段開始。減少動態時不使用平滑捲動。",
+  "anatomy": [
+    "目錄 .ss-toc（nav，aria-label=\"本頁目錄\"）與段落連結",
+    "內容區 .ss-body（可捲動）與段落 section",
+    "目前段落：連結上的 aria-current=\"location\""
+  ],
+  "keyboard": [
+    ["Tab", "在目錄連結間移動"],
+    ["Enter", "跳到段落，焦點移到段落標題"]
+  ],
+  "content": ["目錄文字與段落標題完全一致", "標題寫主題名詞，不用「第一部分」這類編號"]
+}

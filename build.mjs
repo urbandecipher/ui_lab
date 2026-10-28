@@ -271,7 +271,39 @@ const TOKEN_GROUPS = [
   {title: '陰影', kind: 'shadow', match: n => n.startsWith('--shadow-')},
   {title: '字體', kind: 'font', match: n => ['--sans', '--mono', '--font-scale'].includes(n)},
   {title: '動態時間', kind: 'motion', match: n => n.startsWith('--motion-')},
+  {title: '緩動曲線', kind: 'easing', match: n => n.startsWith('--ease-')},
+  {title: '字級', kind: 'type', match: n => /^--text-(xs|sm|md|lg|xl|2xl)$/.test(n)},
+  {
+    title: '層級',
+    kind: 'z',
+    match: n => n.startsWith('--z-'),
+    note: '數字越大越上層。原生 dialog（彈出視窗、抽屜）在瀏覽器頂層，不需要層級變數。',
+  },
+  {
+    title: '斷點',
+    kind: 'breakpoint',
+    match: n => n.startsWith('--bp-'),
+    note: 'CSS 的 @media 不能使用變數，樣式表內仍寫數值；這組變數給 JavaScript、設計稿與其他平台共用。',
+  },
 ];
+// 部分變數的用途說明（顯示在總表卡片上）
+const TOKEN_NOTES = {
+  '--z-raised': '聚焦中的卡片',
+  '--z-dropdown': '下拉、日曆、建議清單、彈出層',
+  '--z-sticky': '固定按鈕（深淺色切換）',
+  '--z-toast': '通知提示',
+  '--z-popover': '右鍵選單等跟隨游標的浮層',
+  '--z-overlay': '覆蓋全頁的遮罩',
+  '--bp-sm': '手機：單欄、觸控尺寸',
+  '--bp-md': '平板：檢視器改單欄',
+  '--bp-lg': '桌面：規格四欄',
+  '--ease-standard': '一般狀態轉換',
+  '--ease-out': '進場（抽屜、彈出）',
+  '--ease-in': '退場',
+  '--ease-spring': '帶回彈的強調',
+  '--motion-slow': '大面積或強調動畫',
+};
+const prettyValue = v => v.replace(/calc\(([\d.]+px) \* var\(--font-scale\)\)/, '$1 × 字級倍率');
 const VARIANT_LABEL = {'mode:dark': '深', 'density:compact': '精簡', 'corners:square': '方角', 'corners:round': '圓角'};
 
 function tokensHtml(sets) {
@@ -285,7 +317,7 @@ function tokensHtml(sets) {
     const base = valueOf(name, 'base');
     const variants = Object.keys(VARIANT_LABEL).filter(v => valueOf(name, v) !== undefined);
     const values = [
-      base !== undefined ? (kind === 'color' ? '淺 ' : '') + base : null,
+      base !== undefined ? (kind === 'color' ? '淺 ' : '') + prettyValue(base) : null,
       ...variants.map(v => VARIANT_LABEL[v] + ' ' + valueOf(name, v)),
     ].filter(Boolean);
     let preview = '';
@@ -305,6 +337,16 @@ function tokensHtml(sets) {
           : `<span class="token-font" style="font-family:var(${name})" aria-hidden="true">Aa 永</span>`;
     else if (kind === 'motion')
       preview = `<span class="token-motion" style="--d:var(${name})" aria-hidden="true"><i></i></span>`;
+    else if (kind === 'easing') {
+      const [x1, y1, x2, y2] = (base.match(/-?\d*\.?\d+/g) || [0, 0, 1, 1]).map(Number);
+      const Y = y => 52 - y * 40; // curve may overshoot (spring) so leave headroom
+      preview = `<span class="token-easing" style="--e:var(${name})" aria-hidden="true"><svg viewBox="0 0 60 60" width="60" height="60"><path class="axis" d="M8 ${Y(0)} H52 M8 ${Y(0)} V${Y(1.2)}"/><path class="curve" d="M8 ${Y(0)} C${8 + x1 * 44} ${Y(y1)} ${8 + x2 * 44} ${Y(y2)} 52 ${Y(1)}"/></svg><i></i></span>`;
+    } else if (kind === 'type')
+      preview = `<span class="token-type" style="font-size:var(${name})" aria-hidden="true">字級 Aa</span>`;
+    else if (kind === 'z') preview = `<span class="token-z" aria-hidden="true"><b>${esc(base)}</b></span>`;
+    else if (kind === 'breakpoint')
+      preview = `<span class="token-bp" aria-hidden="true"><i style="width:${Math.min(100, (parseFloat(base) / 1280) * 100)}%"></i></span>`;
+    if (TOKEN_NOTES[name]) values.push(TOKEN_NOTES[name]);
     return `<div class="token-card">${preview}<button type="button" class="token-name" data-copy="var(${name})" aria-label="複製 var(${name})">${name}</button><span class="token-values">${values.map(v => `<span>${esc(v)}</span>`).join('')}</span></div>`;
   };
   return `<section class="token-section" id="design-tokens" aria-labelledby="tokens-title">
@@ -320,10 +362,65 @@ ${groups
   .filter(g => g.names.length)
   .map(
     g =>
-      `  <div class="token-group"><h3>${esc(g.title)}</h3><div class="token-grid token-${g.kind}">${g.names.map(n => card(n, g.kind)).join('')}</div></div>`,
+      `  <div class="token-group"><h3>${esc(g.title)}</h3>${g.note ? `<p class="token-group-note">${esc(g.note)}</p>` : ''}<div class="token-grid token-grid--${g.kind}">${g.names.map(n => card(n, g.kind)).join('')}</div></div>`,
   )
   .join('\n')}
   <p class="token-status" role="status" aria-live="polite"></p>
+</section>`;
+}
+
+/* ───────────────────────── guidelines ───────────────────────── */
+
+function guidelinesHtml(g, comps) {
+  const byNumber = new Map(comps.map(c => [c.number, c]));
+  const chips = refs =>
+    refs?.length
+      ? `<span class="gl-refs">${refs
+          .map(n => {
+            const c = byNumber.get(n);
+            return `<a href="#u${n}-${c.slug}" class="gl-ref" title="${esc(c.title)}">U${n} ${esc(c.title)}</a>`;
+          })
+          .join('')}</span>`
+      : '';
+  const content = g.content
+    .map(
+      s =>
+        `<article class="gl-card"><h4>${esc(s.title)}</h4><ul>${s.rules.map(r => `<li>${esc(r)}</li>`).join('')}</ul>${s.refs ? `<p class="gl-see">範例：${chips(s.refs)}</p>` : ''}</article>`,
+    )
+    .join('');
+  const terms = g.terms
+    .map(
+      ([use, avoid, note]) =>
+        `<tr><th scope="row">${esc(use)}</th><td>${esc(avoid)}</td><td>${esc(note || '')}</td></tr>`,
+    )
+    .join('');
+  let n = 0;
+  const total = g.a11y.reduce((sum, grp) => sum + grp.items.length, 0);
+  const a11y = g.a11y
+    .map(
+      grp =>
+        `<fieldset class="gl-group"><legend>${esc(grp.group)}</legend>${grp.items
+          .map(([text, wcag, refs]) => {
+            const id = 'gl-a11y-' + ++n;
+            return `<div class="gl-item"><input type="checkbox" id="${id}" data-key="${id}"><label for="${id}">${esc(text)}</label><span class="gl-wcag">WCAG ${esc(wcag)}</span>${chips(refs)}</div>`;
+          })
+          .join('')}</fieldset>`,
+    )
+    .join('');
+  return `<section class="gl-section" id="guidelines" aria-labelledby="guidelines-title">
+  <div class="token-head">
+    <div>
+      <span class="cat-num">// GUIDELINES</span>
+      <h2 class="cat-title" id="guidelines-title">總則 GUIDELINES</h2>
+      <p class="token-desc">各元件「文案規則」與「鍵盤操作」的共同依據。檢查清單可在審查時逐項勾選，勾選狀態只存在這個瀏覽器。</p>
+    </div>
+  </div>
+  <h3 class="gl-h3">文案總則</h3>
+  <div class="gl-grid">${content}</div>
+  <h3 class="gl-h3">用詞對照</h3>
+  <div class="gl-table-wrap"><table class="gl-terms"><caption class="sr-only">統一用詞</caption><thead><tr><th scope="col">使用</th><th scope="col">避免</th><th scope="col">說明</th></tr></thead><tbody>${terms}</tbody></table></div>
+  <div class="gl-a11y-head"><h3 class="gl-h3">無障礙檢查清單</h3><span class="gl-progress" role="status">已確認 0 / ${total}</span><button type="button" class="catalog-button gl-reset">清除勾選</button></div>
+  <div class="gl-checklist">${a11y}</div>
 </section>`;
 }
 
@@ -332,6 +429,7 @@ ${groups
 export function loadSources() {
   const categories = JSON.parse(read(SRC, 'categories.json'));
   const labels = JSON.parse(read(SRC, 'state-labels.json'));
+  const guidelines = JSON.parse(read(SRC, 'guidelines.json'));
   const dirs = readdirSync(join(SRC, 'components'), {withFileTypes: true})
     .filter(d => d.isDirectory())
     .map(d => d.name)
@@ -351,6 +449,7 @@ export function loadSources() {
   return {
     categories,
     labels,
+    guidelines,
     components,
     page: read(SRC, 'page.html'),
     tokens: read(SRC, 'styles', 'tokens.css'),
@@ -359,12 +458,18 @@ export function loadSources() {
     pageCss: read(SRC, 'styles', 'page.css'),
     core: read(SRC, 'runtime', 'core.js'),
     styleBoot: read(SRC, 'app', 'style-settings.js'),
-    app: ['catalog.js', 'inspector.js', 'tokens.js', 'workbench.js'].map(f => read(SRC, 'app', f)),
+    app: ['catalog.js', 'inspector.js', 'tokens.js', 'guidelines.js', 'workbench.js'].map(f => read(SRC, 'app', f)),
   };
 }
 
-export function validate({categories, labels, components}) {
+export function validate({categories, labels, components, guidelines}) {
   const errors = [];
+  const numbers = new Set(components.map(c => c.number));
+  const refs = [
+    ...(guidelines?.content || []).flatMap(s => s.refs || []),
+    ...(guidelines?.a11y || []).flatMap(g => g.items.flatMap(i => i[2] || [])),
+  ];
+  for (const n of refs) if (!numbers.has(n)) errors.push('guidelines.json: 引用了不存在的元件 U' + n);
   const cats = new Set(categories.map(c => c.key));
   const seen = new Map();
   for (const c of components) {
@@ -429,6 +534,30 @@ export function build({write = true} = {}) {
     process.exit(1);
   }
   const comps = [...src.components].sort((a, b) => a.number - b.number);
+  // A component may only rely on shared CSS or its own: borrowing another component's rules breaks its export.
+  {
+    const known = new Set();
+    for (const c of comps) for (const m of c.css.matchAll(/\.(-?[A-Za-z_][\w-]*)/g)) known.add(m[1]);
+    const own = comps.map(c => ({
+      c,
+      chunks: toChunks(parseCss(c.css)).filter(ch => ch.selectors && !ch.selectors.some(s => !s.length)),
+    }));
+    const borrowed = [];
+    for (const {c} of own) {
+      const cls = classesIn(c.markup, c.js, known);
+      for (const o of own)
+        if (o.c !== c)
+          for (const ch of o.chunks)
+            if (chunkNeeded(ch, cls))
+              borrowed.push(
+                `components/${c.dir}: 用到 ${o.c.dir} 的樣式「${ch.inner.split('{')[0].trim()}」，請移到 styles/base.css 或寫進自己的 style.css`,
+              );
+    }
+    if (borrowed.length) {
+      console.error('✗ 元件樣式交叉引用：\n  ' + borrowed.join('\n  '));
+      process.exit(1);
+    }
+  }
 
   // Shared CSS is emitted as separable chunks so exports can include only what a component uses.
   const baseChunks = toChunks(parseCss(src.base));
@@ -532,6 +661,7 @@ ${list.map(cardHtml).join('\n')}
     .replace('<!--@category-options-->', () => options)
     .replace('<!--@sections-->', () => sections)
     .replace('<!--@tokens-->', () => tokensHtml(tokens))
+    .replace('<!--@guidelines-->', () => guidelinesHtml(src.guidelines, comps))
     .replace('<!--@scripts-->', () => scripts);
   const leftover = html.match(/<!--@[\w-]+-->/);
   if (leftover) {

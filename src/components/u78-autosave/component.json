@@ -1,0 +1,28 @@
+{
+  "number": 78,
+  "slug": "autosave",
+  "title": "自動儲存",
+  "desc": "Autosave，停止輸入後儲存並顯示狀態",
+  "category": "feedback",
+  "aliases": "autosave save status draft 自動儲存 存檔 草稿 已儲存 同步狀態",
+  "guide": {
+    "use": "長時間編輯的內容（文件、筆記、設定）；停止輸入後自動儲存，狀態列告訴使用者是否已安全保存。",
+    "avoid": "送出後會觸發他人可見結果的表單（例如付款、發文），這類操作需要明確的送出按鈕。"
+  },
+  "states": ["saving", "error"],
+  "note": "停止輸入 0.8 秒後儲存；狀態依序為「編輯中 → 儲存中 → 已儲存 · 時間」。失敗時 5 秒後自動重試，也可以立即重試。狀態列以 aria-describedby 關聯輸入框，只有失敗才主動播報，避免打字時一直被打斷。",
+  "anatomy": [
+    "標籤與輸入區 .as-input（aria-describedby 指向狀態）",
+    "狀態列 .as-bar：狀態點 .as-dot 與文字 .as-text（data-state：editing／saving／saved／error）",
+    "立即重試 .as-retry（只在失敗時出現）"
+  ],
+  "keyboard": [
+    ["輸入文字", "停止 0.8 秒後自動儲存"],
+    ["Tab → Enter／空白鍵", "失敗時按「立即重試」，焦點回到輸入區"]
+  ],
+  "content": [
+    "成功時附時間：「已儲存 · 14:32」，讓使用者知道是哪一次",
+    "失敗時說明接下來會怎樣：「儲存失敗，5 秒後重試」",
+    "儲存中用進行式：「儲存中…」，不要只轉圈"
+  ]
+}

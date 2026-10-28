@@ -664,7 +664,7 @@ footer {
   line-height: 1.7;
 }
 .module:focus-within {
-  z-index: 3;
+  z-index: var(--z-raised);
 }
 .combo {
   position: relative;
@@ -799,4 +799,46 @@ footer {
 }
 .carousel {
   width: 100%;
+}
+/* 共用工具與狀態標籤（多個元件使用） */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+.pill {
+  font-size: calc(11px * var(--font-scale));
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: var(--pill);
+  background: var(--panel-2);
+  color: var(--text-dim);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.pill::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+.pill-ok {
+  background: color-mix(in srgb, var(--ok) 12%, transparent);
+  color: var(--ok);
+}
+.pill-warn {
+  background: color-mix(in srgb, var(--warn) 14%, transparent);
+  color: var(--warn);
+}
+.pill-err {
+  background: color-mix(in srgb, var(--err) 11%, transparent);
+  color: var(--err);
 }

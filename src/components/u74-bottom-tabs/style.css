@@ -1,0 +1,69 @@
+.bt-phone {
+  width: min(100%, 260px);
+  margin: 0 auto;
+  height: 220px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--line-2);
+  border-radius: 22px;
+  overflow: hidden;
+  background: var(--bg);
+}
+.bt-screen {
+  flex: 1;
+  padding: 18px 16px;
+}
+.bt-title {
+  font-size: var(--text-lg);
+  font-weight: 700;
+}
+.bt-desc {
+  font-size: var(--text-sm);
+  color: var(--text-dim);
+  margin-top: 4px;
+}
+.bt-bar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid var(--line);
+  background: var(--panel);
+  padding: 4px 4px 8px;
+}
+.bt-item {
+  position: relative;
+  min-height: 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  border: 0;
+  background: none;
+  color: var(--text-dim);
+  font: 500 var(--text-xs) var(--sans);
+  cursor: pointer;
+  border-radius: 10px;
+}
+.bt-ico {
+  font-size: 18px;
+  line-height: 1.1;
+}
+.bt-item[aria-current='page'] {
+  color: var(--text);
+  font-weight: 700;
+}
+.bt-item[aria-current='page'] .bt-ico {
+  color: var(--cat-nav);
+}
+.bt-badge {
+  position: absolute;
+  top: 4px;
+  left: calc(50% + 4px);
+  min-width: 16px;
+  height: 16px;
+  padding: 0 4px;
+  border-radius: 999px;
+  background: var(--err);
+  color: #fff;
+  font: 700 10px / 16px var(--sans);
+}

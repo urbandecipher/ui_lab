@@ -1,0 +1,25 @@
+{
+  "number": 81,
+  "slug": "description-list",
+  "title": "描述清單",
+  "desc": "Description List，欄位與值成對呈現",
+  "category": "display",
+  "aliases": "description list key value details dl 描述清單 詳細資料 欄位 屬性 訂單資訊",
+  "guide": {
+    "use": "單一物件的詳細資料：訂單、使用者、設定摘要；手機上自動改成上下排列。",
+    "avoid": "多個物件要比較（改用資料表格），或需要直接編輯每個欄位（改用表單）。"
+  },
+  "states": ["expanded"],
+  "note": "以 dl／dt／dd 呈現，讀屏會讀出欄位名稱與值的對應；dl 內以 div 分組每一列（HTML 允許）。敏感資料預設遮罩，「顯示」按鈕是 aria-pressed 切換鈕。空值明確寫「未填寫」而不是留白。",
+  "anatomy": [
+    "清單 dl.dl 與列 .dl-row（div 包住一組 dt／dd）",
+    "欄位名稱 dt、值 dd（.dl-val；空值 .dl-empty）",
+    "動作 .dl-copy：複製（data-copy）、顯示／隱藏遮罩（data-reveal，aria-pressed）"
+  ],
+  "keyboard": [["Tab → Enter／空白鍵", "複製值，或切換遮罩"]],
+  "content": [
+    "欄位名稱用名詞、不加冒號",
+    "空值寫「未填寫」或「—」，不要留白",
+    "遮罩保留頭尾讓使用者辨認：「0912-***-678」"
+  ]
+}

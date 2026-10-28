@@ -1,0 +1,79 @@
+.ac {
+  position: relative;
+  width: 100%;
+  min-height: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+.ac-stack {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.ac-toast {
+  position: relative;
+  display: grid;
+  grid-template-columns: 42px 1fr auto;
+  gap: 10px;
+  align-items: center;
+  padding: 10px 12px 12px;
+  border-radius: var(--radius-s);
+  background: #17171b;
+  color: #f1f1ed;
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  animation: acIn var(--motion-normal) var(--ease-spring);
+}
+@keyframes acIn {
+  from {
+    transform: translateY(-10px);
+    opacity: 0;
+  }
+}
+.ac-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  font-size: 22px;
+  background: linear-gradient(135deg, #f3c540, #d08a1f);
+}
+.ac-kicker {
+  font-size: var(--text-xs);
+  color: #f3c540;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+.ac-title {
+  display: block;
+  font-size: var(--text-md);
+}
+.ac-desc {
+  font-size: var(--text-xs);
+  color: #b8b8b0;
+}
+.ac-close {
+  align-self: start;
+  border: 0;
+  background: none;
+  color: #9c9c95;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 2px 6px;
+}
+.ac-timer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  background: #f3c540;
+  width: 100%;
+}
+.ac-queue {
+  font-size: var(--text-xs);
+  color: var(--text-dim);
+}

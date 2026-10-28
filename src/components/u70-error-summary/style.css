@@ -1,0 +1,45 @@
+.es-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.es-summary {
+  border: 2px solid var(--err);
+  border-radius: var(--radius-s);
+  padding: 12px 14px;
+  background: color-mix(in srgb, var(--err) 6%, var(--panel));
+}
+.es-summary:focus {
+  outline: 3px solid color-mix(in srgb, var(--err) 35%, transparent);
+  outline-offset: 2px;
+}
+.es-title {
+  font-size: var(--text-md);
+  margin-bottom: 6px;
+}
+.es-list {
+  padding-left: 1.1em;
+  display: grid;
+  gap: 3px;
+  font-size: var(--text-sm);
+}
+.es-list a {
+  color: var(--err);
+  font-weight: 600;
+  text-underline-offset: 3px;
+}
+.es-check.error .check-row {
+  color: var(--err);
+}
+.es-field .field-msg:empty {
+  display: none;
+}
+.es-submit {
+  align-self: flex-start;
+}
+.es-done {
+  font-size: var(--text-sm);
+  color: var(--ok);
+  font-weight: 600;
+}

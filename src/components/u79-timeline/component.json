@@ -1,0 +1,26 @@
+{
+  "number": 79,
+  "slug": "timeline",
+  "title": "時間軸",
+  "desc": "Timeline，依時間排列並標示目前進度",
+  "category": "display",
+  "aliases": "timeline activity history tracking 時間軸 時間線 紀錄 歷程 進度 物流",
+  "guide": {
+    "use": "有時間順序的事件：物流進度、操作紀錄、版本歷程；最新在上，舊的可收合。",
+    "avoid": "需要使用者操作每一步（改用步驟精靈），或事件之間沒有時間關係。"
+  },
+  "states": ["expanded"],
+  "note": "以 ol 呈現，最新事件在最上方；目前步驟 aria-current=\"step\"。完成狀態除了綠色勾號，也以隱藏文字讀出「已完成／進行中／尚未開始」。展開較早紀錄後，焦點移到第一筆新出現的事件。",
+  "anatomy": [
+    "清單 .tl-list（ol，aria-label）",
+    "事件 .tl-item（data-status：done／current／upcoming；目前 aria-current=\"step\"）",
+    "節點 .tl-dot、標題 strong、時間 .tl-meta、狀態文字（含讀屏專用 .sr-only）",
+    "展開按鈕 .tl-more（aria-expanded）"
+  ],
+  "keyboard": [["Tab → Enter／空白鍵", "展開較早紀錄，焦點移到第一筆新事件"]],
+  "content": [
+    "事件標題用完成式或狀態名詞：「賣家出貨」「配送中」",
+    "未來事件寫「預計」：「預計 10/23 18:00 前」",
+    "時間格式全篇一致"
+  ]
+}

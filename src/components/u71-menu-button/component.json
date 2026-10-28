@@ -1,0 +1,33 @@
+{
+  "number": 71,
+  "slug": "menu-button",
+  "title": "選單按鈕",
+  "desc": "Menu Button，按鈕開啟操作選單",
+  "category": "nav",
+  "aliases": "menu button actions overflow kebab more 選單 更多 操作 動作 下拉選單",
+  "guide": {
+    "use": "把次要、低頻的操作收進一個按鈕，例如工具列的「更多操作」。",
+    "avoid": "選一個值（改用下拉選單 listbox）；或常用操作，藏起來會降低使用率。"
+  },
+  "states": ["expanded"],
+  "note": "依 WAI-ARIA Menu Button 模式：選單是 role=\"menu\"，項目可為 menuitem 或 menuitemcheckbox。停用項目仍可聚焦並說明原因，讓使用者知道功能存在。勾選項目不會關閉選單。",
+  "anatomy": [
+    "觸發按鈕 .mb-trigger（aria-haspopup=\"menu\"、aria-expanded）",
+    "選單 .mb-menu（role=\"menu\"）",
+    "項目：menuitem、menuitemcheckbox（.mb-tick）、separator、停用 aria-disabled、危險 .danger"
+  ],
+  "keyboard": [
+    ["Enter／空白鍵／↓", "開啟並聚焦第一項"],
+    ["↑（按鈕上）", "開啟並聚焦最後一項"],
+    ["↑ ／ ↓ ／ Home ／ End", "在項目間移動（循環）"],
+    ["輸入字元", "跳到開頭相符的項目"],
+    ["Enter／空白鍵", "執行；勾選項目切換後不關閉"],
+    ["Esc", "關閉並返回按鈕"],
+    ["Tab", "關閉選單"]
+  ],
+  "content": [
+    "按鈕寫清楚是什麼的選單：「更多操作」，圖示按鈕要有名稱",
+    "破壞性項目放最後並以顏色加文字區分",
+    "停用項目說明原因：「匯出（需要付費方案）」"
+  ]
+}

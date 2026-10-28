@@ -1,0 +1,39 @@
+{
+  "number": 87,
+  "slug": "save-slots",
+  "title": "存檔欄位",
+  "desc": "Save Slots，載入／儲存／刪除，覆寫需確認",
+  "category": "game",
+  "aliases": "save slots load game save file 存檔 讀檔 欄位 進度 覆寫",
+  "guide": {
+    "use": "手動存檔的遊戲：每個欄位顯示章節、遊玩時間與存檔時間，讓玩家分辨要讀哪一個。",
+    "avoid": "覆寫或刪除不需要確認；或欄位只寫「存檔 1」，玩家無法分辨內容。"
+  },
+  "states": ["selected", "empty"],
+  "note": "欄位清單是 listbox（焦點在清單上，以 aria-activedescendant 標示目前欄位）。空白欄位不能載入或刪除；覆寫與刪除需在 4 秒內再按一次。Enter 直接載入、Delete 鍵刪除（同樣需要確認）。",
+  "anatomy": [
+    "欄位清單 .sv-list（role=\"listbox\"）與欄位 .sv-slot（role=\"option\"，空白 .empty）",
+    "欄位內容：縮圖 .sv-thumb、章節標題、遊玩時間與存檔時間 .sv-meta",
+    "動作列 .sv-actions：載入、儲存到此欄、刪除（確認狀態 .armed）",
+    "結果訊息 .sv-msg"
+  ],
+  "keyboard": [
+    ["↑ ／ ↓", "選擇欄位（循環）"],
+    ["Enter", "載入選取的欄位"],
+    ["Delete", "刪除（再按一次確認）"],
+    ["Tab → Enter／空白鍵", "使用動作按鈕；覆寫需按兩次"]
+  ],
+  "content": ["欄位資訊寫章節、遊玩時間、存檔時間，三者缺一不可", "確認狀態直接寫後果：「再按一次覆寫欄位 2」"],
+  "godot": {
+    "tree": [
+      "SaveMenu (VBoxContainer)",
+      "├─ Slots (ItemList)  或 VBoxContainer + ButtonGroup",
+      "├─ Actions (HBoxContainer)",
+      "│   ├─ Load (Button)",
+      "│   ├─ Save (Button)",
+      "│   └─ Delete (Button)",
+      "└─ Message (Label)"
+    ],
+    "notes": "存檔以 FileAccess 寫入 user://save_N.json（或 ResourceSaver 存自訂 Resource）；縮圖用 get_viewport().get_texture().get_image() 縮小後存 PNG。覆寫／刪除可用兩段式按鈕或 ConfirmationDialog，焦點預設放在「取消」。"
+  }
+}

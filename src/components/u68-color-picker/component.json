@@ -1,0 +1,31 @@
+{
+  "number": 68,
+  "slug": "color-picker",
+  "title": "色彩選擇",
+  "desc": "Color Picker，色票、色碼輸入與對比檢查",
+  "category": "input",
+  "aliases": "color picker swatch hex contrast 顏色 色彩 色票 色碼 對比 主題色",
+  "guide": {
+    "use": "讓使用者自訂標籤、主題或圖表顏色；先給一組預設色票，再提供色碼與自訂。",
+    "avoid": "顏色只是裝飾、或會影響可讀性卻無法檢查對比的地方。"
+  },
+  "states": ["selected", "error"],
+  "note": "色票是 radiogroup（方向鍵切換）；色碼接受 #RGB 與 #RRGGBB，離開欄位時驗證。預覽自動選擇白字或黑字中對比較高者，並依 WCAG 顯示是否達到 4.5:1。",
+  "anatomy": [
+    "色票 .cp-swatches（radiogroup）與 .cp-swatch（role=\"radio\"，名稱含色名與色碼）",
+    "色碼輸入 .cp-hex（aria-describedby 指向對比說明）",
+    "自訂 .cp-native（原生 input[type=\"color\"]）",
+    "預覽 .cp-chip 與對比說明 .cp-contrast"
+  ],
+  "keyboard": [
+    ["Tab", "移入目前選取的色票"],
+    ["← ／ → ／ ↑ ／ ↓", "切換色票（循環）"],
+    ["Home ／ End", "第一個／最後一個色票"],
+    ["輸入色碼", "格式正確時即時套用；離開欄位時驗證"]
+  ],
+  "content": [
+    "色票名稱用一般人懂的詞：「天空藍」，不要只有色碼",
+    "對比不足時直接說結果：「對比不足」，並給出比值",
+    "色碼錯誤時給範例：「格式為 #RRGGBB，例如 #4A87E8」"
+  ]
+}

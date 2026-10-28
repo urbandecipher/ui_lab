@@ -1,0 +1,57 @@
+.kr {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: flex-start;
+}
+.kr-list {
+  width: 100%;
+  list-style: none;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-s);
+  overflow: hidden;
+}
+.kr-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 7px 10px;
+  border-bottom: 1px solid var(--line);
+  font-size: var(--text-sm);
+}
+.kr-row:last-child {
+  border-bottom: 0;
+}
+.kr-key {
+  min-width: 92px;
+  padding: 5px 10px;
+  border: 1px solid var(--line-2);
+  border-bottom-width: 3px;
+  border-radius: 8px;
+  background: var(--panel);
+  color: var(--text);
+  font: 700 var(--text-sm) var(--mono);
+  cursor: pointer;
+}
+.kr-key.listening {
+  border-color: var(--cat-game);
+  color: var(--cat-game);
+  font-family: var(--sans);
+  font-weight: 600;
+  animation: krBlink 1s ease-in-out infinite;
+}
+.kr-key.changed {
+  background: color-mix(in srgb, var(--cat-game) 10%, var(--panel));
+}
+@keyframes krBlink {
+  50% {
+    border-color: var(--line-2);
+  }
+}
+.kr-notice {
+  font-size: var(--text-xs);
+  color: var(--text-dim);
+  min-height: 1.4em;
+}

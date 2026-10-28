@@ -1,0 +1,37 @@
+{
+  "number": 89,
+  "slug": "achievement",
+  "title": "成就通知",
+  "desc": "Achievement Toast，排隊顯示、懸停暫停",
+  "category": "game",
+  "aliases": "achievement unlock trophy toast notification 成就 獎盃 解鎖 通知 徽章",
+  "guide": {
+    "use": "成就、獎盃、里程碑解鎖：短暫顯示圖示、名稱、條件與稀有度，不打斷遊戲。",
+    "avoid": "同時跳出一大串蓋住畫面（要排隊），或需要玩家操作才會消失。"
+  },
+  "states": ["active"],
+  "note": "最多同時顯示 2 則，其餘排隊並提示數量；每則 4 秒後消失，滑鼠懸停或鍵盤聚焦時暫停倒數（WCAG 2.2.1）。容器是 role=\"status\"，新成就由讀屏播報，不搶焦點。減少動態時不顯示倒數條。",
+  "anatomy": [
+    "觸發按鈕 .ac-trigger（示範用）",
+    "通知堆疊 .ac-stack（role=\"status\"）",
+    "成就 .ac-toast：圖示 .ac-icon、標題列 .ac-kicker、名稱 .ac-title、條件與稀有度 .ac-desc、關閉 .ac-close、倒數條 .ac-timer",
+    "排隊提示 .ac-queue"
+  ],
+  "keyboard": [
+    ["Enter／空白鍵", "解鎖成就（示範）"],
+    ["Tab（到通知的 ×）", "暫停倒數"],
+    ["Enter（×）", "關閉，焦點回到觸發按鈕"]
+  ],
+  "content": ["名稱短、條件寫具體：「在困難模式擊敗巨龍」", "稀有度用百分比：「3.2% 玩家擁有」"],
+  "godot": {
+    "tree": [
+      "AchievementLayer (CanvasLayer)",
+      "└─ Stack (VBoxContainer)  錨定右上",
+      "    └─ Toast × N (PanelContainer)",
+      "        ├─ Icon (TextureRect)",
+      "        ├─ Text (VBoxContainer: Kicker、Title、Desc)",
+      "        └─ Timer (Timer)"
+    ],
+    "notes": "解鎖事件放進 Array 佇列，Stack 子節點少於上限時才取出顯示；進場用 Tween 補間 position.y 與 modulate.a，Timer.timeout 後淡出並 queue_free()。平台成就（Steam 等）另行呼叫各自的 API，畫面通知只負責呈現。"
+  }
+}

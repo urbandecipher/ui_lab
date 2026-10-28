@@ -1,0 +1,47 @@
+.cb {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+.cb-target {
+  font-size: var(--text-sm);
+  color: var(--text-dim);
+}
+.cb-target strong {
+  color: var(--text);
+}
+.cb-btn {
+  position: relative;
+  overflow: hidden;
+  min-width: 170px;
+  padding: 11px 18px;
+  border-radius: var(--pill);
+  border: 1px solid color-mix(in srgb, var(--err) 45%, transparent);
+  background: var(--panel);
+  color: var(--err);
+  font: 600 var(--text-md) var(--sans);
+  cursor: pointer;
+  transition:
+    background-color var(--motion-fast) var(--ease-standard),
+    color var(--motion-fast) var(--ease-standard);
+}
+.cb-btn.armed {
+  background: var(--err);
+  color: #fff;
+}
+.cb-btn:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+.cb-fill {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 0;
+  background: rgba(255, 255, 255, 0.85);
+}
+.cb-text {
+  position: relative;
+}

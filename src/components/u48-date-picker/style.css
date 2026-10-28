@@ -10,7 +10,7 @@
   position: absolute;
   top: calc(100% + 6px);
   left: 0;
-  z-index: 6;
+  z-index: var(--z-dropdown);
   width: 276px;
   max-width: calc(100vw - 48px);
   background: var(--panel);

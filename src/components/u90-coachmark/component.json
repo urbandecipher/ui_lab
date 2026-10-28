@@ -1,0 +1,39 @@
+{
+  "number": 90,
+  "slug": "coachmark",
+  "title": "新手教學聚焦",
+  "desc": "Coachmark，聚光燈逐步說明功能",
+  "category": "game",
+  "aliases": "coachmark onboarding tutorial tour spotlight walkthrough 新手 教學 導覽 引導 聚光燈",
+  "guide": {
+    "use": "第一次進入時介紹 2–4 個關鍵功能；聚光燈標示位置，玩家可隨時略過，之後能從選單重看。",
+    "avoid": "超過 5 步的長導覽、無法略過，或在玩家正在操作時突然跳出。"
+  },
+  "states": ["active"],
+  "note": "說明框是 role=\"dialog\"，開啟時焦點移到「下一步」並限制在說明框內；其餘內容設為 inert。Esc 略過、← → 切換步驟；結束後焦點回到「開始導覽」。聚光燈用超大 box-shadow 做遮罩，不擋住被標示的元件外觀。",
+  "anatomy": [
+    "示範畫面 .cm-stage（導覽中其他內容 inert）",
+    "聚光燈 .cm-spot（讀屏隱藏，定位在目前目標上）",
+    "說明框 .cm-tip（role=\"dialog\"）：步驟 .cm-step、標題、說明、動作列（略過、上一步、下一步／完成）",
+    "開始按鈕 .cm-start"
+  ],
+  "keyboard": [
+    ["Enter／空白鍵（開始）", "開啟導覽，焦點在「下一步」"],
+    ["← ／ →", "上一步／下一步"],
+    ["Tab", "在說明框的按鈕間循環"],
+    ["Esc", "略過導覽，焦點回到開始按鈕"]
+  ],
+  "content": ["每步一個重點：標題寫功能，說明寫好處", "顯示進度「步驟 2 / 3」，並一直提供「略過導覽」"],
+  "godot": {
+    "tree": [
+      "Tutorial (CanvasLayer)",
+      "├─ Dim (ColorRect)  shader 挖洞，或用 4 塊 ColorRect 圍住目標",
+      "└─ Tip (PanelContainer)",
+      "    ├─ Step (Label)",
+      "    ├─ Title (Label)",
+      "    ├─ Body (Label)",
+      "    └─ Actions (HBoxContainer: Skip、Back、Next)"
+    ],
+    "notes": "目標位置用 target.get_global_rect() 取得並傳給 shader 的 uniform；Dim 的 mouse_filter 設為 STOP 擋住其他操作，只放行目標區域。開啟時 Next.grab_focus()，ui_cancel 略過；完成狀態寫入設定檔，避免每次進遊戲都重播。"
+  }
+}

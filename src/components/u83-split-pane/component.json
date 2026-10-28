@@ -1,0 +1,26 @@
+{
+  "number": 83,
+  "slug": "split-pane",
+  "title": "分割面板",
+  "desc": "Split Pane，拖曳或方向鍵調整兩欄寬度",
+  "category": "manip",
+  "aliases": "split pane resizable splitter divider panel 分割 分隔線 調整寬度 面板 雙欄",
+  "guide": {
+    "use": "清單與詳細內容並排、編輯器與預覽：讓使用者依內容調整比例，必要時收合一側。",
+    "avoid": "手機（空間不夠並排，改用上下或分頁），或兩側比例固定就好用時。"
+  },
+  "states": ["maximum", "collapsed"],
+  "note": "分隔線是可聚焦的 role=\"separator\"（WAI-ARIA Window Splitter 模式），aria-valuenow 是左側寬度百分比；寬度限制在 20–75%，Enter 收合／還原左側，雙擊重設為 40%。拖曳期間使用 pointer capture，移出元件也能繼續。",
+  "anatomy": [
+    "容器 .sp（--split 控制左欄寬度，拖曳中 .dragging）",
+    "左右面板 .sp-a／.sp-b",
+    "分隔線 .sp-handle（role=\"separator\"、aria-valuenow、aria-controls 指向左面板）"
+  ],
+  "keyboard": [
+    ["Tab", "聚焦分隔線"],
+    ["← ／ →", "左側寬度 −5%／+5%"],
+    ["Home ／ End", "最窄 20%／最寬 75%"],
+    ["Enter", "收合／還原左側"]
+  ],
+  "content": ["分隔線名稱說明調整的是哪一側：「調整檔案清單寬度」", "播報結果用百分比或「已收合」"]
+}

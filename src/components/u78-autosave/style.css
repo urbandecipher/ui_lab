@@ -1,0 +1,70 @@
+.as {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.as-label {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--text-dim);
+}
+.as-input {
+  width: 100%;
+  resize: vertical;
+  padding: 10px 12px;
+  border: 1px solid var(--line-2);
+  border-radius: var(--radius-s);
+  background: var(--panel);
+  color: var(--text);
+  font: inherit;
+  font-size: var(--text-md);
+  line-height: 1.6;
+  outline: none;
+}
+.as-input:focus {
+  border-color: var(--accent);
+}
+.as-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  min-height: 32px;
+}
+.as-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: var(--text-xs);
+  color: var(--text-dim);
+}
+.as-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--line-2);
+}
+.as[data-state='saving'] .as-dot {
+  background: var(--warn);
+  animation: asPulse 1s ease-in-out infinite;
+}
+.as[data-state='saved'] .as-dot {
+  background: var(--ok);
+}
+.as[data-state='error'] .as-dot {
+  background: var(--err);
+}
+.as[data-state='error'] .as-status {
+  color: var(--err);
+  font-weight: 600;
+}
+@keyframes asPulse {
+  50% {
+    opacity: 0.3;
+  }
+}
+.as-sim {
+  font-size: var(--text-xs);
+  color: var(--text-dim);
+}

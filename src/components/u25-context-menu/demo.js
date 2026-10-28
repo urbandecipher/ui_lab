@@ -5,7 +5,7 @@ UILab.define(25, ({preset, uid, doc, win, q, portals, on, later, attrs, button, 
   menu.id = uid('context-menu');
   attrs(menu, {role: 'menu', 'aria-label': '快捷選單'});
   menu.style.position = 'fixed';
-  menu.style.zIndex = '100';
+  menu.style.zIndex = 'var(--z-overlay)';
   doc.body.append(menu);
   portals.add(menu);
   const close = (focus = true) => {

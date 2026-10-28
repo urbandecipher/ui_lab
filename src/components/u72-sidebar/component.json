@@ -1,0 +1,30 @@
+{
+  "number": 72,
+  "slug": "sidebar",
+  "title": "可收合側欄",
+  "desc": "Collapsible Sidebar，收合後只顯示圖示",
+  "category": "nav",
+  "aliases": "sidebar side nav navigation drawer collapse rail 側欄 側邊欄 導覽 選單 收合",
+  "guide": {
+    "use": "後台、工具型產品的主要導覽：項目 5–10 個、可分組，收合後讓出工作區空間。",
+    "avoid": "手機（改用底部分頁列或抽屜），或只有 2–3 個頁面的產品。"
+  },
+  "states": ["expanded", "collapsed"],
+  "note": "目前頁面以 aria-current=\"page\" 標示；群組是 disclosure 按鈕（aria-expanded）。收合時名稱改由 aria-label 與 title 提供，讀屏與滑鼠懸停都還知道每個圖示是什麼。",
+  "anatomy": [
+    "導覽 .sb-nav（nav，aria-label=\"主選單\"）",
+    "收合按鈕 .sb-collapse（aria-expanded 表示側欄展開與否）",
+    "連結 .sb-link（圖示 .sb-ico + 名稱 .sb-label，目前頁 aria-current=\"page\"）",
+    "群組 .sb-group：展開按鈕 .sb-toggle 與子選單 .sb-sub"
+  ],
+  "keyboard": [
+    ["Tab", "依序經過收合按鈕與每個連結"],
+    ["Enter", "前往連結"],
+    ["Enter／空白鍵（群組）", "展開／收合子選單；側欄收合時會先展開側欄"]
+  ],
+  "content": [
+    "項目名稱 2–4 字名詞，與頁面標題一致",
+    "圖示一定搭配名稱；收合時名稱仍要存在（aria-label、提示）",
+    "收合按鈕寫出動作：「收合側欄」「展開側欄」"
+  ]
+}

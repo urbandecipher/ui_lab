@@ -1,0 +1,30 @@
+{
+  "number": 69,
+  "slug": "search-field",
+  "title": "搜尋框",
+  "desc": "Search Field，清除按鈕、Esc 清空與最近搜尋",
+  "category": "input",
+  "aliases": "search field query recent clear 搜尋 搜索 查詢 關鍵字 最近搜尋 清除",
+  "guide": {
+    "use": "以關鍵字查找內容的入口；按 Enter 才搜尋時搭配最近搜尋，方便重複查詢。",
+    "avoid": "要從固定選項中挑一個（改用自動完成搜尋）；或篩選結果會即時變動的清單（改用即時篩選）。"
+  },
+  "states": ["filled", "empty"],
+  "note": "外層是 role=\"search\" 的表單，Enter 送出；有文字時才出現清除按鈕，Esc 也能清空。最近搜尋最多保留 5 筆，每筆都可以單獨移除或一次清除。結果以 role=\"status\" 播報。",
+  "anatomy": [
+    "表單 .sf（role=\"search\"）與標題 .sf-label",
+    "輸入框 .sf-input（type=\"search\"、enterkeyhint=\"search\"）與清除按鈕 .sf-clear（有文字時才顯示）",
+    "結果摘要 .sf-result（role=\"status\"）",
+    "最近搜尋 .sf-recent：再次搜尋與移除按鈕、清除紀錄 .sf-clear-all"
+  ],
+  "keyboard": [
+    ["Enter", "搜尋並加入最近搜尋"],
+    ["Esc", "清空輸入框"],
+    ["Tab", "依序到清除按鈕、最近搜尋與移除按鈕"]
+  ],
+  "content": [
+    "提示寫怎麼用：「輸入關鍵字後按 Enter」",
+    "找不到時給下一步：「試試較短的關鍵字」",
+    "結果摘要先寫數量：「「設計」找到 3 筆」"
+  ]
+}

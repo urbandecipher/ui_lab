@@ -1,0 +1,113 @@
+.sf {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.sf-label {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--text-dim);
+}
+.sf-box {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 6px 0 12px;
+  background: var(--panel);
+  border: 1px solid var(--line-2);
+  border-radius: var(--pill);
+}
+.sf-box:focus-within {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 10%, transparent);
+}
+.sf-icon {
+  color: var(--text-dim);
+  font-size: 17px;
+}
+.sf-input {
+  flex: 1;
+  min-width: 0;
+  border: 0;
+  outline: none;
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  font-size: var(--text-md);
+  padding: 10px 0;
+}
+.sf-input::-webkit-search-cancel-button {
+  display: none;
+}
+.sf-clear {
+  width: 28px;
+  height: 28px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--panel-2);
+  color: var(--text-dim);
+  cursor: pointer;
+  font-size: 15px;
+}
+.sf-clear:hover {
+  color: var(--text);
+}
+.sf-result {
+  font-size: var(--text-sm);
+  color: var(--text-dim);
+}
+.sf-result:empty {
+  display: none;
+}
+.sf-recent[hidden] {
+  display: none;
+}
+.sf-recent-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: var(--text-xs);
+  color: var(--text-dim);
+  margin-bottom: 6px;
+}
+.sf-clear-all {
+  border: 0;
+  background: none;
+  color: var(--text-dim);
+  font: inherit;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.sf-recent-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.sf-recent-list li {
+  display: flex;
+  align-items: center;
+  background: var(--panel-2);
+  border-radius: var(--pill);
+  font-size: var(--text-sm);
+}
+.sf-recent-list button {
+  border: 0;
+  background: none;
+  color: var(--text);
+  font: inherit;
+  cursor: pointer;
+  padding: 5px 4px 5px 11px;
+}
+.sf-recent-list .sf-remove {
+  color: var(--text-dim);
+  padding: 5px 9px 5px 4px;
+}
+@media (pointer: coarse) {
+  .sf-clear {
+    width: 40px;
+    height: 40px;
+  }
+}

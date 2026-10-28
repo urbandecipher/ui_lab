@@ -1,0 +1,64 @@
+.sp {
+  --split: 40%;
+  width: 100%;
+  height: 170px;
+  display: grid;
+  grid-template-columns: var(--split) 12px 1fr;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-s);
+  overflow: hidden;
+  background: var(--panel);
+}
+.sp-pane {
+  padding: 10px 12px;
+  overflow: auto;
+  font-size: var(--text-sm);
+  min-width: 0;
+}
+.sp-a {
+  background: var(--panel-2);
+}
+.sp-pane strong {
+  display: block;
+  margin-bottom: 6px;
+  font-size: var(--text-xs);
+  color: var(--text-dim);
+}
+.sp-pane ul {
+  list-style: none;
+  display: grid;
+  gap: 4px;
+  font-family: var(--mono);
+  font-size: var(--text-xs);
+}
+.sp-pane p {
+  color: var(--text-dim);
+  line-height: 1.7;
+}
+.sp-handle {
+  display: grid;
+  place-items: center;
+  cursor: col-resize;
+  touch-action: none;
+  background: var(--line);
+  outline: none;
+}
+.sp-handle span {
+  width: 3px;
+  height: 28px;
+  border-radius: 2px;
+  background: var(--text-dim);
+}
+.sp-handle:hover,
+.sp-handle:focus-visible,
+.sp.dragging .sp-handle {
+  background: var(--accent);
+}
+.sp-handle:hover span,
+.sp-handle:focus-visible span,
+.sp.dragging .sp-handle span {
+  background: var(--on-accent);
+}
+.sp.dragging {
+  user-select: none;
+}

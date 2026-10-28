@@ -1,0 +1,34 @@
+{
+  "number": 86,
+  "slug": "input-glyphs",
+  "title": "手把按鍵圖示",
+  "desc": "Input Glyphs，依最後使用的裝置切換提示",
+  "category": "game",
+  "aliases": "input glyphs button prompts controller gamepad icons 手把 按鍵 圖示 提示 控制器 Xbox PlayStation Switch",
+  "guide": {
+    "use": "畫面上的操作提示（確認、返回、選單）：依玩家最後使用的裝置自動換成對應圖示，也允許固定一種。",
+    "avoid": "只顯示圖示而沒有動作文字；或用手把連線狀態判斷，而不是看「最後使用」的裝置。"
+  },
+  "states": ["selected"],
+  "note": "自動模式依最後一次輸入切換：鍵盤事件切到鍵盤，Gamepad API 的 gamepadconnected 依裝置 id 判斷 Xbox／PlayStation／Switch。圖示對讀屏隱藏，改讀「確認（按 A）」這類文字。玩家可固定圖示（例如用 Xbox 手把玩但想看 PlayStation 圖示）。",
+  "anatomy": [
+    "裝置選擇 .ig-devices（radiogroup：自動、鍵盤、Xbox、PlayStation、Switch）",
+    "提示列 .ig-bar：每個提示 .ig-prompt = 圖示 .ig-glyph（讀屏隱藏）+ 動作文字 + 讀屏用按鍵名稱",
+    "偵測說明 .ig-detect"
+  ],
+  "keyboard": [
+    ["Tab", "移入裝置選擇"],
+    ["← ／ → ／ ↑ ／ ↓", "切換裝置（循環）"],
+    ["任意按鍵（自動模式）", "提示切換為鍵盤圖示"]
+  ],
+  "content": ["動作文字永遠顯示：「確認」「返回」，不只放圖示", "PlayStation 的符號要有讀法：「叉叉鍵」「圓圈鍵」"],
+  "godot": {
+    "tree": [
+      "PromptBar (HBoxContainer)",
+      "└─ Prompt × N (HBoxContainer)",
+      "    ├─ Glyph (TextureRect)",
+      "    └─ Label (Label)"
+    ],
+    "notes": "在自動載入的單例 _input 記錄最後一個事件類型：InputEventKey／InputEventMouseButton → 鍵盤，InputEventJoypadButton／JoypadMotion → 以 Input.get_joy_name(event.device) 判斷品牌；變更時發出訊號讓所有 Prompt 換貼圖。Input.joy_connection_changed 只處理插拔，不決定顯示哪一套。"
+  }
+}

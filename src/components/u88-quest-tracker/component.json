@@ -1,0 +1,36 @@
+{
+  "number": 88,
+  "slug": "quest-tracker",
+  "title": "任務追蹤",
+  "desc": "Quest Tracker，追蹤目標與進度",
+  "category": "game",
+  "aliases": "quest tracker objectives mission hud 任務 追蹤 目標 進度 主線 支線",
+  "guide": {
+    "use": "遊戲 HUD 上的目前任務：只顯示正在追蹤的一個任務與目標進度，可收合。",
+    "avoid": "把所有任務都堆在 HUD（改到任務日誌），或完成時只靠打勾動畫不給文字。"
+  },
+  "states": ["complete", "collapsed"],
+  "note": "目標以清單呈現，完成狀態除了勾號與刪除線，也以隱藏文字讀出「已完成」；數量型目標顯示「2/5」。推進或完成時以讀屏播報，不搶焦點。收合按鈕以 aria-expanded 控制面板。",
+  "anatomy": [
+    "任務選擇 .qt-pick（原生 select）與收合按鈕 .qt-collapse（aria-expanded）",
+    "面板 .qt-panel：任務名稱 .qt-title、目標清單 .qt-goals",
+    "目標 .qt-goal（完成 .done）：方框 .qt-box、名稱、數量 .qt-count",
+    "完成訊息 .qt-complete"
+  ],
+  "keyboard": [
+    ["Tab", "依序到任務選擇、收合與推進按鈕"],
+    ["↑ ／ ↓（任務選擇）", "切換追蹤的任務"],
+    ["Enter／空白鍵（收合）", "收合／展開面板"]
+  ],
+  "content": ["目標以動詞開頭：「擊敗史萊姆」「帶回藥草」", "完成後告訴玩家下一步：「回報給委託人」"],
+  "godot": {
+    "tree": [
+      "QuestTracker (PanelContainer)  錨定右上",
+      "└─ VBox (VBoxContainer)",
+      "    ├─ Title (Label)",
+      "    └─ Goals (VBoxContainer)",
+      "        └─ Goal × N (HBoxContainer: TextureRect + Label + Count)"
+    ],
+    "notes": "任務以自訂 Resource（id、goals 陣列）定義；QuestManager 單例在目標變化時發出 objective_updated(quest_id, index) 訊號，HUD 只重繪受影響的列。完成時用 Tween 做勾號與淡出，數量變化另外顯示「+1」浮字。"
+  }
+}

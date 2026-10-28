@@ -1,0 +1,24 @@
+{
+  "number": 74,
+  "slug": "bottom-tabs",
+  "title": "底部分頁列",
+  "desc": "Bottom Tab Bar，手機主要導覽",
+  "category": "nav",
+  "aliases": "bottom tab bar navigation mobile 底部 分頁 導覽列 手機 tab bar",
+  "guide": {
+    "use": "手機 App 的 3–5 個主要區塊，使用者會頻繁切換。",
+    "avoid": "桌面版（改用頂部導覽或側欄）、超過 5 個項目，或用來放「發文」這類動作按鈕。"
+  },
+  "states": ["selected"],
+  "note": "這是導覽（nav + aria-current=\"page\"），不是 tablist：每個項目代表一個頁面而不是同頁的分頁。未讀數量寫進項目名稱（「訊息，3 則未讀」），數字徽章對讀屏隱藏。觸控目標高 48px。",
+  "anatomy": [
+    "導覽列 .bt-bar（nav，aria-label=\"主要分頁\"）",
+    "項目 .bt-item：圖示 .bt-ico + 文字 .bt-label，目前頁 aria-current=\"page\"",
+    "未讀徽章 .bt-badge（讀屏隱藏，數量寫入項目名稱）"
+  ],
+  "keyboard": [
+    ["Tab", "在項目間移動"],
+    ["Enter／空白鍵", "切換頁面"]
+  ],
+  "content": ["每個項目都有文字，不能只有圖示", "名稱 2 字為佳，最多 4 字，避免換行"]
+}

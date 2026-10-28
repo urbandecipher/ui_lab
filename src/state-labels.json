@@ -20,5 +20,8 @@
   "filled": "已有內容",
   "complete": "對話完整顯示",
   "active": "作用中",
-  "end": "已載入全部"
+  "end": "已載入全部",
+  "offline": "離線",
+  "saving": "儲存中",
+  "collapsed": "已收合"
 }

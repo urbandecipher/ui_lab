@@ -1,0 +1,69 @@
+.sv {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.sv-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  outline: none;
+}
+.sv-slot {
+  display: grid;
+  grid-template-columns: 46px 1fr;
+  gap: 10px;
+  align-items: center;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-s);
+  background: var(--panel);
+  cursor: pointer;
+}
+.sv-slot[aria-selected='true'] {
+  border-color: var(--cat-game);
+  box-shadow: 0 0 0 1px var(--cat-game);
+}
+.sv-list:focus-visible .sv-slot[aria-selected='true'] {
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--cat-game) 40%, transparent);
+}
+.sv-thumb {
+  width: 46px;
+  height: 34px;
+  border-radius: 6px;
+  background: linear-gradient(135deg, hsl(var(--h) 45% 40%), hsl(calc(var(--h) + 50) 40% 22%));
+}
+.sv-slot.empty .sv-thumb {
+  background: var(--panel-2);
+  border: 1px dashed var(--line-2);
+}
+.sv-slot strong {
+  display: block;
+  font-size: var(--text-sm);
+}
+.sv-meta {
+  font-size: var(--text-xs);
+  color: var(--text-dim);
+  font-variant-numeric: tabular-nums;
+}
+.sv-actions {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.sv-actions .btn {
+  padding: 8px 14px;
+  font-size: var(--text-sm);
+}
+.sv-actions .armed {
+  background: var(--err);
+  border-color: var(--err);
+  color: #fff;
+}
+.sv-msg {
+  font-size: var(--text-xs);
+  color: var(--text-dim);
+  min-height: 1.4em;
+}

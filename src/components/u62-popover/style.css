@@ -5,7 +5,7 @@
   position: absolute;
   top: calc(100% + 10px);
   left: 0;
-  z-index: 6;
+  z-index: var(--z-dropdown);
   width: 248px;
   max-width: calc(100vw - 48px);
   padding: 14px;

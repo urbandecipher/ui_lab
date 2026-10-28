@@ -1,0 +1,40 @@
+{
+  "number": 85,
+  "slug": "key-rebind",
+  "title": "按鍵重新綁定",
+  "desc": "Key Rebinding，按下新按鍵即綁定並處理衝突",
+  "category": "game",
+  "aliases": "key rebind remap keybinding controls input settings 按鍵 綁定 設定 自訂 操作設定",
+  "guide": {
+    "use": "遊戲或工具的操作設定：讓使用者把動作改成習慣的按鍵；衝突時自動對調並說明。",
+    "avoid": "把 Esc、Tab 這類系統用途的按鍵開放綁定；或衝突時直接擋下卻不說原因。"
+  },
+  "states": ["active", "success"],
+  "note": "以 KeyboardEvent.code 綁定，跟著按鍵位置而不是鍵盤配置走；顯示名稱另外轉換。等待輸入時 Esc 取消、Tab 或失焦也會取消，不會困住鍵盤使用者。與其他動作衝突時兩者對調，並以文字與讀屏說明結果。",
+  "anatomy": [
+    "設定清單 .kr-list 與每一列 .kr-row：動作名稱、按鍵按鈕 .kr-key",
+    "按鍵按鈕狀態：等待輸入 .listening、與預設不同 .changed",
+    "結果說明 .kr-notice 與恢復預設 .kr-reset"
+  ],
+  "keyboard": [
+    ["Enter／空白鍵（按鍵按鈕）", "進入等待輸入"],
+    ["任意按鍵（等待中）", "綁定；衝突時與原本的動作對調"],
+    ["Esc（等待中）", "取消，保留原按鍵"],
+    ["Tab（等待中）", "離開並取消"]
+  ],
+  "content": [
+    "衝突時說清楚兩邊的變化：「原本使用此鍵的「攻擊」改為 J」",
+    "按鍵名稱用玩家看得懂的寫法：「左 Shift」「空白鍵」"
+  ],
+  "godot": {
+    "tree": [
+      "KeyBindings (VBoxContainer)",
+      "├─ Row × N (HBoxContainer)",
+      "│   ├─ Action (Label)",
+      "│   └─ KeyButton (Button)",
+      "├─ Notice (Label)",
+      "└─ Reset (Button)"
+    ],
+    "notes": "等待輸入時在 _input 取第一個 InputEventKey，以 physical_keycode 比對；InputMap.action_erase_events(action) 後 action_add_event(action, event)，衝突用 InputMap.action_has_event 檢查後對調；設定以 ConfigFile 存到 user://input.cfg，並呼叫 get_viewport().set_input_as_handled() 避免觸發遊戲動作。"
+  }
+}

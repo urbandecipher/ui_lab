@@ -1,0 +1,28 @@
+{
+  "number": 80,
+  "slug": "stat-card",
+  "title": "統計數字卡",
+  "desc": "Stat Card，數值、變化量與趨勢線",
+  "category": "display",
+  "aliases": "stat card kpi metric dashboard sparkline 統計 數字卡 指標 儀表板 趨勢",
+  "guide": {
+    "use": "儀表板頂端的關鍵指標，一眼看出數值、比上期好或壞、最近走勢。",
+    "avoid": "需要精確比較多個項目（改用表格或圖表），或指標超過 4–5 個，重點會被稀釋。"
+  },
+  "states": ["selected"],
+  "note": "變化量同時用箭頭、正負號與顏色表示；顏色依「好壞」而不是「增減」（退貨率下降是綠色），讀屏名稱直接說「表現較好／較差」。趨勢線是裝飾（aria-hidden），數值以等寬數字顯示，切換區間時補間，減少動態時直接更新。",
+  "anatomy": [
+    "區間切換 .st-period（radiogroup）",
+    "卡片 .st-card（role=\"group\"，名稱為指標）：名稱 .st-label、數值 .st-value、變化 .st-delta（.up／.down）",
+    "趨勢線 .st-spark（SVG，aria-hidden）"
+  ],
+  "keyboard": [
+    ["Tab", "移入區間切換"],
+    ["← ／ →", "切換本週／本月"]
+  ],
+  "content": [
+    "變化量寫出比較基準：「與上週相比」",
+    "數值帶單位與千分位：「NT$ 128,400」",
+    "不要只用紅綠表達好壞，加上箭頭與文字"
+  ]
+}
