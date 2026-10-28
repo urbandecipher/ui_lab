@@ -1,6 +1,6 @@
 # UI LAB — 互動元件規範集
 
-與框架無關的前端互動規範集。62 個元件，每個都能直接操作、切換狀態，附「何時用／何時不用」、結構拆解、鍵盤操作表、文案規則（遊戲元件另附 Godot 4 節點對應），並匯出可離線執行的 HTML、CSS 與 JavaScript。頁面內含設計變數總表，可下載 tokens.css／tokens.json。
+與框架無關的前端互動規範集。66 個元件，每個都能直接操作、切換狀態，附「何時用／何時不用」、結構拆解、鍵盤操作表、文案規則（遊戲元件另附 Godot 4 節點對應），並匯出可離線執行的 HTML、CSS 與 JavaScript。頁面內含設計變數總表，可下載 tokens.css／tokens.json。
 
 - **交付物**：`dist/ui-lab-minimal.html`，單一檔案、零外部相依，直接用瀏覽器開啟。
 - **原始碼**：`src/`，每個元件一個資料夾，由 `build.mjs` 組成單檔。
@@ -84,6 +84,7 @@ tests/                    Playwright 測試（smoke、同頁多實例）
 pip install playwright && python -m playwright install chromium
 python tests/smoke.py dist/ui-lab-minimal.html          # 互動、每個元件 × 每個狀態、手機寬度
 python tests/multi_instance.py dist/ui-lab-minimal.html # 每個元件放兩份：ID 不重複、互不干擾
+python tests/new_components.py dist/ui-lab-minimal.html # U63–U66 互動細節（游標、上限、自動載入、時段）
 ```
 
 ## 持續檢查與發佈

@@ -1,0 +1,30 @@
+{
+  "number": 63,
+  "slug": "input-mask",
+  "title": "輸入遮罩",
+  "desc": "Input Mask，手機與身分證自動格式化",
+  "category": "input",
+  "aliases": "input mask format phone id 遮罩 格式化 手機 電話 身分證 字號",
+  "guide": {
+    "use": "格式固定、使用者常打錯分隔符號的欄位，例如手機號碼、身分證字號、信用卡號。",
+    "avoid": "格式因人而異的資料（姓名、地址、國際電話）；遮罩會擋住合法輸入。"
+  },
+  "states": ["success", "error"],
+  "note": "輸入、貼上或刪除時即時格式化並保留游標位置；分隔符號由程式補上，使用者不用輸入。身分證以檢查碼驗證，離開欄位才提示不完整。",
+  "anatomy": [
+    "欄位 .mask-field（.field-wrap，data-mask 指定格式）",
+    "標籤 label（for 對應輸入框）",
+    "輸入框（inputmode、autocomplete、aria-invalid、aria-describedby）",
+    "訊息 .field-msg（role=\"status\"：格式提示／錯誤／正確）"
+  ],
+  "keyboard": [
+    ["輸入／貼上", "只接受符合格式的字元，自動補上分隔符號"],
+    ["Backspace（分隔符號後）", "刪除分隔符號前的字元"],
+    ["Tab 離開欄位", "未填完時提示還差幾碼"]
+  ],
+  "content": [
+    "在欄位下方寫出格式：「格式：09XX-XXX-XXX」",
+    "錯誤說明哪裡錯：「第 2 碼須為 1、2、8 或 9」，不要只寫「格式錯誤」",
+    "送出的值去掉分隔符號，顯示的值保留"
+  ]
+}

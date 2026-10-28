@@ -1,0 +1,32 @@
+{
+  "number": 65,
+  "slug": "infinite-scroll",
+  "title": "無限捲動",
+  "desc": "Infinite Scroll，自動載入並保留按鈕",
+  "category": "display",
+  "aliases": "infinite scroll load more feed lazy 無限捲動 載入更多 動態 瀑布流 分批載入",
+  "guide": {
+    "use": "依時間排列、使用者以瀏覽為主的內容，例如動態消息、通知、聊天紀錄。",
+    "avoid": "需要回到特定位置或比較的清單（改用分頁器），以及頁尾有重要連結的頁面。"
+  },
+  "states": ["loading", "error", "end"],
+  "note": "以 IntersectionObserver 在捲到底前 60px 自動載入；「載入更多」按鈕一直保留，鍵盤與讀屏使用者不必捲動。載入中以 aria-busy 標示，結果與失敗都會播報，失敗時已顯示的內容不受影響。",
+  "anatomy": [
+    "捲動區 .feed-viewport（role=\"region\"、可聚焦，鍵盤可捲動）",
+    "清單 .feed-list（載入中 aria-busy）：項目 .feed-item、骨架 .feed-loading（讀屏隱藏）",
+    "失敗列 .feed-error（含重試）與結尾 .feed-end",
+    "觸發點 .feed-sentinel（IntersectionObserver 觀察）",
+    "頁尾 .feed-foot：數量 .feed-status 與「載入更多」.feed-more"
+  ],
+  "keyboard": [
+    ["Tab", "聚焦捲動區"],
+    ["↑ ／ ↓ ／ PageUp ／ PageDown", "捲動內容，捲到底自動載入"],
+    ["Tab → Enter／空白鍵", "按「載入更多」載入下一批，焦點留在按鈕上"],
+    ["Enter／空白鍵（重試）", "重新載入失敗的批次"]
+  ],
+  "content": [
+    "顯示目前進度：「已顯示 16 / 24 筆」",
+    "到底時明確告知：「已經到底了」",
+    "失敗時說明影響範圍：「已顯示的內容不受影響」"
+  ]
+}

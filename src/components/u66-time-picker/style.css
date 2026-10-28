@@ -1,0 +1,58 @@
+.time-label {
+  font-size: calc(12px * var(--font-scale));
+  font-weight: 600;
+  color: var(--text-dim);
+}
+.time-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.time-field {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 6px 10px;
+  background: var(--panel);
+  border: 1px solid var(--line-2);
+  border-radius: var(--radius-s);
+}
+.time-field:focus-within {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 10%, transparent);
+}
+.time-wrap.error .time-field {
+  border-color: var(--err);
+}
+.time-wrap.success .time-field {
+  border-color: var(--ok);
+}
+.time-seg {
+  min-width: 2.4ch;
+  padding: 4px 4px;
+  border-radius: 6px;
+  text-align: center;
+  font: 600 calc(17px * var(--font-scale)) var(--sans);
+  font-variant-numeric: tabular-nums;
+  cursor: default;
+  outline: none;
+  user-select: none;
+}
+.time-seg[data-empty] {
+  color: var(--text-dim);
+}
+.time-seg:focus {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+.time-sep {
+  font-weight: 600;
+  color: var(--text-dim);
+}
+@media (pointer: coarse) {
+  .time-seg {
+    min-width: 44px;
+    padding: 9px 4px;
+  }
+}

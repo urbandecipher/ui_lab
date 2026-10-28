@@ -152,7 +152,7 @@ async def main():
     r['errors'] = errors
     print(json.dumps(r, ensure_ascii=False, indent=1))
     real_errors = [e for e in errors if 'Failed to load resource' not in e]
-    checks = {'所有元件已掛載': r['ready'] == [], '62 張規範': r['guides'] == r['hero'] == '62' or r['guides'] == int(r['hero']),
+    checks = {'所有元件已掛載': r['ready'] == [], '每個元件都有規範': r['guides'] == r['hero'] == '62' or r['guides'] == int(r['hero']),
               '檢視器每個狀態都能預覽': r['inspector_bad'] == [], '手機寬度不溢出': r['mobile_overflow'] <= 0, '沒有執行錯誤': not real_errors}
     for k, v in checks.items(): print('✓' if v else '✗', k)
     sys.exit(0 if all(checks.values()) else 1)

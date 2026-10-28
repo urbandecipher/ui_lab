@@ -1,12 +1,12 @@
 {
   "name": "ui-lab",
-  "version": "5.1.0",
+  "version": "5.2.0",
   "private": true,
   "description": "與框架無關的前端互動元件規範集（單檔輸出、零相依）",
   "scripts": {
     "build": "node build.mjs",
     "check": "node build.mjs --check",
-    "test": "python tests/smoke.py dist/ui-lab-minimal.html && python tests/multi_instance.py dist/ui-lab-minimal.html"
+    "test": "python tests/smoke.py dist/ui-lab-minimal.html && python tests/multi_instance.py dist/ui-lab-minimal.html && python tests/new_components.py dist/ui-lab-minimal.html"
   },
   "engines": {"node": ">=18"}
 }

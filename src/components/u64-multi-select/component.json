@@ -1,0 +1,33 @@
+{
+  "number": 64,
+  "slug": "multi-select",
+  "title": "多選下拉",
+  "desc": "Multi-select，標籤顯示、輸入篩選、選取上限",
+  "category": "input",
+  "aliases": "multi select multiselect 多選 複選 標籤 下拉 篩選 tag picker",
+  "guide": {
+    "use": "從固定選項中選多個，且選項超過 7 個、放不下整排複選框時。",
+    "avoid": "選項少於 7 個（直接用複選框群組更快），或需要自由輸入新值（改用標籤輸入）。"
+  },
+  "states": ["selected", "maximum", "expanded"],
+  "note": "清單是 aria-multiselectable 的 listbox，焦點一直留在輸入框，以 aria-activedescendant 回報目前選項；選取後清單不關閉，方便連續選取。達上限時其餘選項停用並說明原因。",
+  "anatomy": [
+    "標題 .ms-label（輸入框與清單的 aria-labelledby）",
+    "欄位 .ms-field：已選標籤 .ms-chips（.chip + 移除按鈕 .ms-x）與輸入框 .ms-input（role=\"combobox\"）",
+    "選項清單 .ms-list（role=\"listbox\"、aria-multiselectable），選項有勾選框 .ms-check",
+    "提示 .ms-hint（已選數量與上限，aria-live）"
+  ],
+  "keyboard": [
+    ["↓ ／ ↑", "開啟清單並移動目前選項（循環）"],
+    ["輸入文字", "篩選選項"],
+    ["Enter", "選取或取消目前選項，清單保持開啟"],
+    ["Backspace（輸入框空白時）", "移除最後一個已選項目"],
+    ["Esc", "關閉清單"],
+    ["Tab → Enter／空白鍵", "在標籤的 × 上移除該項"]
+  ],
+  "content": [
+    "標題後或提示中寫出上限：「已選 2 / 3 項」",
+    "達上限時說明怎麼繼續：「移除一項才能再選」",
+    "移除按鈕名稱包含項目：「移除 設計」"
+  ]
+}

@@ -1,0 +1,140 @@
+.ms {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.ms-label {
+  font-size: calc(12px * var(--font-scale));
+  font-weight: 600;
+  color: var(--text-dim);
+}
+.ms-box {
+  position: relative;
+}
+.ms-field {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  padding: 6px 8px;
+  background: var(--panel);
+  border: 1px solid var(--line-2);
+  border-radius: var(--radius-s);
+  cursor: text;
+}
+.ms-field:focus-within {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 10%, transparent);
+}
+.ms-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  list-style: none;
+}
+.ms-chips:empty {
+  display: none;
+}
+.ms-chip {
+  padding: 3px 4px 3px 10px;
+}
+.ms-x {
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  line-height: 1;
+  padding: 3px 6px;
+  border-radius: 999px;
+  cursor: pointer;
+  opacity: 0.6;
+}
+.ms-x:hover,
+.ms-x:focus-visible {
+  opacity: 1;
+  background: var(--line);
+}
+.ms-input {
+  flex: 1;
+  min-width: 90px;
+  border: 0;
+  outline: none;
+  background: transparent;
+  color: var(--text);
+  font: inherit;
+  font-size: calc(13px * var(--font-scale));
+  padding: 4px 2px;
+}
+.ms-list {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  z-index: 6;
+  list-style: none;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-s);
+  box-shadow: var(--shadow-md);
+  padding: 4px;
+  max-height: 200px;
+  overflow: auto;
+}
+.ms-list li {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  font-size: calc(13px * var(--font-scale));
+  cursor: pointer;
+}
+.ms-list li.active {
+  background: var(--panel-2);
+}
+.ms-list li[aria-disabled='true'] {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.ms-list mark {
+  background: transparent;
+  color: var(--text);
+  font-weight: 700;
+}
+.ms-list .ms-empty {
+  color: var(--text-dim);
+  cursor: default;
+}
+.ms-check {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  border: 1.5px solid var(--line-2);
+  border-radius: 4px;
+  display: grid;
+  place-items: center;
+  font-size: 11px;
+  line-height: 1;
+  color: transparent;
+}
+.ms-list li[aria-selected='true'] .ms-check {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--on-accent);
+}
+.ms-hint {
+  font-size: calc(11.5px * var(--font-scale));
+  color: var(--text-dim);
+}
+.ms-hint.limit {
+  color: var(--warn);
+  font-weight: 600;
+}
+@media (pointer: coarse) {
+  .ms-x {
+    min-width: 32px;
+    min-height: 32px;
+  }
+}

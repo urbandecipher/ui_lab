@@ -1,0 +1,33 @@
+{
+  "number": 66,
+  "slug": "time-picker",
+  "title": "時間選擇器",
+  "desc": "Time Picker，時／分欄位以方向鍵或數字輸入",
+  "category": "input",
+  "aliases": "time picker clock hour minute 時間 時刻 預約 時段 幾點",
+  "guide": {
+    "use": "有固定時段或間隔的時間，例如預約、營業時間、提醒；可同時用方向鍵與直接打數字。",
+    "avoid": "只需要相對時間（「1 小時後」）時；以及時段很少時，直接列出時段按鈕更快。"
+  },
+  "states": ["selected", "error"],
+  "note": "時與分各是一個 spinbutton；分鐘固定以 15 分鐘為單位，打入其他數字會調整到最近的時段並播報。完整時間寫入隱藏欄位（name=\"time\"，HH:MM），可直接隨表單送出。",
+  "anatomy": [
+    "標題 .time-label（群組的 aria-labelledby）",
+    "欄位 .time-field（role=\"group\"）：時、分兩個 .time-seg（role=\"spinbutton\"、aria-valuetext）與分隔 .time-sep",
+    "「最近時段」按鈕 .time-now",
+    "隱藏欄位 .time-value（name=\"time\"，送出 HH:MM）",
+    "訊息 .time-msg（role=\"status\"：可預約範圍／已選擇／不在時段內）"
+  ],
+  "keyboard": [
+    ["↑ ／ ↓", "時 ±1、分 ±15（循環）"],
+    ["輸入數字", "直接輸入；時填完自動跳到分"],
+    ["← ／ →", "切換時、分欄位"],
+    ["Home ／ End", "最小值／最大值"],
+    ["Backspace ／ Delete", "清除該欄位"]
+  ],
+  "content": [
+    "一開始就寫出可選範圍：「可預約 09:00–17:45，每 15 分鐘一個時段」",
+    "超出範圍時重述範圍：「19:00 不在可預約時段（09:00–17:45）」",
+    "一律 24 小時制，避免上午／下午混淆"
+  ]
+}
