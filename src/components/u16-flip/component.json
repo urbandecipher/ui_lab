@@ -10,5 +10,15 @@
     "avoid": "承載關鍵資訊；背面內容不易被發現。"
   },
   "states": ["flipped"],
-  "note": ""
+  "note": "",
+  "anatomy": [
+    "場景 .flip-scene（按鈕，aria-pressed）",
+    "卡片 .flip-card",
+    "正面 .flip-front／背面 .flip-back（看不到的一面 aria-hidden）"
+  ],
+  "keyboard": [
+    ["Tab", "聚焦卡片"],
+    ["Enter／空白鍵", "翻面"]
+  ],
+  "content": ["正面提示可翻面", "背面內容要能獨立閱讀"]
 }

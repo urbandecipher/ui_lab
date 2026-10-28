@@ -10,5 +10,12 @@
     "avoid": "鎖定狀態只靠動畫表達。"
   },
   "states": ["selected"],
-  "note": ""
+  "note": "",
+  "anatomy": ["目標 .lock-target（按鈕，aria-pressed）", "鎖定框 .lock-bracket", "狀態文字 .lock-label"],
+  "keyboard": [["Enter／空白鍵", "鎖定／解除"]],
+  "content": ["狀態文字同步：「目標已鎖定」", "鎖定狀態不只靠動畫表達"],
+  "godot": {
+    "tree": ["LockOn (Control)  在 CanvasLayer", "├─ Bracket (TextureRect)", "└─ Label (Label)"],
+    "notes": "每幀以 Camera3D.unproject_position(target.global_position) 定位 Bracket；目標離開畫面時夾在邊緣並改用方向箭頭。"
+  }
 }

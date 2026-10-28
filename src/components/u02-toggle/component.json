@@ -10,5 +10,11 @@
     "avoid": "需要按「儲存」才生效的表單選項，改用複選框。"
   },
   "states": ["on"],
-  "note": ""
+  "note": "",
+  "anatomy": ["軌道 .toggle（role=\"switch\"、aria-checked）", "圓鈕 .knob", "狀態文字 .toggle-state（ON／OFF）"],
+  "keyboard": [
+    ["Tab", "聚焦開關"],
+    ["Enter／空白鍵", "切換開啟／關閉，立即生效"]
+  ],
+  "content": ["標籤寫設定名稱，不寫動作：「接收通知」", "狀態文字與 aria-checked 同步，不只靠顏色"]
 }

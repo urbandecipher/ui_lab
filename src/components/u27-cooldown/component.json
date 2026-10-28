@@ -10,5 +10,26 @@
     "avoid": "只靠遮罩顏色表達；應搭配倒數數字。"
   },
   "states": ["cooldown"],
-  "note": ""
+  "note": "",
+  "anatomy": [
+    "技能格 .skill-slot（按鈕，冷卻中 aria-disabled）",
+    "圖示 .skill-icon",
+    "冷卻遮罩 .skill-mask（--pct 控制錐形遮罩）",
+    "倒數 .skill-timer 與提示 .skill-hint"
+  ],
+  "keyboard": [
+    ["Tab", "聚焦技能格"],
+    ["Enter／空白鍵", "施放；冷卻中無效，就緒時讀屏播報"]
+  ],
+  "content": ["遮罩與倒數數字同時呈現"],
+  "godot": {
+    "tree": [
+      "SkillSlot (TextureButton)",
+      "├─ Icon (TextureRect)",
+      "├─ Cooldown (TextureProgressBar)  fill_mode = Clockwise",
+      "├─ Seconds (Label)",
+      "└─ CooldownTimer (Timer)  one_shot = true"
+    ],
+    "notes": "pressed 訊號施放並 start() 計時器；_process 以 time_left / wait_time 更新 Cooldown.value 與 Seconds；冷卻中設 disabled = true。"
+  }
 }

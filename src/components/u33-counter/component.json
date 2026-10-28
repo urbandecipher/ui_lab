@@ -10,5 +10,12 @@
     "avoid": "高頻更新的數值，動畫會干擾閱讀。"
   },
   "states": ["success"],
-  "note": ""
+  "note": "",
+  "anatomy": ["外框 .counter-wrap", "數值 .counter-val（等寬數字）", "增加按鈕"],
+  "keyboard": [["Enter／空白鍵", "增加 100（動畫中不重複觸發），完成後讀屏播報總數"]],
+  "content": ["數值用等寬數字，跳動時寬度不變"],
+  "godot": {
+    "tree": ["Coins (Label)"],
+    "notes": "create_tween().tween_method(func(v): text = str(int(v)), from, to, 0.6) 搭配 EASE_OUT；高頻更新時直接顯示最終值。"
+  }
 }

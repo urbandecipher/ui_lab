@@ -49,6 +49,13 @@
   });
 
   const escapeScript = value => value.replace(/<\/script/gi, '<\\/script');
+  // HTML 註解內不能出現 --，逐行縮排。
+  const comment = text =>
+    text
+      .replace(/--/g, '－－')
+      .split('\n')
+      .map(line => '  ' + line)
+      .join('\n');
   function bundle(entry, state) {
     const {number, meta} = entry;
     const html = entry.template;
@@ -81,7 +88,20 @@
         ');',
     ].join('\n\n');
     const full =
-      '<!DOCTYPE html>\n<html lang="zh-Hant" ' +
+      '<!DOCTYPE html>\n<!--\n' +
+      comment(
+        'U' +
+          number +
+          ' ' +
+          meta.title +
+          '（UI LAB 匯出）\n適用：' +
+          meta.use +
+          '\n避免：' +
+          meta.avoid +
+          '\n鍵盤：' +
+          meta.keyboard.map(([k, a]) => k + ' ' + a).join('；'),
+      ) +
+      '\n-->\n<html lang="zh-Hant" ' +
       window.UILabStyle.attributes() +
       '>\n<head>\n<meta charset="UTF-8">\n<meta name="viewport" content="width=device-width, initial-scale=1">\n<title>U' +
       number +
@@ -99,13 +119,55 @@
     return {HTML: html, CSS: style, JavaScript: js, '完整 HTML': full};
   }
 
+  // 結構、鍵盤操作、文案規則、Godot 對應：全部以 textContent 寫入。
+  function renderSpec(grid, meta) {
+    const el = (tag, cls, text) => {
+      const node = document.createElement(tag);
+      if (cls) node.className = cls;
+      if (text !== undefined) node.textContent = text;
+      return node;
+    };
+    const card = (title, body) => {
+      const box = el('div', 'spec-card');
+      box.append(el('h4', null, title), ...body);
+      grid.append(box);
+    };
+    const list = items => {
+      const ul = el('ul', 'spec-list');
+      items.forEach(item => ul.append(el('li', null, item)));
+      return ul;
+    };
+    card('結構', [list(meta.anatomy)]);
+    const table = el('table', 'spec-keys');
+    const tbody = el('tbody');
+    meta.keyboard.forEach(([key, action]) => {
+      const tr = el('tr');
+      const th = el('th');
+      th.scope = 'row';
+      // 「Enter／空白鍵」拆成兩個按鍵；組合鍵（含 +）保持一個。
+      const parts = key.includes('+') ? [key] : key.split(/\s*／\s*/);
+      parts.forEach((part, i) => th.append(...(i ? ['／'] : []), el('kbd', null, part)));
+      tr.append(th, el('td', null, action));
+      tbody.append(tr);
+    });
+    table.append(tbody);
+    card('鍵盤操作', [table]);
+    card('文案規則', [list(meta.content)]);
+    grid.classList.toggle('has-godot', !!meta.godot);
+    if (meta.godot)
+      card('Godot 4 對應', [
+        el('pre', 'spec-godot', meta.godot.tree.join('\n')),
+        el('p', 'spec-note', meta.godot.notes),
+      ]);
+  }
+
   function openInspector(entry) {
     const {number, meta} = entry;
     const dialog = document.createElement('dialog');
     dialog.className = 'inspector';
     dialog.setAttribute('aria-labelledby', 'inspectorTitle');
     dialog.innerHTML =
-      '<div class="inspector-head"><h2 id="inspectorTitle"></h2><button type="button" class="catalog-button" aria-label="關閉元件詳情">關閉</button></div><div class="inspector-content"><section><label for="demoState">狀態預覽</label><select id="demoState"></select><div class="inspector-guide"><dl class="guide-list"><dt class="use">適用</dt><dd></dd><dt class="avoid">避免</dt><dd></dd></dl></div><p class="inspector-note" id="stateNote"></p><iframe title="互動元件預覽" sandbox="allow-scripts"></iframe><p class="inspector-note">預覽可操作。切換狀態會重新初始化；匯出使用所選狀態，不包含預覽中的臨時操作。</p></section><section><div class="source-tabs" role="tablist" aria-label="程式碼格式"></div><label for="demoSource">程式碼</label><textarea id="demoSource" readonly spellcheck="false" wrap="off"></textarea><p class="inspector-note">完整 HTML 可離線開啟，無外部套件，只包含此元件用到的樣式與程式。分開取用時，先放入 HTML 與 CSS，再於元件後載入 JavaScript；同一頁可放多個實例，ID 會自動加上前綴。</p><div class="inspector-actions"><button type="button" class="catalog-button" id="copySource">複製目前程式碼</button><button type="button" class="catalog-button" id="downloadSource">下載完整 HTML</button></div><p class="inspector-status" role="status" aria-live="polite"></p></section></div>';
+      '<div class="inspector-head"><h2 id="inspectorTitle"></h2><button type="button" class="catalog-button" aria-label="關閉元件詳情">關閉</button></div><div class="inspector-content"><section><label for="demoState">狀態預覽</label><select id="demoState"></select><div class="inspector-guide"><dl class="guide-list"><dt class="use">適用</dt><dd></dd><dt class="avoid">避免</dt><dd></dd></dl></div><p class="inspector-note" id="stateNote"></p><iframe title="互動元件預覽" sandbox="allow-scripts"></iframe><p class="inspector-note">預覽可操作。切換狀態會重新初始化；匯出使用所選狀態，不包含預覽中的臨時操作。</p></section><section><div class="source-tabs" role="tablist" aria-label="程式碼格式"></div><label for="demoSource">程式碼</label><textarea id="demoSource" readonly spellcheck="false" wrap="off"></textarea><p class="inspector-note">完整 HTML 可離線開啟，無外部套件，只包含此元件用到的樣式與程式。分開取用時，先放入 HTML 與 CSS，再於元件後載入 JavaScript；同一頁可放多個實例，ID 會自動加上前綴。</p><div class="inspector-actions"><button type="button" class="catalog-button" id="copySource">複製目前程式碼</button><button type="button" class="catalog-button" id="downloadSource">下載完整 HTML</button></div><p class="inspector-status" role="status" aria-live="polite"></p></section><section class="inspector-spec" aria-labelledby="specTitle"><h3 class="spec-heading" id="specTitle">元件規格</h3><div class="spec-grid"></div></section></div>';
     const title = dialog.querySelector('h2'),
       select = dialog.querySelector('select'),
       iframe = dialog.querySelector('iframe');
@@ -118,6 +180,7 @@
     dds[1].textContent = meta.avoid;
     dialog.querySelector('#stateNote').textContent =
       meta.note || '可用滑鼠、觸控或鍵盤操作。狀態選單列出此元件適用的狀態。';
+    renderSpec(dialog.querySelector('.spec-grid'), meta);
     ['default', ...meta.states, 'disabled'].forEach(value => {
       const option = document.createElement('option');
       option.value = value;

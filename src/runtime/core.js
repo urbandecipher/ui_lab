@@ -235,6 +235,6 @@
     };
   }
 
-  global.UILab = {define, mount: mountDemo, version: '5.0'};
+  global.UILab = {define, mount: mountDemo, version: '5.1'};
   global.mountDemo = mountDemo;
 })(window);

@@ -10,5 +10,25 @@
     "avoid": "無法調整時限；應提供延長或跳過選項。"
   },
   "states": ["success", "error"],
-  "note": "QTE 會將焦點移到命中按鈕；減少動態效果模式延長至 5 秒。"
+  "note": "QTE 會將焦點移到命中按鈕；減少動態效果模式延長至 5 秒。",
+  "anatomy": [
+    "開始按鈕 #qteStart",
+    "目標 .qte-target：倒數環 .qte-ring 與命中按鈕 .qte-btn",
+    "結果 .qte-result（.hit／.miss）"
+  ],
+  "keyboard": [
+    ["Enter／空白鍵", "開始；焦點自動移到命中按鈕"],
+    ["Enter／空白鍵（命中按鈕）", "在 1.4 秒內按下即命中（減少動態時放寬為 5 秒）"],
+    ["結束", "焦點回到開始按鈕"]
+  ],
+  "content": ["結果用文字 HIT／MISS，不只靠顏色", "提供延長時限或跳過的選項"],
+  "godot": {
+    "tree": [
+      "QTE (Control)",
+      "├─ Ring (TextureProgressBar)",
+      "├─ Prompt (TextureRect)  依輸入裝置顯示按鍵圖示",
+      "└─ Window (Timer)"
+    ],
+    "notes": "_unhandled_input 判定指定 action；依最後使用的 InputEvent 類型切換鍵盤／手把圖示；時限做成可在設定調整的參數。"
+  }
 }

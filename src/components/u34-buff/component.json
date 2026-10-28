@@ -10,5 +10,21 @@
     "avoid": "圖示沒有說明；需提供懸停或點擊說明。"
   },
   "states": ["empty"],
-  "note": ""
+  "note": "",
+  "anatomy": [
+    "列 .buff-row",
+    "圖示 .buff-icon（減益另加 .debuff，可聚焦）",
+    "剩餘時間環 .buff-ring（--dur）",
+    "說明 .buff-tip"
+  ],
+  "keyboard": [["Tab", "聚焦圖示即顯示說明"]],
+  "content": ["說明寫效果與數值：「攻速提升 +20%」", "增益與減益除了顏色還要有圖示或文字區分"],
+  "godot": {
+    "tree": [
+      "BuffRow (HBoxContainer)",
+      "└─ Buff × N (TextureRect)  tooltip_text = 說明",
+      "    └─ Remaining (TextureProgressBar)  fill_mode = Clockwise"
+    ],
+    "notes": "tooltip_text 內建懸停說明；手把聚焦需設定 focus_mode = FOCUS_ALL 並在 focus_entered 顯示自訂說明。"
+  }
 }

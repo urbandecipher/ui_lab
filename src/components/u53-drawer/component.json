@@ -10,5 +10,18 @@
     "avoid": "主要任務或很長的表單。"
   },
   "states": ["expanded"],
-  "note": "以原生 dialog 實作，焦點鎖定在抽屜內；Esc、點擊遮罩或關閉按鈕都會返回觸發按鈕。"
+  "note": "以原生 dialog 實作，焦點鎖定在抽屜內；Esc、點擊遮罩或關閉按鈕都會返回觸發按鈕。",
+  "anatomy": [
+    "觸發按鈕（aria-haspopup=\"dialog\"）",
+    "原生 dialog .drawer",
+    "標頭 .drawer-head：標題與關閉",
+    "內容 .drawer-body",
+    "動作列 .drawer-foot：清除、套用"
+  ],
+  "keyboard": [
+    ["Enter／空白鍵", "開啟；焦點移到第一個選項"],
+    ["Tab", "在抽屜內循環"],
+    ["Esc", "關閉並返回觸發按鈕"]
+  ],
+  "content": ["標題說明內容：「篩選條件」", "主要動作放右下：「套用」"]
 }

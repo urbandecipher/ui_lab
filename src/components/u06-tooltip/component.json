@@ -10,5 +10,12 @@
     "avoid": "放入連結、按鈕或必要資訊；觸控不易觸發，改用彈出層。"
   },
   "states": ["expanded"],
-  "note": ""
+  "note": "",
+  "anatomy": ["觸發元素 .tooltip-target（可聚焦，aria-describedby）", "氣泡 .tooltip-bubble（role=\"tooltip\"）"],
+  "keyboard": [
+    ["Tab", "聚焦時顯示說明"],
+    ["Enter／空白鍵", "切換顯示"],
+    ["Esc", "關閉（聚焦或懸停中也會隱藏）"]
+  ],
+  "content": ["一句話以內，不放連結或按鈕", "補充說明，不重複標籤文字"]
 }

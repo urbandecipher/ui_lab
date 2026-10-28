@@ -10,5 +10,18 @@
     "avoid": "當成唯一入口；所有指令仍需在介面上可見。"
   },
   "states": ["expanded", "empty"],
-  "note": "使用上下方向鍵選擇、Enter 執行示範、Esc 關閉；Ctrl／⌘ K 開啟。"
+  "note": "使用上下方向鍵選擇、Enter 執行示範、Esc 關閉；Ctrl／⌘ K 開啟。",
+  "anatomy": [
+    "觸發按鈕 .cmdk-trigger 與快捷鍵提示 .kbd",
+    "對話框內的搜尋框（role=\"combobox\"、aria-activedescendant）",
+    "指令清單（role=\"listbox\"，項目 role=\"option\"）"
+  ],
+  "keyboard": [
+    ["Ctrl／⌘ + K", "開啟（頁面沒有其他對話框時）"],
+    ["輸入文字", "篩選指令"],
+    ["↑ ／ ↓", "移動目前指令"],
+    ["Enter", "執行"],
+    ["Esc", "關閉並返回"]
+  ],
+  "content": ["指令用「動詞 + 名詞」：「匯出場景」", "沒有結果時顯示「查無符合指令」"]
 }

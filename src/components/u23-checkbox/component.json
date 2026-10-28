@@ -10,5 +10,11 @@
     "avoid": "互斥選項，改用單選群組。"
   },
   "states": ["partial", "selected"],
-  "note": ""
+  "note": "",
+  "anatomy": ["全選 .check-row + #ckParent（部分選取時 indeterminate）", "子項 .check-row.child + .ckChild"],
+  "keyboard": [
+    ["Tab", "在核取方塊間移動"],
+    ["空白鍵", "勾選／取消；全選會同步所有子項"]
+  ],
+  "content": ["全選標籤寫出範圍：「全選通知方式」"]
 }

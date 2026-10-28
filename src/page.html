@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="uilab-version" content="5.0">
+<meta name="uilab-version" content="5.1">
 <title>UI LAB — 互動元件圖鑑</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -24,7 +24,7 @@
   <div class="index-bar">
     <!--@chips-->
   </div>
-  <nav class="workspace-links" aria-label="工作區導覽"><a href="#catalogMain">元件圖鑑</a><a href="#design-studio">樣式與情境工作台 ↗</a><a href="#version-history">版本紀錄 · v5.0</a></nav>
+  <nav class="workspace-links" aria-label="工作區導覽"><a href="#catalogMain">元件圖鑑</a><a href="#design-tokens">設計變數</a><a href="#design-studio">樣式與情境工作台 ↗</a><a href="#version-history">版本紀錄 · v5.1</a></nav>
   <section class="catalog-tools" aria-label="元件搜尋與篩選">
     <div class="catalog-search-row">
       <label class="catalog-search-label" for="catalogSearch">搜尋元件
@@ -57,6 +57,7 @@
 <main id="catalogMain">
 <!--@sections-->
 </main>
+<!--@tokens-->
 <section class="studio-section" id="design-studio" aria-labelledby="studio-title">
   <div class="studio-heading"><div><span class="studio-kicker">DESIGN STUDIO · v3</span><h2 id="studio-title">讓元件配合你的介面</h2><p>調整全域樣式，或用完整情境觀察互動如何銜接。</p></div><a class="catalog-button" href="#version-history">版本紀錄</a></div>
   <details class="style-settings" open><summary>全域樣式控制台 <span>同步圖鑑、情境與匯出</span></summary>
@@ -104,7 +105,7 @@
     <ol class="battle-log" id="battle-log" aria-label="戰鬥紀錄"></ol>
     <p class="scenario-links">元件組合：<a href="#u28-health">生命值</a> · <a href="#u27-cooldown">技能冷卻</a> · <a href="#u41-action-points">行動點</a> · <a href="#u35-hit">命中回饋</a></p>
   </section>
-  <details class="version-history" id="version-history"><summary>版本紀錄 <span>目前 v5.0 · 2026-10-28</span></summary><ol><li><strong>v5.0 · 原始碼模組化</strong><p>每個元件拆成獨立資料夾（規格、標記、樣式、互動），由零相依建置腳本組成單檔；匯出只帶該元件實際用到的 CSS 與 JavaScript；元件內的 ID 依實例自動產生，同一頁可放多個相同元件。</p></li><li><strong>v4.0 · 通用規範集</strong><p>新增 18 個通用元件與「資料展示」分類（共 62 個）；每個元件加上「適用／避免」使用規範並可搜尋；示範文案去除專案專屬內容；計數改為自動；匯出沿用正確分類色；移除舊版無作用的覆蓋層。</p></li><li><strong>v3.0 · 設計系統與情境</strong><p>全域樣式、偏好保存、樣式匯出、三個完整流程與版本紀錄。</p></li><li><strong>v2.0 · 可取用的元件</strong><p>44 個元件的狀態預覽、獨立重設、鍵盤／觸控與程式碼匯出。</p></li><li><strong>v1.1 · 圖鑑導覽</strong><p>關鍵字搜尋、分類篩選、獨立連結、全部重設及窄螢幕調整。</p></li><li><strong>v1.0 · 互動圖鑑</strong><p>44 個可操作範例、六大分類與深淺色模式。</p></li></ol></details>
+  <details class="version-history" id="version-history"><summary>版本紀錄 <span>目前 v5.1 · 2026-10-28</span></summary><ol><li><strong>v5.1 · 規範深度</strong><p>每個元件新增結構拆解、鍵盤操作表與文案規則（依實際程式行為撰寫），18 個遊戲元件附 Godot 4 節點對應；新增設計變數總表，可複製 var() 並下載 tokens.css／tokens.json；匯出的完整 HTML 開頭附使用規範與鍵盤操作摘要；修正 U24 讀屏標籤。</p></li><li><strong>v5.0 · 原始碼模組化</strong><p>每個元件拆成獨立資料夾（規格、標記、樣式、互動），由零相依建置腳本組成單檔；匯出只帶該元件實際用到的 CSS 與 JavaScript；元件內的 ID 依實例自動產生，同一頁可放多個相同元件。</p></li><li><strong>v4.0 · 通用規範集</strong><p>新增 18 個通用元件與「資料展示」分類（共 62 個）；每個元件加上「適用／避免」使用規範並可搜尋；示範文案去除專案專屬內容；計數改為自動；匯出沿用正確分類色；移除舊版無作用的覆蓋層。</p></li><li><strong>v3.0 · 設計系統與情境</strong><p>全域樣式、偏好保存、樣式匯出、三個完整流程與版本紀錄。</p></li><li><strong>v2.0 · 可取用的元件</strong><p>44 個元件的狀態預覽、獨立重設、鍵盤／觸控與程式碼匯出。</p></li><li><strong>v1.1 · 圖鑑導覽</strong><p>關鍵字搜尋、分類篩選、獨立連結、全部重設及窄螢幕調整。</p></li><li><strong>v1.0 · 互動圖鑑</strong><p>44 個可操作範例、六大分類與深淺色模式。</p></li></ol></details>
 </section>
 
 

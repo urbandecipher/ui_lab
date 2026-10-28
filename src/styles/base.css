@@ -1,66 +1,4 @@
 /* 共用樣式：多個元件共用的基礎規則。建置時會切成小段，匯出某個元件時只帶它用到的部分。 */
-:root {
-  --bg: #f6f6f4;
-  --panel: #ffffff;
-  --panel-2: #f1f1ee;
-  --line: #eaeae6;
-  --line-2: #dbdbd6;
-  --text: #1b1b18;
-  --text-dim: #797971;
-  --accent: #1b1b18;
-  --accent-2: #3b3b35;
-  --on-accent: #ffffff;
-  --ok: #1f9d5b;
-  --err: #de4c46;
-  --warn: #db9a2e;
-  --star: #efb329;
-  --scrim: rgba(24, 24, 20, 0.42);
-  --radius: 18px;
-  --radius-s: 12px;
-  --pill: 999px;
-  --sans: 'Inter', 'Noto Sans TC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --mono: ui-monospace, 'SF Mono', SFMono-Regular, Menlo, Consolas, monospace;
-  --shadow-sm: 0 1px 2px rgba(24, 24, 18, 0.05);
-  --shadow-md: 0 2px 6px rgba(24, 24, 18, 0.05), 0 16px 40px -14px rgba(24, 24, 18, 0.14);
-  --shadow-lg: 0 8px 20px rgba(24, 24, 18, 0.08), 0 32px 80px -20px rgba(24, 24, 18, 0.28);
-
-  --cat-action: #de5a4e;
-  --cat-input: #4a87e8;
-  --cat-nav: #db9a2e;
-  --cat-feedback: #2e9e68;
-  --cat-manip: #8a6be8;
-  --cat-game: #e05590;
-  --cat-display: #0e93a3;
-  color-scheme: light;
-}
-:root[data-mode='dark'] {
-  --bg: #121214;
-  --panel: #1c1c1f;
-  --panel-2: #26262a;
-  --line: #2b2b30;
-  --line-2: #3a3a40;
-  --text: #f1f1ed;
-  --text-dim: #9c9c95;
-  --accent: #f1f1ed;
-  --accent-2: #ffffff;
-  --on-accent: #161616;
-  --ok: #43c983;
-  --err: #f2716c;
-  --warn: #eeb554;
-  --star: #f3c540;
-  --scrim: rgba(0, 0, 0, 0.62);
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.45);
-  --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.4), 0 18px 44px -14px rgba(0, 0, 0, 0.6);
-  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.5), 0 36px 90px -20px rgba(0, 0, 0, 0.75);
-  --cat-action: #ef7166;
-  --cat-input: #6ba0f2;
-  --cat-nav: #e9b152;
-  --cat-feedback: #4cbe85;
-  --cat-manip: #a78bf5;
-  --cat-game: #ef75a8;
-  --cat-display: #3bc0cf;
-  color-scheme: dark;
-}
 * {
   box-sizing: border-box;
   margin: 0;
@@ -154,27 +92,6 @@ main {
   display: flex;
   flex-direction: column;
   gap: 72px;
-}
-#cat-action {
-  --cat-color: var(--cat-action);
-}
-#cat-input {
-  --cat-color: var(--cat-input);
-}
-#cat-nav {
-  --cat-color: var(--cat-nav);
-}
-#cat-feedback {
-  --cat-color: var(--cat-feedback);
-}
-#cat-manip {
-  --cat-color: var(--cat-manip);
-}
-#cat-game {
-  --cat-color: var(--cat-game);
-}
-#cat-display {
-  --cat-color: var(--cat-display);
 }
 .module {
   position: relative;

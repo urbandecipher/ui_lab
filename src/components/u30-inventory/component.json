@@ -10,5 +10,20 @@
     "avoid": "只能拖曳；應提供點選交換。"
   },
   "states": ["selected", "empty"],
-  "note": "拖曳交換，或依序點選兩格；鍵盤使用 Tab 與 Enter。"
+  "note": "拖曳交換，或依序點選兩格；鍵盤使用 Tab 與 Enter。",
+  "anatomy": ["格狀容器 .inv-grid", "道具格 .inv-slot（按鈕，aria-pressed 表示已選取，空格可放置）"],
+  "keyboard": [
+    ["Tab", "在道具格間移動"],
+    ["Enter／空白鍵", "選取一格，再選另一格交換；選同一格取消"]
+  ],
+  "content": ["每格讀出位置與內容：「道具格 3：空」", "拖曳之外一定提供點選交換"],
+  "godot": {
+    "tree": [
+      "Inventory (GridContainer)",
+      "└─ Slot × N (PanelContainer)",
+      "    ├─ Icon (TextureRect)",
+      "    └─ Count (Label)"
+    ],
+    "notes": "Slot 實作 _get_drag_data／_can_drop_data／_drop_data 處理拖放；同時處理 ui_accept 做「選取再交換」，手把也能用。"
+  }
 }

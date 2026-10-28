@@ -10,5 +10,18 @@
     "avoid": "使用者需要瀏覽全部選項才能決定時。"
   },
   "states": ["expanded", "empty"],
-  "note": "combobox + listbox：上下鍵移動建議、Enter 選取、Esc 關閉；以 aria-activedescendant 回報目前建議，比對文字以粗體標示。"
+  "note": "combobox + listbox：上下鍵移動建議、Enter 選取、Esc 關閉；以 aria-activedescendant 回報目前建議，比對文字以粗體標示。",
+  "anatomy": [
+    "輸入框 .combo-input（role=\"combobox\"、aria-autocomplete=\"list\"）",
+    "建議清單 .combo-list（role=\"listbox\"）",
+    "建議項目（role=\"option\"，符合的字以粗體 mark 標示）"
+  ],
+  "keyboard": [
+    ["輸入文字", "即時篩選並播報建議數"],
+    ["↓ ／ ↑", "移動建議（循環）"],
+    ["Enter", "選取"],
+    ["Esc", "關閉清單"],
+    ["離開欄位", "自動關閉"]
+  ],
+  "content": ["沒有結果時說明：「沒有符合「火星」的城市」"]
 }

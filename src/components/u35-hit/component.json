@@ -10,5 +10,17 @@
     "avoid": "過度震動造成不適；需尊重減少動態設定。"
   },
   "states": ["active"],
-  "note": ""
+  "note": "",
+  "anatomy": ["目標 .hit-target（受擊時 .flash、.shake）", "傷害浮字 .dmg-popup（0.8 秒後移除）", "攻擊按鈕"],
+  "keyboard": [["Enter／空白鍵", "攻擊；讀屏播報傷害量"]],
+  "content": ["浮字只顯示數值與正負號：「-20」", "減少動態效果時閃爍與震動會停用"],
+  "godot": {
+    "tree": [
+      "Target (Node2D)",
+      "├─ Sprite (Sprite2D)",
+      "├─ HitFx (AnimationPlayer)  flash + shake",
+      "└─ DamageNumber (Label，執行時產生)"
+    ],
+    "notes": "閃白用 shader 參數或 modulate；震動改 offset 不改 position；浮字用 Tween 同時補間 position.y 與 modulate.a，結束 queue_free()。"
+  }
 }

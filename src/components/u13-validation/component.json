@@ -10,5 +10,17 @@
     "avoid": "尚未輸入完就報錯；錯誤訊息要說明如何修正。"
   },
   "states": ["success", "error"],
-  "note": ""
+  "note": "",
+  "anatomy": [
+    "外框 .field-wrap（.error／.success）",
+    "標籤 label（for 對應輸入框）",
+    "輸入框（aria-invalid、aria-describedby）",
+    "訊息 .field-msg（role=\"status\"）"
+  ],
+  "keyboard": [["輸入文字", "每次輸入即時驗證，結果由讀屏播報"]],
+  "content": [
+    "錯誤訊息寫正確格式並附例子：「格式須為 XX-000，例如 AB-123」",
+    "尚未輸入時不顯示錯誤",
+    "成功訊息簡短：「格式正確」"
+  ]
 }

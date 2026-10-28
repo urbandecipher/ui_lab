@@ -10,5 +10,13 @@
     "avoid": "禁止貼上，或送出後才告知密碼規則。"
   },
   "states": ["error", "success"],
-  "note": "強度規則僅為示範，正式產品應與後端規則一致；切換顯示時保留游標位置。"
+  "note": "強度規則僅為示範，正式產品應與後端規則一致；切換顯示時保留游標位置。",
+  "anatomy": [
+    "標籤與輸入框 .pw-input（autocomplete=\"new-password\"）",
+    "顯示切換 .pw-toggle（aria-pressed）",
+    "強度條 .pw-meter（4 段）",
+    "規則與強度 .pw-msg（aria-live）"
+  ],
+  "keyboard": [["Tab → Enter／空白鍵", "切換顯示／隱藏，保留游標位置"]],
+  "content": ["輸入前就顯示規則：「至少 8 個字元…」", "強度用文字（太弱…強），不只靠顏色"]
 }

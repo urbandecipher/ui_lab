@@ -10,5 +10,19 @@
     "avoid": "只有一層時，改用一般清單。"
   },
   "states": ["expanded", "selected"],
-  "note": "依 WAI-ARIA Tree 模式：上下移動、右鍵展開／進入、左鍵收合／返回上層、Enter 開啟，使用 roving tabindex。"
+  "note": "依 WAI-ARIA Tree 模式：上下移動、右鍵展開／進入、左鍵收合／返回上層、Enter 開啟，使用 roving tabindex。",
+  "anatomy": [
+    "樹 .tree（role=\"tree\"）",
+    "項目（role=\"treeitem\"、aria-level、aria-expanded、aria-selected）",
+    "列 .tree-row：箭頭 .tree-caret、圖示、名稱",
+    "子群組 ul（role=\"group\"）"
+  ],
+  "keyboard": [
+    ["↑ ／ ↓", "上一個／下一個可見項目"],
+    ["→", "展開資料夾；已展開則進入第一個子項"],
+    ["←", "收合資料夾；否則回到上層"],
+    ["Home ／ End", "第一個／最後一個"],
+    ["Enter／空白鍵", "開啟檔案或切換資料夾"]
+  ],
+  "content": ["名稱保持簡短，完整路徑放在說明或提示"]
 }

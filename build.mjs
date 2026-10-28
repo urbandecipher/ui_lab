@@ -224,6 +224,109 @@ export function chunkNeeded(chunk, classes) {
   return chunk.selectors.some(req => req.every(c => classes.has(c)));
 }
 
+/* ───────────────────────── design tokens ───────────────────────── */
+
+// Reads every custom property in tokens.css, keyed by the selector variant it belongs to.
+export function tokenSets(css) {
+  const sets = {};
+  for (const node of parseCss(css)) {
+    if (node.type !== 'rule') continue;
+    const sel = node.prelude.replace(/\s+/g, ' ').trim();
+    const variant = /^:root$/.test(sel)
+      ? 'base'
+      : sel
+          .match(/data-([\w-]+)=['"]?([\w-]+)/)
+          ?.slice(1)
+          .join(':');
+    if (!variant) continue;
+    for (const m of node.body.matchAll(/(--[\w-]+)\s*:\s*([^;]+)/g))
+      (sets[variant] ??= {})[m[1]] = m[2].replace(/\s+/g, ' ').trim();
+  }
+  return sets;
+}
+
+const TOKEN_GROUPS = [
+  {
+    title: '表面與文字',
+    kind: 'color',
+    match: n =>
+      [
+        '--bg',
+        '--panel',
+        '--panel-2',
+        '--line',
+        '--line-2',
+        '--text',
+        '--text-dim',
+        '--accent',
+        '--accent-2',
+        '--on-accent',
+        '--scrim',
+      ].includes(n),
+  },
+  {title: '語意色', kind: 'color', match: n => ['--ok', '--err', '--warn', '--star'].includes(n)},
+  {title: '分類色', kind: 'color', match: n => n.startsWith('--cat-')},
+  {title: '圓角', kind: 'radius', match: n => ['--radius', '--radius-s', '--pill'].includes(n)},
+  {title: '間距', kind: 'space', match: n => n.startsWith('--space-')},
+  {title: '陰影', kind: 'shadow', match: n => n.startsWith('--shadow-')},
+  {title: '字體', kind: 'font', match: n => ['--sans', '--mono', '--font-scale'].includes(n)},
+  {title: '動態時間', kind: 'motion', match: n => n.startsWith('--motion-')},
+];
+const VARIANT_LABEL = {'mode:dark': '深', 'density:compact': '精簡', 'corners:square': '方角', 'corners:round': '圓角'};
+
+function tokensHtml(sets) {
+  const names = [...new Set(Object.values(sets).flatMap(s => Object.keys(s)))];
+  const used = new Set();
+  const groups = TOKEN_GROUPS.map(g => ({...g, names: names.filter(n => !used.has(n) && g.match(n) && used.add(n))}));
+  const rest = names.filter(n => !used.has(n));
+  if (rest.length) groups.push({title: '其他', kind: 'text', names: rest});
+  const valueOf = (name, variant) => sets[variant]?.[name];
+  const card = (name, kind) => {
+    const base = valueOf(name, 'base');
+    const variants = Object.keys(VARIANT_LABEL).filter(v => valueOf(name, v) !== undefined);
+    const values = [
+      base !== undefined ? (kind === 'color' ? '淺 ' : '') + base : null,
+      ...variants.map(v => VARIANT_LABEL[v] + ' ' + valueOf(name, v)),
+    ].filter(Boolean);
+    let preview = '';
+    if (kind === 'color') {
+      const dark = valueOf(name, 'mode:dark') ?? base;
+      preview = `<span class="token-swatch" aria-hidden="true"><i style="background:${esc(base)}"></i><i style="background:${esc(dark)}"></i></span>`;
+    } else if (kind === 'radius')
+      preview = `<span class="token-radius" style="border-radius:var(${name})" aria-hidden="true"></span>`;
+    else if (kind === 'space')
+      preview = `<span class="token-space" aria-hidden="true"><i style="width:var(${name})"></i></span>`;
+    else if (kind === 'shadow')
+      preview = `<span class="token-shadow" style="box-shadow:var(${name})" aria-hidden="true"></span>`;
+    else if (kind === 'font')
+      preview =
+        name === '--font-scale'
+          ? `<span class="token-font" aria-hidden="true">× ${esc(base)}</span>`
+          : `<span class="token-font" style="font-family:var(${name})" aria-hidden="true">Aa 永</span>`;
+    else if (kind === 'motion')
+      preview = `<span class="token-motion" style="--d:var(${name})" aria-hidden="true"><i></i></span>`;
+    return `<div class="token-card">${preview}<button type="button" class="token-name" data-copy="var(${name})" aria-label="複製 var(${name})">${name}</button><span class="token-values">${values.map(v => `<span>${esc(v)}</span>`).join('')}</span></div>`;
+  };
+  return `<section class="token-section" id="design-tokens" aria-labelledby="tokens-title">
+  <div class="token-head">
+    <div>
+      <span class="cat-num">// TOKENS</span>
+      <h2 class="cat-title" id="tokens-title">設計變數 DESIGN TOKENS</h2>
+      <p class="token-desc">所有元件只透過這些變數取得顏色與尺寸；深色模式、密度與圓角設定只切換變數值。點變數名稱可複製 var()。</p>
+    </div>
+    <div class="token-actions"><button type="button" class="catalog-button" data-token-download="css">下載 tokens.css</button><button type="button" class="catalog-button" data-token-download="json">下載 tokens.json</button></div>
+  </div>
+${groups
+  .filter(g => g.names.length)
+  .map(
+    g =>
+      `  <div class="token-group"><h3>${esc(g.title)}</h3><div class="token-grid token-${g.kind}">${g.names.map(n => card(n, g.kind)).join('')}</div></div>`,
+  )
+  .join('\n')}
+  <p class="token-status" role="status" aria-live="polite"></p>
+</section>`;
+}
+
 /* ───────────────────────── sources ───────────────────────── */
 
 export function loadSources() {
@@ -256,7 +359,7 @@ export function loadSources() {
     pageCss: read(SRC, 'styles', 'page.css'),
     core: read(SRC, 'runtime', 'core.js'),
     styleBoot: read(SRC, 'app', 'style-settings.js'),
-    app: ['catalog.js', 'inspector.js', 'workbench.js'].map(f => read(SRC, 'app', f)),
+    app: ['catalog.js', 'inspector.js', 'tokens.js', 'workbench.js'].map(f => read(SRC, 'app', f)),
   };
 }
 
@@ -280,6 +383,17 @@ export function validate({categories, labels, components}) {
     if (/\son[a-z]+=/i.test(c.markup))
       errors.push(where + ': markup.html 不可使用 inline 事件（onclick 等），請在 demo.js 綁定');
     if (!c.guide?.use || !c.guide?.avoid) errors.push(where + ': guide 需要 use 與 avoid');
+    const strings = v => Array.isArray(v) && v.length > 0 && v.every(x => typeof x === 'string' && x.trim());
+    if (!strings(c.anatomy)) errors.push(where + ': anatomy 需要至少一項結構說明（字串陣列）');
+    if (!strings(c.content)) errors.push(where + ': content 需要至少一條文案規則（字串陣列）');
+    if (
+      !Array.isArray(c.keyboard) ||
+      !c.keyboard.length ||
+      !c.keyboard.every(r => Array.isArray(r) && r.length === 2 && r.every(x => typeof x === 'string' && x.trim()))
+    )
+      errors.push(where + ': keyboard 需要 [按鍵, 動作] 組成的陣列');
+    if (c.category === 'game' && (!strings(c.godot?.tree) || typeof c.godot?.notes !== 'string'))
+      errors.push(where + ': 遊戲元件需要 godot.tree（節點樹）與 godot.notes（實作說明）');
   }
   return errors;
 }
@@ -350,6 +464,10 @@ export function build({write = true} = {}) {
       avoid: c.guide.avoid,
       states: c.states,
       note: c.note || '',
+      anatomy: c.anatomy,
+      keyboard: c.keyboard,
+      content: c.content,
+      godot: c.godot || null,
       base: need.flatMap((v, k) => (v ? [k] : [])),
       over: needOver.flatMap((v, k) => (v ? [k] : [])),
     };
@@ -385,10 +503,12 @@ ${list.map(cardHtml).join('\n')}
     .join('\n          ');
   const catColors = src.categories.map(cat => `#cat-${cat.key}{--cat-color:var(--cat-${cat.key});}`).join('\n');
 
+  const tokens = tokenSets(src.tokens);
   const manifest = {
     version: src.page.match(/name="uilab-version" content="([^"]+)"/)?.[1] || '',
     labels: src.labels,
     categories: src.categories.map(c => ({key: c.key, name: c.name})),
+    tokens,
     components: manifestComps,
   };
   const head = [
@@ -411,6 +531,7 @@ ${list.map(cardHtml).join('\n')}
     .replace('<!--@chips-->', () => chips)
     .replace('<!--@category-options-->', () => options)
     .replace('<!--@sections-->', () => sections)
+    .replace('<!--@tokens-->', () => tokensHtml(tokens))
     .replace('<!--@scripts-->', () => scripts);
   const leftover = html.match(/<!--@[\w-]+-->/);
   if (leftover) {

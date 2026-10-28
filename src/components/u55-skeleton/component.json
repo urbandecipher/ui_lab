@@ -10,5 +10,13 @@
     "avoid": "載入極快（會閃爍）或結構無法預測時。"
   },
   "states": ["loading", "success"],
-  "note": "容器以 aria-busy 標示載入中，骨架本身對讀屏隱藏；減少動態模式停用閃光動畫。"
+  "note": "容器以 aria-busy 標示載入中，骨架本身對讀屏隱藏；減少動態模式停用閃光動畫。",
+  "anatomy": [
+    "容器 .skel-holder（aria-busy）",
+    "骨架 .skel-card（讀屏隱藏，.skel-shimmer 閃光）",
+    "實際內容 .skel-real",
+    "重新載入按鈕"
+  ],
+  "keyboard": [["Enter／空白鍵", "重新載入；讀屏播報「載入中」「內容已載入」"]],
+  "content": ["骨架形狀要和實際內容一致", "載入少於 0.3 秒時不顯示骨架"]
 }

@@ -10,5 +10,25 @@
     "avoid": "無法暫停，或沒有減少動態的替代方式。"
   },
   "states": ["success", "error"],
-  "note": "提供暫停；減少動態效果模式預設暫停，可手動開始。"
+  "note": "提供暫停；減少動態效果模式預設暫停，可手動開始。",
+  "anatomy": [
+    "軌道 .rhythm-track 與判定區 .rhythm-zone（perfect／good／miss）",
+    "指標 .rhythm-marker",
+    "結果 .rhythm-result",
+    "動作列 .rhythm-actions（判定、暫停／播放）"
+  ],
+  "keyboard": [
+    ["Enter／空白鍵（判定按鈕）", "判定目前位置"],
+    ["Tab → Enter／空白鍵", "暫停／播放"]
+  ],
+  "content": ["結果用文字 PERFECT／GOOD／MISS", "減少動態時預設暫停"],
+  "godot": {
+    "tree": [
+      "Rhythm (Control)",
+      "├─ Track (ColorRect)  含判定區",
+      "├─ Marker (ColorRect)",
+      "└─ Music (AudioStreamPlayer)"
+    ],
+    "notes": "判定時間以 get_playback_position() + AudioServer.get_time_since_last_mix() − get_output_latency() 計算，不用 _process 累加；提供延遲校正設定。"
+  }
 }

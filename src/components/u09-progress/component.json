@@ -10,5 +10,13 @@
     "avoid": "無法得知進度時，改用不確定動畫或骨架屏。"
   },
   "states": ["loading", "success", "error"],
-  "note": ""
+  "note": "",
+  "anatomy": [
+    "軌道 .progress-track（role=\"progressbar\"、aria-valuenow）",
+    "填充 .progress-fill",
+    "狀態文字 .progress-label",
+    "開始按鈕（進行中停用）"
+  ],
+  "keyboard": [["Enter／空白鍵", "開始；完成時讀屏播報「處理完成」"]],
+  "content": ["狀態文字說明現在在做什麼：「載入中…」「完成」「失敗，請重試」", "超過 10 秒的作業顯示剩餘時間或目前步驟"]
 }

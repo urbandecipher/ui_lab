@@ -10,5 +10,12 @@
     "avoid": "佇列過長，看不出目前輪到誰。"
   },
   "states": ["selected"],
-  "note": ""
+  "note": "",
+  "anatomy": ["佇列 .turn-row", "角色 .turn-icon（目前行動者 .active + aria-current=\"step\"）", "下一回合按鈕"],
+  "keyboard": [["Enter／空白鍵", "進入下一回合"]],
+  "content": ["目前行動者要放大或加框，不只靠位置"],
+  "godot": {
+    "tree": ["TurnOrder (HBoxContainer)", "└─ Portrait × N (TextureRect)"],
+    "notes": "佇列以 Array 維護，回合結束 push_back(pop_front())；目前行動者用 scale 與 Tween 強調。"
+  }
 }

@@ -10,5 +10,13 @@
     "avoid": "選項超過 5 個或標籤過長，改用下拉選單或分頁籤。"
   },
   "states": ["selected"],
-  "note": ""
+  "note": "",
+  "anatomy": ["容器 .segmented（role=\"radiogroup\"）", "選項按鈕（role=\"radio\"，選取者 .active、aria-checked）"],
+  "keyboard": [
+    ["Tab", "移入目前選取的項目（整組只佔一個 Tab 停點）"],
+    ["← ／ ↑", "選取上一個（循環）"],
+    ["→ ／ ↓", "選取下一個（循環）"],
+    ["Home ／ End", "選取第一個／最後一個"]
+  ],
+  "content": ["選項 1–2 個詞、長度接近", "同一組不要混用純圖示與純文字"]
 }

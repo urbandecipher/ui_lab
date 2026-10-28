@@ -10,5 +10,12 @@
     "avoid": "只顯示圖示、不顯示數字。"
   },
   "states": ["empty"],
-  "note": ""
+  "note": "",
+  "anatomy": ["行動點列 .ap-row（aria-label「行動點 N / 5」）", "點 .ap-pip（.full 為可用）", "使用按鈕（歸零時停用）"],
+  "keyboard": [["Enter／空白鍵", "使用 1 點；每 2 秒回復 1 點"]],
+  "content": ["除了圓點也顯示數字"],
+  "godot": {
+    "tree": ["ActionPoints (HBoxContainer)", "├─ Pip × N (TextureRect)", "└─ Regen (Timer)"],
+    "notes": "點數變動時重繪 Pip 貼圖；Regen 在未滿時重新啟動；回合制遊戲改在回合開始時回復。"
+  }
 }

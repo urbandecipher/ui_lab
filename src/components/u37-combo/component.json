@@ -10,5 +10,17 @@
     "avoid": "衰減條沒有清楚表達剩餘時間。"
   },
   "states": ["active"],
-  "note": ""
+  "note": "",
+  "anatomy": ["連擊數 .combo-num 與 .combo-x", "衰減條 .combo-decay／.combo-decay-fill", "攻擊按鈕"],
+  "keyboard": [["Enter／空白鍵", "連擊；1.6 秒內再次按下延續，否則歸零"]],
+  "content": ["衰減條要清楚表達剩餘時間"],
+  "godot": {
+    "tree": [
+      "Combo (VBoxContainer)",
+      "├─ Count (Label)",
+      "├─ Decay (ProgressBar)",
+      "└─ Window (Timer)  one_shot = true"
+    ],
+    "notes": "每次命中 count += 1 並 Window.start()；Decay.value = time_left / wait_time；timeout 時歸零。"
+  }
 }

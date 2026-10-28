@@ -10,5 +10,17 @@
     "avoid": "放置關鍵資訊；後面幾張的點擊率很低。"
   },
   "states": ["selected"],
-  "note": "自動輪播在懸停或聚焦時暫停並提供暫停按鈕；減少動態模式預設不自動播放；支援左右鍵與滑動。"
+  "note": "自動輪播在懸停或聚焦時暫停並提供暫停按鈕；減少動態模式預設不自動播放；支援左右鍵與滑動。",
+  "anatomy": [
+    "區域 .carousel（aria-roledescription=\"carousel\"）",
+    "視窗 .car-viewport 與軌道 .car-track",
+    "投影片 .car-slide（aria-roledescription=\"slide\"，非目前者 inert）",
+    "控制：.car-nav 上下張、.car-dot 指示點、.car-play 暫停"
+  ],
+  "keyboard": [
+    ["Tab", "移到控制按鈕；聚焦時暫停自動播放"],
+    ["← ／ →（焦點在任一按鈕）", "上一張／下一張"],
+    ["Enter／空白鍵", "操作聚焦的按鈕"]
+  ],
+  "content": ["每張投影片有標題", "自動播放必須能暫停"]
 }

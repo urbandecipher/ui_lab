@@ -10,5 +10,18 @@
     "avoid": "大範圍數值，改用輸入框或滑桿。"
   },
   "states": ["maximum"],
-  "note": "輸入框為 spinbutton：上下鍵 ±1、PageUp／PageDown ±5、Home／End 到邊界；到達邊界時按鈕停用並把焦點留在輸入框。"
+  "note": "輸入框為 spinbutton：上下鍵 ±1、PageUp／PageDown ±5、Home／End 到邊界；到達邊界時按鈕停用並把焦點留在輸入框。",
+  "anatomy": [
+    "外框 .num-stepper",
+    "減／加按鈕 .num-btn（到邊界停用）",
+    "輸入框 .num-input（role=\"spinbutton\"）",
+    "範圍提示 .num-hint"
+  ],
+  "keyboard": [
+    ["↑ ／ ↓", "±1"],
+    ["PageUp ／ PageDown", "±5"],
+    ["Home ／ End", "最小值／最大值"],
+    ["直接輸入", "離開欄位時修正到範圍內"]
+  ],
+  "content": ["顯示可用範圍：「數量 1–10」"]
 }

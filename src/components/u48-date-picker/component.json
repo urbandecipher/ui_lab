@@ -10,5 +10,20 @@
     "avoid": "生日等遠期日期；直接輸入年月日更快。"
   },
   "states": ["expanded", "selected"],
-  "note": "方向鍵以日／週移動、PageUp／PageDown 換月、Enter 選取、Esc 關閉並返回觸發按鈕；今天以外框標示。"
+  "note": "方向鍵以日／週移動、PageUp／PageDown 換月、Enter 選取、Esc 關閉並返回觸發按鈕；今天以外框標示。",
+  "anatomy": [
+    "觸發按鈕 .date-trigger 與目前值 .date-value",
+    "月曆 .date-pop（role=\"dialog\"）",
+    "標頭 .date-head：上個月、月份、下個月",
+    "日期格 .date-grid（今天 .today、選取 .selected）"
+  ],
+  "keyboard": [
+    ["Enter／空白鍵", "開啟月曆"],
+    ["← ／ →", "前一天／後一天"],
+    ["↑ ／ ↓", "前一週／後一週"],
+    ["PageUp ／ PageDown", "上個月／下個月"],
+    ["Enter", "選取並關閉"],
+    ["Esc", "關閉並返回觸發按鈕"]
+  ],
+  "content": ["顯示格式固定：YYYY-MM-DD", "標示今天；遠期日期改用直接輸入"]
 }

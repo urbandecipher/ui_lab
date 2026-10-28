@@ -10,5 +10,20 @@
     "avoid": "用停用狀態卻不說明原因；停用時應讓使用者知道如何解除。"
   },
   "states": ["loading", "success", "error"],
-  "note": ""
+  "note": "",
+  "anatomy": [
+    "主要按鈕 .btn-primary：每個畫面只放一個",
+    "次要按鈕 .btn-secondary",
+    "停用 .btn-disabled（disabled 屬性）",
+    "處理中 .btn-loading，含 .spinner；處理中時按鈕停用並設 aria-busy"
+  ],
+  "keyboard": [
+    ["Tab", "移到按鈕"],
+    ["Enter／空白鍵", "觸發；處理中停用，不會重複送出"]
+  ],
+  "content": [
+    "用動詞描述結果：「儲存變更」而不是「確定」",
+    "處理中說明正在做什麼：「處理中…」",
+    "失敗時給下一步：「失敗，點擊重試」"
+  ]
 }

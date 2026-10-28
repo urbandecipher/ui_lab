@@ -10,5 +10,21 @@
     "avoid": "少於 5 個（改用單選群組）或超過 15 個（改用自動完成搜尋）。"
   },
   "states": ["expanded", "selected"],
-  "note": ""
+  "note": "",
+  "anatomy": [
+    "外框 .dropdown（展開時 .open）",
+    "觸發按鈕 .dd-trigger（aria-haspopup=\"listbox\"、aria-expanded）",
+    "目前值 #ddValue 與箭頭 .arrow",
+    "選單 .dd-menu（role=\"listbox\"）與選項（role=\"option\"、aria-selected）"
+  ],
+  "keyboard": [
+    ["Enter／空白鍵", "開啟並聚焦第一個選項"],
+    ["↓（觸發按鈕上）", "開啟"],
+    ["↑ ／ ↓", "在選項間移動（循環）"],
+    ["Home ／ End", "第一個／最後一個選項"],
+    ["Enter／空白鍵（選項上）", "選取並返回觸發按鈕"],
+    ["Esc", "關閉並返回觸發按鈕"],
+    ["焦點離開／點擊外部", "自動關閉"]
+  ],
+  "content": ["未選取時顯示欄位名稱：「排序方式」", "選項用並列結構，依常用程度排序"]
 }

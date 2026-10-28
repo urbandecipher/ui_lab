@@ -10,5 +10,16 @@
     "avoid": "使用者需要同時比對多個段落時。"
   },
   "states": ["expanded"],
-  "note": ""
+  "note": "",
+  "anatomy": [
+    "項目 .acc-item（展開時 .open）",
+    "標題 .acc-head（按鈕，aria-expanded、aria-controls）",
+    "箭頭 .chev",
+    "內容 .acc-body（收合時 hidden）"
+  ],
+  "keyboard": [
+    ["Tab", "在標題間移動"],
+    ["Enter／空白鍵", "展開／收合；展開一項會收合其他項"]
+  ],
+  "content": ["標題寫成使用者會問的問題或主題", "內容第一句直接回答"]
 }

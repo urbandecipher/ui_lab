@@ -10,5 +10,22 @@
     "avoid": "只用紅綠色區分；應附數值。"
   },
   "states": ["low", "empty"],
-  "note": ""
+  "note": "",
+  "anatomy": [
+    "外框 .hp-wrap 與數值 .hp-label",
+    "軌道 .hp-track（role=\"meter\"、aria-valuenow）",
+    "延遲拖尾 .hp-ghost",
+    "目前值 .hp-fill"
+  ],
+  "keyboard": [["Enter／空白鍵", "模擬受到 20 點傷害；讀屏播報剩餘值"]],
+  "content": ["一律顯示數值：「20 / 100」", "低血量除了紅色還要有其他提示"],
+  "godot": {
+    "tree": [
+      "HealthBar (Control)",
+      "├─ Ghost (TextureProgressBar)",
+      "├─ Fill (TextureProgressBar)",
+      "└─ Value (Label)"
+    ],
+    "notes": "扣血時 Fill.value 立即更新，Ghost 用 create_tween() 延遲 0.3–0.5 秒追上；補血時反過來，Ghost 先跳、Fill 後追。"
+  }
 }

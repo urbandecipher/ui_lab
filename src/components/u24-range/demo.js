@@ -2,8 +2,8 @@
 UILab.define(24, ({preset, q, on, text, attrs}) => {
   const low = q('#dualLow'),
     high = q('#dualHigh');
-  attrs(low, {'aria-label': '音量下限'});
-  attrs(high, {'aria-label': '音量上限'});
+  attrs(low, {'aria-label': '價格下限'});
+  attrs(high, {'aria-label': '價格上限'});
   const render = changed => {
     if (+low.value > +high.value - 5) {
       if (changed === high) high.value = Math.min(100, +low.value + 5);

@@ -10,5 +10,12 @@
     "avoid": "稀有度只靠顏色區分；應同時顯示文字。"
   },
   "states": ["success"],
-  "note": ""
+  "note": "",
+  "anatomy": ["寶箱 .loot-box（按鈕，開啟中 aria-disabled 與 .shake）", "結果 .loot-result"],
+  "keyboard": [["Enter／空白鍵", "開啟（動畫中無效），讀屏播報稀有度"]],
+  "content": ["稀有度用文字標示：「【傳說】」，不只靠顏色"],
+  "godot": {
+    "tree": ["Loot (Control)", "├─ Chest (TextureButton)", "├─ Reveal (AnimationPlayer)", "└─ Result (Label)"],
+    "notes": "掉落表用 RandomNumberGenerator.rand_weighted(weights)（Godot 4.3+）；開啟期間 disabled = true，動畫結束再顯示結果。"
+  }
 }

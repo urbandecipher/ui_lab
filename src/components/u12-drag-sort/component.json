@@ -10,5 +10,16 @@
     "avoid": "只能拖曳；必須同時提供按鈕或鍵盤排序。"
   },
   "states": ["reordered"],
-  "note": "滑鼠可拖曳；觸控與鍵盤可使用上移／下移按鈕。"
+  "note": "滑鼠可拖曳；觸控與鍵盤可使用上移／下移按鈕。",
+  "anatomy": [
+    "清單 .drag-list",
+    "項目 .drag-item（draggable；拖曳中 .dragging、目標 .drag-over）",
+    "握把 .handle",
+    "上移／下移按鈕 .reorder-controls"
+  ],
+  "keyboard": [
+    ["Tab", "移到上移／下移按鈕"],
+    ["Enter／空白鍵", "移動一格，讀屏播報「已更新排序」"]
+  ],
+  "content": ["按鈕名稱包含項目名稱：「撰寫需求 上移」", "提示同時說明拖曳與按鈕兩種方式"]
 }

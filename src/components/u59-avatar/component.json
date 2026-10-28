@@ -10,5 +10,13 @@
     "avoid": "需要完整名單與角色資訊時。"
   },
   "states": ["expanded"],
-  "note": "超出 4 位以 +N 按鈕展開，上線狀態同時寫入讀屏名稱。"
+  "note": "超出 4 位以 +N 按鈕展開，上線狀態同時寫入讀屏名稱。",
+  "anatomy": [
+    "群組 .avatar-group（role=\"group\"）",
+    "頭像 .avatar（role=\"img\"，名稱含上線狀態；上線 .online）",
+    "收合按鈕 .avatar-more（+N）",
+    "摘要 .avatar-meta"
+  ],
+  "keyboard": [["Tab → Enter／空白鍵", "展開／收合其餘成員"]],
+  "content": ["讀屏名稱包含狀態：「陳怡君（線上）」"]
 }

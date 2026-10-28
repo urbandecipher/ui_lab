@@ -10,5 +10,15 @@
     "avoid": "選項很多時，改用下拉選單或自動完成搜尋。"
   },
   "states": ["selected"],
-  "note": "使用原生 radio：方向鍵在選項間移動並選取，整張卡片皆可點擊。"
+  "note": "使用原生 radio：方向鍵在選項間移動並選取，整張卡片皆可點擊。",
+  "anatomy": [
+    "群組（role=\"radiogroup\"）",
+    "選項卡 .radio-card：label 包住 input[type=\"radio\"]",
+    "標題 strong 與說明 small"
+  ],
+  "keyboard": [
+    ["Tab", "移入目前選取的選項"],
+    ["↑ ／ ↓ 或 ← ／ →", "移動並選取（原生 radio）"]
+  ],
+  "content": ["每個選項用一句話說明差異", "預設選取最常用的選項"]
 }

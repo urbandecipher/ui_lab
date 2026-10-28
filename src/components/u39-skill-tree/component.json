@@ -10,5 +10,26 @@
     "avoid": "沒有說明解鎖條件與所需點數。"
   },
   "states": ["success"],
-  "note": ""
+  "note": "",
+  "anatomy": [
+    "剩餘點數 .sk-points",
+    "技能鏈 .sk-chain",
+    "節點 .sk-node（已解鎖 .unlocked，不可解鎖時 aria-disabled）",
+    "連線 .sk-line（.active）"
+  ],
+  "keyboard": [
+    ["Tab", "在節點間移動"],
+    ["Enter／空白鍵", "解鎖；條件不足時讀屏說明原因"]
+  ],
+  "content": ["節點名稱含狀態：「技能 2，尚未解鎖」", "寫出解鎖條件與所需點數"],
+  "godot": {
+    "tree": [
+      "SkillTree (Control)",
+      "├─ Points (Label)",
+      "├─ Links (Node2D)  Line2D × N",
+      "└─ Nodes (Control)",
+      "    └─ Skill × N (TextureButton)"
+    ],
+    "notes": "技能資料用自訂 Resource（id、cost、prerequisites）；disabled 由前置條件與點數計算；手把用 focus_neighbor_* 指定節點間的移動方向。"
+  }
 }

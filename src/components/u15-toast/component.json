@@ -10,5 +10,8 @@
     "avoid": "重要錯誤或需要操作的訊息，改用提示橫幅或彈出視窗。"
   },
   "states": ["success", "error"],
-  "note": ""
+  "note": "",
+  "anatomy": ["容器 .toast-stack（role=\"status\"、aria-live=\"polite\"，掛在 body）", "訊息 .toast（3 秒後移除）"],
+  "keyboard": [["Enter／空白鍵", "觸發通知；通知不搶焦點，由讀屏播報"]],
+  "content": ["一句話描述結果：「操作已成功執行」", "需要使用者處理的訊息不要用通知提示"]
 }

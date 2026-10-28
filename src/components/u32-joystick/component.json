@@ -10,5 +10,12 @@
     "avoid": "桌面環境；應以鍵盤或手把為主。"
   },
   "states": ["active"],
-  "note": "指標拖曳或方向鍵控制，放開、取消或失焦回到中心。"
+  "note": "指標拖曳或方向鍵控制，放開、取消或失焦回到中心。",
+  "anatomy": ["底座 .joy-base", "搖桿頭 .joy-nub（可聚焦）", "讀數 .joy-readout（X／Y）"],
+  "keyboard": [["方向鍵", "推向該方向，放開歸零"]],
+  "content": ["桌面環境以鍵盤或手把為主，虛擬搖桿只在觸控時顯示"],
+  "godot": {
+    "tree": ["VirtualJoystick (Control)", "├─ Base (TextureRect)", "└─ Knob (TextureRect)"],
+    "notes": "_gui_input 處理 InputEventScreenTouch／ScreenDrag，限制在半徑內；輸出向量時用 Input.action_press(action, strength) 對應 move_left 等動作，遊戲邏輯不必區分觸控與手把。"
+  }
 }

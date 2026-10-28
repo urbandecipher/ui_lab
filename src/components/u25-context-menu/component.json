@@ -10,5 +10,19 @@
     "avoid": "當成唯一入口；所有操作也要能從可見按鈕取得。"
   },
   "states": ["expanded"],
-  "note": "滑鼠右鍵、點擊、觸控或 Enter 都能開啟；選項為操作示範。"
+  "note": "滑鼠右鍵、點擊、觸控或 Enter 都能開啟；選項為操作示範。",
+  "anatomy": [
+    "目標 .ctx-target（aria-haspopup=\"menu\"、aria-expanded）",
+    "選單 .ctx-menu（role=\"menu\"，掛在 body）",
+    "選項（role=\"menuitem\"）"
+  ],
+  "keyboard": [
+    ["Enter／空白鍵／右鍵", "開啟並聚焦第一項"],
+    ["↑ ／ ↓", "移動（循環）"],
+    ["Home ／ End", "第一項／最後一項"],
+    ["Enter／空白鍵", "執行"],
+    ["Esc", "關閉並返回"],
+    ["Tab", "關閉選單"]
+  ],
+  "content": ["選項 2–4 字動詞", "破壞性選項放最後"]
 }

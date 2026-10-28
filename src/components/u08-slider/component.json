@@ -10,5 +10,13 @@
     "avoid": "需要精確數值時，應搭配數字步進器或輸入框。"
   },
   "states": ["maximum"],
-  "note": ""
+  "note": "",
+  "anatomy": ["標題列 .slider-top：名稱與即時數值 .val", "原生 input[type=\"range\"]"],
+  "keyboard": [
+    ["← ／ ↓", "減少一級"],
+    ["→ ／ ↑", "增加一級"],
+    ["PageUp ／ PageDown", "大幅調整（瀏覽器原生）"],
+    ["Home ／ End", "最小值／最大值"]
+  ],
+  "content": ["數值帶單位：「50%」", "需要精確數值時另外提供輸入框"]
 }

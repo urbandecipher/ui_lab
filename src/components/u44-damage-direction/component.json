@@ -10,5 +10,12 @@
     "avoid": "作為唯一提示；應搭配音效或震動。"
   },
   "states": ["active"],
-  "note": ""
+  "note": "",
+  "anatomy": ["圓環 .dmgdir-ring 與中心 .dmgdir-center", "受擊弧 .dmgdir-arc（依方位旋轉，0.7 秒後移除）", "觸發按鈕"],
+  "keyboard": [["Enter／空白鍵", "模擬受擊，讀屏播報方位"]],
+  "content": ["方位提示要搭配音效或震動，不能是唯一提示"],
+  "godot": {
+    "tree": ["DamageIndicator (Control)  置中", "└─ Arc (TextureRect)  pivot_offset = 中心"],
+    "notes": "角度 = 攻擊者相對玩家的方向減去攝影機的水平朝向（rotation.y），寫入 Arc.rotation；用 Tween 淡出後 queue_free()。"
+  }
 }

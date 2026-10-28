@@ -10,5 +10,27 @@
     "avoid": "打字機效果無法略過。"
   },
   "states": ["complete"],
-  "note": ""
+  "note": "",
+  "anatomy": [
+    "對話框 .dialogue-box",
+    "名稱 .dialogue-npc",
+    "文字 .dialogue-text（打字效果，aria-label 為完整句子）",
+    "選項 .dialogue-choices",
+    "「略過打字動畫」按鈕"
+  ],
+  "keyboard": [
+    ["Tab", "移到「略過」或選項"],
+    ["Enter／空白鍵", "略過動畫／選擇選項"]
+  ],
+  "content": ["選項 2–4 個、動詞開頭", "減少動態時直接顯示完整文字"],
+  "godot": {
+    "tree": [
+      "DialogueBox (PanelContainer)",
+      "├─ Name (Label)",
+      "├─ Body (RichTextLabel)  visible_ratio 做打字",
+      "└─ Choices (VBoxContainer)",
+      "    └─ Choice × N (Button)"
+    ],
+    "notes": "用 Tween 補間 visible_ratio；ui_accept 第一次按下直接設為 1，第二次才前進；選項出現後 grab_focus() 第一個。"
+  }
 }

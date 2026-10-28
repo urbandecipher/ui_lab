@@ -10,5 +10,17 @@
     "avoid": "手機上欄位過多時，改用卡片清單。"
   },
   "states": ["selected", "reordered"],
-  "note": "欄位標題為按鈕並以 aria-sort 標示方向；全選支援部分選取（indeterminate）。"
+  "note": "欄位標題為按鈕並以 aria-sort 標示方向；全選支援部分選取（indeterminate）。",
+  "anatomy": [
+    "表格 .data-table（caption 給讀屏）",
+    "排序按鈕 .th-sort（th 上 aria-sort）",
+    "全選與每列核取方塊",
+    "摘要 .table-meta"
+  ],
+  "keyboard": [
+    ["Tab", "移到欄位標題或核取方塊"],
+    ["Enter／空白鍵（標題）", "依此欄排序，再按一次反向"],
+    ["空白鍵（核取方塊）", "選取列；全選支援部分選取"]
+  ],
+  "content": ["數字欄使用等寬數字", "選取時顯示「已選取 N / M 筆」"]
 }

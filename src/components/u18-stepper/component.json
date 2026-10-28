@@ -10,5 +10,16 @@
     "avoid": "步驟可任意跳轉或彼此無關時。"
   },
   "states": ["success"],
-  "note": ""
+  "note": "",
+  "anatomy": [
+    "步驟列 .stepper",
+    "步驟 .step（完成 .done、目前 .active + aria-current=\"step\"）",
+    "編號 .circle（完成顯示 ✓）與連線 .line",
+    "動作列 .stepper-actions（上一步、下一步）"
+  ],
+  "keyboard": [
+    ["Tab", "移到上一步／下一步"],
+    ["Enter／空白鍵", "切換步驟；第一步與最後一步時對應按鈕停用"]
+  ],
+  "content": ["步驟名稱 2–4 字名詞", "完成的步驟保持可辨識，不要淡到看不見"]
 }

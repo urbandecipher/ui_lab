@@ -10,5 +10,27 @@
     "avoid": "選項過多或需要閱讀文字的選單。"
   },
   "states": ["expanded"],
-  "note": ""
+  "note": "",
+  "anatomy": [
+    "開啟按鈕（aria-expanded）",
+    "轉輪 .radial-menu（關閉時 inert）",
+    "選項 .radial-item（有讀屏名稱）",
+    "中心 .radial-center（關閉）"
+  ],
+  "keyboard": [
+    ["Enter／空白鍵", "開啟並聚焦第一項"],
+    ["Tab", "在選項間移動"],
+    ["Enter／空白鍵（選項）", "選擇並關閉"],
+    ["Esc", "關閉並返回開啟按鈕"]
+  ],
+  "content": ["選項最多 8 個", "圖示選項一定要有名稱"],
+  "godot": {
+    "tree": [
+      "RadialMenu (Control)",
+      "├─ Items (Control)  子節點依角度擺放",
+      "│   └─ Item × N (TextureButton)",
+      "└─ Center (Button)"
+    ],
+    "notes": "手把以右搖桿向量 atan2 換算角度選項，放開確認；滑鼠以游標相對中心的角度選取；開啟時可 Engine.time_scale 降速。"
+  }
 }

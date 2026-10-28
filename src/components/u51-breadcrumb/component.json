@@ -10,5 +10,17 @@
     "avoid": "扁平結構或有先後順序的流程。"
   },
   "states": ["long"],
-  "note": "超過 4 層時收合中段，以「…」按鈕展開；目前頁面使用 aria-current=\"page\"。"
+  "note": "超過 4 層時收合中段，以「…」按鈕展開；目前頁面使用 aria-current=\"page\"。",
+  "anatomy": [
+    "nav（aria-label=\"麵包屑\"）與 ol",
+    "上層連結",
+    "收合按鈕 .crumb-more（超過 4 層時）",
+    "目前頁（aria-current=\"page\"，不是連結）"
+  ],
+  "keyboard": [
+    ["Tab", "在連結間移動"],
+    ["Enter", "前往該層"],
+    ["Enter／空白鍵（…）", "展開被收合的層級"]
+  ],
+  "content": ["名稱與該頁標題一致", "目前頁不做成連結"]
 }

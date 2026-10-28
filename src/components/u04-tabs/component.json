@@ -10,5 +10,18 @@
     "avoid": "步驟有先後順序（改用步驟精靈），或切換會換頁（改用導覽連結）。"
   },
   "states": ["selected"],
-  "note": ""
+  "note": "",
+  "anatomy": [
+    "分頁列 .tab-bar（role=\"tablist\"）",
+    "分頁按鈕（role=\"tab\"、aria-selected、aria-controls）",
+    "內容面板 .tab-panel（role=\"tabpanel\"、aria-labelledby）"
+  ],
+  "keyboard": [
+    ["Tab", "移入目前選取的項目（整組只佔一個 Tab 停點）"],
+    ["← ／ ↑", "選取上一個（循環）"],
+    ["→ ／ ↓", "選取下一個（循環）"],
+    ["Home ／ End", "選取第一個／最後一個"],
+    ["Tab（在分頁上）", "移到目前顯示的面板"]
+  ],
+  "content": ["分頁名稱用名詞、2–4 字", "不要用分頁表示有先後順序的步驟"]
 }

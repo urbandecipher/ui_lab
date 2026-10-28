@@ -10,5 +10,16 @@
     "avoid": "動態瀏覽型內容；改用「載入更多」或無限捲動。"
   },
   "states": ["last"],
-  "note": "頁碼過多時以省略號收合；目前頁使用 aria-current=\"page\"，上下頁在邊界停用。"
+  "note": "頁碼過多時以省略號收合；目前頁使用 aria-current=\"page\"，上下頁在邊界停用。",
+  "anatomy": [
+    "nav.pager（aria-label=\"分頁\"）",
+    "上一頁／下一頁與頁碼 .pager-btn（目前頁 .current + aria-current=\"page\"）",
+    "省略號 .pager-gap",
+    "筆數 .pager-info"
+  ],
+  "keyboard": [
+    ["Tab", "在頁碼間移動"],
+    ["Enter／空白鍵", "前往；邊界時上一頁／下一頁停用"]
+  ],
+  "content": ["顯示範圍：「第 31–40 筆，共 120 筆」"]
 }
