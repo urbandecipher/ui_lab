@@ -1,0 +1,14 @@
+{
+  "number": 39,
+  "slug": "skill-tree",
+  "title": "技能樹節點",
+  "desc": "Skill Tree，消耗點數依序解鎖節點",
+  "category": "game",
+  "aliases": "skill tree 技能 樹 升級",
+  "guide": {
+    "use": "有前置條件的成長路徑。",
+    "avoid": "沒有說明解鎖條件與所需點數。"
+  },
+  "states": ["success"],
+  "note": ""
+}

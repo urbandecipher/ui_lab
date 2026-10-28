@@ -1,0 +1,88 @@
+.car-viewport {
+  overflow: hidden;
+  border-radius: var(--radius-s);
+}
+.car-track {
+  display: flex;
+  transition: transform var(--motion-normal) ease;
+  touch-action: pan-y;
+}
+.car-slide {
+  flex: 0 0 100%;
+  height: 100px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 2px;
+  background: linear-gradient(135deg, hsl(var(--h) 60% 93%), hsl(var(--h) 52% 83%));
+  color: hsl(var(--h) 45% 22%);
+  user-select: none;
+}
+:root[data-mode='dark'] .car-slide {
+  background: linear-gradient(135deg, hsl(var(--h) 26% 20%), hsl(var(--h) 32% 29%));
+  color: hsl(var(--h) 60% 90%);
+}
+.car-slide strong {
+  font-size: calc(15px * var(--font-scale));
+}
+.car-slide span {
+  font-size: calc(12px * var(--font-scale));
+  opacity: 0.85;
+}
+.car-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+.car-nav {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--line-2);
+  background: var(--panel);
+  color: var(--text);
+  cursor: pointer;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+.car-nav:hover {
+  background: var(--panel-2);
+}
+.car-dots {
+  display: flex;
+  gap: 6px;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+}
+.car-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  border: 0;
+  background: var(--line-2);
+  cursor: pointer;
+  padding: 0;
+  transition:
+    width var(--motion-fast) ease,
+    background-color var(--motion-fast) ease;
+}
+.car-dot.active {
+  background: var(--accent);
+  width: 20px;
+}
+.car-play {
+  min-height: 32px;
+  padding: 4px 10px;
+}
+@media (pointer: coarse) {
+  .car-dot {
+    width: 12px;
+    height: 12px;
+  }
+  .car-dot.active {
+    width: 24px;
+  }
+}

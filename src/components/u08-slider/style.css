@@ -1,0 +1,10 @@
+.slider-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+.slider-top .val {
+  color: var(--text);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}

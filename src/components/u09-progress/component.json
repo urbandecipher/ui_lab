@@ -1,0 +1,14 @@
+{
+  "number": 9,
+  "slug": "progress",
+  "title": "進度條",
+  "desc": "Progress Bar，點擊按鈕模擬載入",
+  "category": "feedback",
+  "aliases": "progress 进度 上傳",
+  "guide": {
+    "use": "可估算完成比例、超過 1 秒的作業。",
+    "avoid": "無法得知進度時，改用不確定動畫或骨架屏。"
+  },
+  "states": ["loading", "success", "error"],
+  "note": ""
+}

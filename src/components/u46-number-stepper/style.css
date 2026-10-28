@@ -1,0 +1,45 @@
+.num-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.num-stepper {
+  display: inline-flex;
+  align-items: stretch;
+  border: 1px solid var(--line-2);
+  border-radius: var(--radius-s);
+  overflow: hidden;
+  background: var(--panel);
+}
+.num-btn {
+  width: 40px;
+  border: 0;
+  background: var(--panel-2);
+  color: var(--text);
+  font: 600 calc(16px * var(--font-scale)) var(--sans);
+  cursor: pointer;
+}
+.num-btn:hover:not(:disabled) {
+  background: var(--line);
+}
+.num-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+.num-input {
+  width: 56px;
+  height: 40px;
+  border: 0;
+  border-inline: 1px solid var(--line-2);
+  background: var(--panel);
+  color: var(--text);
+  text-align: center;
+  font: 600 calc(15px * var(--font-scale)) var(--sans);
+  font-variant-numeric: tabular-nums;
+  outline: none;
+}
+.num-hint {
+  font-size: calc(11.5px * var(--font-scale));
+  color: var(--text-dim);
+}

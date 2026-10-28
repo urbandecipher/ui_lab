@@ -1,0 +1,60 @@
+.qte-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+.qte-target {
+  position: relative;
+  width: 60px;
+  height: 60px;
+}
+.qte-ring {
+  position: absolute;
+  inset: 0;
+  transform: rotate(-90deg);
+}
+.qte-ring circle {
+  fill: none;
+  stroke: var(--cat-color, var(--text));
+  stroke-width: 4;
+  stroke-linecap: round;
+  stroke-dasharray: 163;
+  stroke-dashoffset: 0;
+  transition: none;
+}
+.qte-ring.countdown circle {
+  animation: qteCountdown 1.4s linear forwards;
+}
+@keyframes qteCountdown {
+  to {
+    stroke-dashoffset: 163;
+  }
+}
+.qte-btn {
+  position: absolute;
+  inset: 8px;
+  border-radius: 50%;
+  background: var(--panel);
+  border: 1px solid var(--line-2);
+  color: var(--text);
+  cursor: pointer;
+  font-size: calc(16px * var(--font-scale));
+  box-shadow: var(--shadow-sm);
+}
+.qte-btn:hover {
+  background: var(--panel-2);
+}
+.qte-result {
+  font-size: calc(12.5px * var(--font-scale));
+  font-weight: 700;
+  color: var(--text-dim);
+  min-height: 17px;
+}
+.qte-result.hit {
+  color: var(--ok);
+}
+.qte-result.miss {
+  color: var(--err);
+}

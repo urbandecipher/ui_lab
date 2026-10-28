@@ -1,0 +1,14 @@
+{
+  "number": 18,
+  "slug": "stepper",
+  "title": "步驟精靈",
+  "desc": "Stepper，多步驟流程進度",
+  "category": "nav",
+  "aliases": "stepper wizard 步驟 流程",
+  "guide": {
+    "use": "3–6 步、彼此有依賴的流程，例如結帳或註冊。",
+    "avoid": "步驟可任意跳轉或彼此無關時。"
+  },
+  "states": ["success"],
+  "note": ""
+}

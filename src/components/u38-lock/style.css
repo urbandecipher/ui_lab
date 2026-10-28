@@ -1,0 +1,49 @@
+.lock-wrap {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+}
+.lock-target {
+  position: relative;
+  width: 66px;
+  height: 66px;
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(11.5px * var(--font-scale));
+  font-weight: 600;
+  color: var(--text-dim);
+  cursor: pointer;
+}
+.lock-bracket {
+  position: absolute;
+  inset: -9px;
+  border: 2px solid var(--cat-color, var(--text));
+  border-radius: 18px;
+  opacity: 0;
+  transform: scale(1.3);
+  transition: all 0.25s ease;
+}
+.lock-target.locked .lock-bracket {
+  opacity: 1;
+  transform: scale(1);
+  animation: lockSpin 3s linear infinite;
+}
+.lock-target.locked {
+  color: var(--cat-color, var(--text));
+  border-color: color-mix(in srgb, var(--cat-color, var(--text)) 50%, transparent);
+}
+@keyframes lockSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.lock-label {
+  font-size: calc(11.5px * var(--font-scale));
+  font-weight: 600;
+  color: var(--text-dim);
+}

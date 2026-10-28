@@ -1,0 +1,14 @@
+{
+  "number": 53,
+  "slug": "drawer",
+  "title": "側邊抽屜",
+  "desc": "Drawer / Sheet，不離開頁面的補充面板",
+  "category": "nav",
+  "aliases": "drawer sheet 抽屜 抽屉 側欄 篩選 筛选",
+  "guide": {
+    "use": "篩選、詳細資料等補充面板，不必離開目前頁面。",
+    "avoid": "主要任務或很長的表單。"
+  },
+  "states": ["expanded"],
+  "note": "以原生 dialog 實作，焦點鎖定在抽屜內；Esc、點擊遮罩或關閉按鈕都會返回觸發按鈕。"
+}

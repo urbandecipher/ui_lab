@@ -1,0 +1,43 @@
+.skilltree-wrap {
+  width: 100%;
+}
+.sk-points {
+  font-size: calc(11.5px * var(--font-scale));
+  font-weight: 600;
+  color: var(--text-dim);
+  margin-bottom: 14px;
+  font-variant-numeric: tabular-nums;
+}
+.sk-chain {
+  display: flex;
+  align-items: center;
+}
+.sk-node {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--panel-2);
+  border: 1.5px solid var(--line-2);
+  color: var(--text-dim);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(14px * var(--font-scale));
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+.sk-node.unlocked {
+  border-color: var(--cat-color, var(--text));
+  color: var(--cat-color, var(--text));
+  background: color-mix(in srgb, var(--cat-color, var(--text)) 9%, var(--panel));
+}
+.sk-line {
+  width: 16px;
+  height: 2px;
+  background: var(--line-2);
+  flex-shrink: 0;
+}
+.sk-line.active {
+  background: var(--cat-color, var(--text));
+}

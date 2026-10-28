@@ -1,0 +1,14 @@
+{
+  "number": 49,
+  "slug": "password",
+  "title": "密碼欄位",
+  "desc": "Password，顯示切換與強度提示",
+  "category": "input",
+  "aliases": "password 密碼 密码 強度 顯示",
+  "guide": {
+    "use": "設定新密碼時，即時提供規則與強度回饋，並可切換顯示。",
+    "avoid": "禁止貼上，或送出後才告知密碼規則。"
+  },
+  "states": ["error", "success"],
+  "note": "強度規則僅為示範，正式產品應與後端規則一致；切換顯示時保留游標位置。"
+}

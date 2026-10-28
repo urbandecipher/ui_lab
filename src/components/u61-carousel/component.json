@@ -1,0 +1,14 @@
+{
+  "number": 61,
+  "slug": "carousel",
+  "title": "輪播",
+  "desc": "Carousel，自動播放可暫停、支援滑動",
+  "category": "display",
+  "aliases": "carousel slider 輪播 轮播 幻燈片 banner",
+  "guide": {
+    "use": "少量（5 張以內）同等重要的展示內容。",
+    "avoid": "放置關鍵資訊；後面幾張的點擊率很低。"
+  },
+  "states": ["selected"],
+  "note": "自動輪播在懸停或聚焦時暫停並提供暫停按鈕；減少動態模式預設不自動播放；支援左右鍵與滑動。"
+}

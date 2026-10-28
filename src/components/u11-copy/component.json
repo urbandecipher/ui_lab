@@ -1,0 +1,14 @@
+{
+  "number": 11,
+  "slug": "copy",
+  "title": "複製到剪貼簿",
+  "desc": "Copy to Clipboard",
+  "category": "feedback",
+  "aliases": "copy clipboard 复制 剪贴板",
+  "guide": {
+    "use": "代碼、連結、指令等需要貼到其他地方的字串。",
+    "avoid": "自動複製失敗卻沒有提示；務必提供手動複製後備。"
+  },
+  "states": ["success", "error"],
+  "note": ""
+}

@@ -1,0 +1,14 @@
+{
+  "number": 33,
+  "slug": "counter",
+  "title": "數值滾動計數器",
+  "desc": "Rolling Counter，貨幣 / 經驗值增加動畫",
+  "category": "game",
+  "aliases": "counter score 分數 金幣 数值",
+  "guide": {
+    "use": "貨幣、分數增加時強調變化量。",
+    "avoid": "高頻更新的數值，動畫會干擾閱讀。"
+  },
+  "states": ["success"],
+  "note": ""
+}

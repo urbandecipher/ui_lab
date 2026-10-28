@@ -1,0 +1,14 @@
+{
+  "number": 52,
+  "slug": "pagination",
+  "title": "分頁器",
+  "desc": "Pagination，頁碼省略與上下頁",
+  "category": "nav",
+  "aliases": "pagination 分頁 分页 頁碼",
+  "guide": {
+    "use": "總量可預期、需要定位到特定頁的清單。",
+    "avoid": "動態瀏覽型內容；改用「載入更多」或無限捲動。"
+  },
+  "states": ["last"],
+  "note": "頁碼過多時以省略號收合；目前頁使用 aria-current=\"page\"，上下頁在邊界停用。"
+}

@@ -1,0 +1,14 @@
+{
+  "number": 62,
+  "slug": "popover",
+  "title": "彈出層",
+  "desc": "Popover，點擊開啟、含互動內容",
+  "category": "feedback",
+  "aliases": "popover 彈出層 浮層 分享",
+  "guide": {
+    "use": "點擊觸發、含互動元素的補充內容。",
+    "avoid": "只有一句說明（改用提示氣泡），或需要專注完成的任務（改用彈出視窗）。"
+  },
+  "states": ["expanded"],
+  "note": "非模態彈出層：Esc 或點擊外部關閉，Tab 離開時自動收合；與提示氣泡不同，可放互動內容。"
+}

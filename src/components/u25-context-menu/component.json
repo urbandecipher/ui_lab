@@ -1,0 +1,14 @@
+{
+  "number": 25,
+  "slug": "context-menu",
+  "title": "右鍵選單",
+  "desc": "Context Menu，於指定區域按右鍵開啟",
+  "category": "nav",
+  "aliases": "context menu 右键 快捷選單",
+  "guide": {
+    "use": "物件的次要操作捷徑。",
+    "avoid": "當成唯一入口；所有操作也要能從可見按鈕取得。"
+  },
+  "states": ["expanded"],
+  "note": "滑鼠右鍵、點擊、觸控或 Enter 都能開啟；選項為操作示範。"
+}

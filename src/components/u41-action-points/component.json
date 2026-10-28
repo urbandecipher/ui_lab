@@ -1,0 +1,14 @@
+{
+  "number": 41,
+  "slug": "action-points",
+  "title": "行動點數量表",
+  "desc": "Action Point Pips，消耗後隨時間自動回復",
+  "category": "game",
+  "aliases": "action points ap 體力 行動 回復",
+  "guide": {
+    "use": "回合或隨時間回復的有限資源。",
+    "avoid": "只顯示圖示、不顯示數字。"
+  },
+  "states": ["empty"],
+  "note": ""
+}

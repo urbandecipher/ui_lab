@@ -1,0 +1,35 @@
+.acc-item {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-s);
+  overflow: hidden;
+  background: var(--panel);
+}
+.acc-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 11px 14px;
+  cursor: pointer;
+  font-size: calc(12.5px * var(--font-scale));
+  font-weight: 600;
+}
+.acc-head:hover {
+  background: var(--panel-2);
+}
+.acc-head .chev {
+  transition: transform 0.2s ease;
+  color: var(--text-dim);
+}
+.acc-item.open .acc-head .chev {
+  transform: rotate(90deg);
+}
+.acc-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.25s ease;
+}
+.acc-body p {
+  padding: 2px 14px 12px;
+  font-size: calc(12.5px * var(--font-scale));
+  color: var(--text-dim);
+}

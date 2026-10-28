@@ -1,0 +1,79 @@
+.datepick {
+  position: relative;
+  width: 100%;
+}
+.date-trigger {
+  font: 500 calc(13px * var(--font-scale)) var(--sans);
+  font-variant-numeric: tabular-nums;
+}
+.date-pop {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  z-index: 6;
+  width: 276px;
+  max-width: calc(100vw - 48px);
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-s);
+  box-shadow: var(--shadow-md);
+  padding: 12px;
+}
+.date-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: calc(13px * var(--font-scale));
+  font-weight: 600;
+}
+.date-nav {
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--line-2);
+  background: var(--panel);
+  color: var(--text);
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}
+.date-nav:hover {
+  background: var(--panel-2);
+}
+.date-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+  text-align: center;
+}
+.date-wd {
+  font-size: calc(11px * var(--font-scale));
+  color: var(--text-dim);
+  padding: 4px 0;
+}
+.date-day {
+  height: 32px;
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  border-radius: 8px;
+  font: 500 calc(12.5px * var(--font-scale)) var(--sans);
+  cursor: pointer;
+  font-variant-numeric: tabular-nums;
+}
+.date-day:hover {
+  background: var(--panel-2);
+}
+.date-day.today {
+  box-shadow: inset 0 0 0 1px var(--line-2);
+  font-weight: 700;
+}
+.date-day.selected {
+  background: var(--accent);
+  color: var(--on-accent);
+}
+@media (pointer: coarse) {
+  .date-day {
+    height: 40px;
+  }
+}

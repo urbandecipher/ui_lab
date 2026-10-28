@@ -1,0 +1,14 @@
+{
+  "number": 58,
+  "slug": "table",
+  "title": "資料表格",
+  "desc": "Sortable Table，欄位排序與列選取",
+  "category": "display",
+  "aliases": "table sort 表格 排序 資料",
+  "guide": {
+    "use": "需要比較多個欄位的結構化資料，支援排序與選取。",
+    "avoid": "手機上欄位過多時，改用卡片清單。"
+  },
+  "states": ["selected", "reordered"],
+  "note": "欄位標題為按鈕並以 aria-sort 標示方向；全選支援部分選取（indeterminate）。"
+}

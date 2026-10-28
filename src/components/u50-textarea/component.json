@@ -1,0 +1,14 @@
+{
+  "number": 50,
+  "slug": "textarea",
+  "title": "多行文字",
+  "desc": "Textarea，自動延展與字數上限",
+  "category": "input",
+  "aliases": "textarea 多行 文字 字數 留言 回饋",
+  "guide": {
+    "use": "長度不定的文字輸入，並清楚顯示字數上限。",
+    "avoid": "固定高度又沒有計數，使用者被截斷而不自知。"
+  },
+  "states": ["maximum"],
+  "note": "字數接近上限（85%）時改色並以讀屏播報剩餘字數；高度上限 180px 後改為捲動。"
+}

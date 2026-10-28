@@ -1,0 +1,14 @@
+{
+  "number": 29,
+  "slug": "radial",
+  "title": "轉輪選擇器",
+  "desc": "Radial Wheel，點擊開啟環形選單",
+  "category": "game",
+  "aliases": "radial wheel 輪盤 轮盘 選擇",
+  "guide": {
+    "use": "手把或滑鼠的快速切換，選項 8 個以內。",
+    "avoid": "選項過多或需要閱讀文字的選單。"
+  },
+  "states": ["expanded"],
+  "note": ""
+}

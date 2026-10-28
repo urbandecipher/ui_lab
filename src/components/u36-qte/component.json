@@ -1,0 +1,14 @@
+{
+  "number": 36,
+  "slug": "qte",
+  "title": "快速反應事件",
+  "desc": "QTE，限時圈縮小，時機內點擊成功",
+  "category": "game",
+  "aliases": "qte quick time 反應 反应",
+  "guide": {
+    "use": "限時反應的短暫演出。",
+    "avoid": "無法調整時限；應提供延長或跳過選項。"
+  },
+  "states": ["success", "error"],
+  "note": "QTE 會將焦點移到命中按鈕；減少動態效果模式延長至 5 秒。"
+}

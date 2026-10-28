@@ -1,0 +1,14 @@
+{
+  "number": 26,
+  "slug": "undo",
+  "title": "復原提示",
+  "desc": "Undo Snackbar，操作後提供反悔機會",
+  "category": "feedback",
+  "aliases": "undo snackbar delete 復原 撤销 刪除 删除",
+  "guide": {
+    "use": "可復原的刪除、封存，取代確認視窗以減少打斷。",
+    "avoid": "不可復原的操作。"
+  },
+  "states": ["deleted"],
+  "note": ""
+}

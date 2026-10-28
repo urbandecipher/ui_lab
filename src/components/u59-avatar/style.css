@@ -1,0 +1,35 @@
+.avatar-block {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.avatar-group {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 6px;
+  padding-left: 8px;
+}
+.avatar.online::after {
+  content: '';
+  position: absolute;
+  right: -2px;
+  bottom: -2px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--ok);
+  border: 2px solid var(--panel);
+}
+.avatar-more {
+  background: var(--panel-2);
+  color: var(--text);
+  cursor: pointer;
+  font-size: calc(11.5px * var(--font-scale));
+}
+.avatar-more:hover {
+  background: var(--line);
+}
+.avatar-meta {
+  font-size: calc(11.5px * var(--font-scale));
+  color: var(--text-dim);
+}

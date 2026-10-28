@@ -1,0 +1,14 @@
+{
+  "number": 37,
+  "slug": "combo",
+  "title": "連擊計數器",
+  "desc": "Combo Counter，連續攻擊累積連段 + 衰減條",
+  "category": "game",
+  "aliases": "combo 連擊 连击",
+  "guide": {
+    "use": "鼓勵連續操作的節奏回饋。",
+    "avoid": "衰減條沒有清楚表達剩餘時間。"
+  },
+  "states": ["active"],
+  "note": ""
+}

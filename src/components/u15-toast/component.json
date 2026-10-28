@@ -1,0 +1,14 @@
+{
+  "number": 15,
+  "slug": "toast",
+  "title": "通知提示",
+  "desc": "Toast，短暫浮現的操作回饋",
+  "category": "feedback",
+  "aliases": "toast notification 通知 成功",
+  "guide": {
+    "use": "非阻斷、可忽略的成功回饋。",
+    "avoid": "重要錯誤或需要操作的訊息，改用提示橫幅或彈出視窗。"
+  },
+  "states": ["success", "error"],
+  "note": ""
+}

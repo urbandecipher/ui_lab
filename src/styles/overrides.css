@@ -1,0 +1,50 @@
+/* 共用覆寫：必須排在元件樣式之後的共用規則（外觀設定、觸控尺寸等）。匯出時同樣只帶用到的部分。 */
+.step label {
+  font-size: calc(10.5px * var(--font-scale));
+  font-weight: 500;
+  color: var(--text-dim);
+}
+.hold-btn,
+.joy-nub {
+  touch-action: none;
+  user-select: none;
+}
+.module[data-demo='26'] .module-body {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+.module[data-demo='31'] .module-body {
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.catalog-button,
+.scenario-panel input:not([type='checkbox']),
+.settings-grid select,
+.inspector select,
+.inspector textarea,
+.inspector iframe,
+.field-wrap input,
+.dd-trigger,
+.segmented,
+.acc-item,
+.chip-input-wrap,
+.dropzone,
+.copy-field,
+.copy-btn {
+  border-radius: var(--radius-s);
+}
+.empty-state p {
+  font-size: calc(12px * var(--font-scale));
+  color: var(--text-dim);
+  max-width: 230px;
+  margin-bottom: 8px;
+}
+@media (pointer: coarse) {
+  .pager-btn,
+  .car-nav,
+  .num-btn {
+    min-width: 44px;
+    min-height: 44px;
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "number": 46,
+  "slug": "number-stepper",
+  "title": "數字步進器",
+  "desc": "Number Stepper，加減按鈕與鍵盤調整",
+  "category": "input",
+  "aliases": "number stepper spinbutton 數量 計數 加減",
+  "guide": {
+    "use": "小範圍整數，例如購買數量 1–10。",
+    "avoid": "大範圍數值，改用輸入框或滑桿。"
+  },
+  "states": ["maximum"],
+  "note": "輸入框為 spinbutton：上下鍵 ±1、PageUp／PageDown ±5、Home／End 到邊界；到達邊界時按鈕停用並把焦點留在輸入框。"
+}

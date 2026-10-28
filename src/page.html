@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="uilab-version" content="5.0">
+<title>UI LAB — 互動元件圖鑑</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!--@head-->
+</head>
+<body>
+
+
+<button class="mode-toggle" id="modeToggle" aria-label="切換深色/淺色模式" title="切換深色/淺色模式">
+  <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+  <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M2 12h2.5M19.5 12H22M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg>
+</button>
+
+<header class="hero">
+  <div class="hero-badge"><span class="dot"></span><span id="heroCount"><!--@count--></span> 個可互動元件 · 附使用規範</div>
+  <h1 class="title">UI <span>互動元件</span>圖鑑</h1>
+  <p class="subtitle">與框架無關的前端互動規範集：每個元件都能直接操作、切換狀態、查看「何時用／何時不用」，並匯出可離線執行的 HTML、CSS 與 JavaScript。</p>
+  <div class="index-bar">
+    <!--@chips-->
+  </div>
+  <nav class="workspace-links" aria-label="工作區導覽"><a href="#catalogMain">元件圖鑑</a><a href="#design-studio">樣式與情境工作台 ↗</a><a href="#version-history">版本紀錄 · v5.0</a></nav>
+  <section class="catalog-tools" aria-label="元件搜尋與篩選">
+    <div class="catalog-search-row">
+      <label class="catalog-search-label" for="catalogSearch">搜尋元件
+        <input type="search" id="catalogSearch" placeholder="搜尋名稱、用途或情境，例如：日期、篩選、modal、U48" autocomplete="off" aria-controls="catalogMain">
+      </label>
+      <button type="button" class="catalog-button" id="catalogClear">清除篩選</button>
+      <button type="button" class="catalog-button" id="catalogReset" title="重設全部示範，保留搜尋、篩選與閱讀位置">重設全部示範</button>
+    </div>
+    <div class="catalog-filter-row">
+      <div class="catalog-scopes" role="group" aria-label="介面類型">
+        <button type="button" class="catalog-button" data-scope="all" data-label="全部" aria-pressed="true">全部</button>
+        <button type="button" class="catalog-button" data-scope="general" data-label="一般介面" aria-pressed="false">一般介面</button>
+        <button type="button" class="catalog-button" data-scope="game" data-label="遊戲介面" aria-pressed="false">遊戲介面</button>
+      </div>
+      <label class="catalog-category-label" for="catalogCategory">分類
+        <select id="catalogCategory">
+          <option value="all">全部分類</option>
+          <!--@category-options-->
+        </select>
+      </label>
+    </div>
+    <div class="catalog-meta">
+      <span id="catalogStatus" role="status" aria-live="polite" aria-atomic="true"></span>
+      <span>重設會保留篩選與閱讀位置；本機連結需在可存取此檔案的裝置開啟。</span>
+    </div>
+  </section>
+
+</header>
+
+<main id="catalogMain">
+<!--@sections-->
+</main>
+<section class="studio-section" id="design-studio" aria-labelledby="studio-title">
+  <div class="studio-heading"><div><span class="studio-kicker">DESIGN STUDIO · v3</span><h2 id="studio-title">讓元件配合你的介面</h2><p>調整全域樣式，或用完整情境觀察互動如何銜接。</p></div><a class="catalog-button" href="#version-history">版本紀錄</a></div>
+  <details class="style-settings" open><summary>全域樣式控制台 <span>同步圖鑑、情境與匯出</span></summary>
+    <div class="settings-grid">
+      <label>主題<select id="style-theme"><option value="system">跟隨系統</option><option value="light">淺色</option><option value="dark">深色</option></select></label>
+      <label>字級<select id="style-font"><option value="small">小</option><option value="standard">標準</option><option value="large">大</option></select></label>
+      <label>密度<select id="style-density"><option value="comfortable">舒適</option><option value="compact">緊湊</option></select></label>
+      <label>圓角<select id="style-corners"><option value="soft">微圓</option><option value="square">方正</option><option value="round">圓潤</option></select></label>
+      <label>動態效果<select id="style-motion"><option value="system">跟隨系統</option><option value="reduced">輕量</option><option value="full">完整</option><option value="off">關閉裝飾動態</option></select></label>
+    </div>
+    <div class="settings-footer"><p id="style-status" role="status" aria-live="polite"></p><div><button class="catalog-button" id="style-export" type="button">匯出樣式設定</button><button class="catalog-button" id="style-reset" type="button">恢復預設樣式</button></div></div>
+    <p class="studio-note">動態偏好會影響裝飾動畫；技能冷卻、操作計時仍保留。輕量／關閉模式會暫停節奏條；完整模式仍尊重系統的減少動態偏好。</p>
+  </details>
+  <div class="scenario-head"><h3>完整情境</h3><span>本機模擬，不會寄信或連接遊戲服務</span></div>
+  <div class="scenario-tabs" role="tablist" aria-label="完整情境">
+    <button type="button" id="scene-tab-account" role="tab" aria-selected="true" aria-controls="scene-account">帳號驗證</button>
+    <button type="button" id="scene-tab-inventory" role="tab" aria-selected="false" aria-controls="scene-inventory" tabindex="-1">物品管理</button>
+    <button type="button" id="scene-tab-battle" role="tab" aria-selected="false" aria-controls="scene-battle" tabindex="-1">戰鬥介面</button>
+  </div>
+  <section class="scenario-panel" id="scene-account" role="tabpanel" aria-labelledby="scene-tab-account">
+    <div class="scenario-intro"><div><h3>從輸入到驗證完成</h3><p>欄位驗證 → 傳送中 → 驗證碼 → 成功／錯誤</p></div><button class="catalog-button" type="button" id="account-reset">重設驗證流程</button></div>
+    <ol class="flow-steps" id="account-steps"><li aria-current="step">1 · 電子郵件</li><li>2 · 驗證碼</li><li>3 · 完成</li></ol>
+    <form id="account-form" class="scenario-form" novalidate>
+      <label for="account-email">電子郵件</label><input id="account-email" type="email" autocomplete="email" placeholder="name@example.com" aria-describedby="account-message" required>
+      <div id="account-code-wrap" hidden><label for="account-code">6 位驗證碼</label><input id="account-code" inputmode="numeric" autocomplete="one-time-code" maxlength="6" pattern="[0-9]{6}" aria-describedby="account-message account-code-hint"><p id="account-code-hint" class="studio-note">示範驗證碼：123456</p></div>
+      <label class="scenario-check"><input id="account-failure" type="checkbox">模擬下一次傳送失敗</label>
+      <div class="scenario-actions"><button class="btn btn-primary" type="submit" id="account-submit">傳送驗證碼</button><button class="catalog-button" type="button" id="account-back" hidden>修改電子郵件</button></div>
+      <p id="account-message" class="scenario-message" role="status" aria-live="polite"></p>
+    </form>
+    <p class="scenario-links">元件組合：<a href="#u13-validation">表單驗證</a> · <a href="#u19-otp">驗證碼輸入</a> · <a href="#u1-button">載入狀態</a></p>
+  </section>
+  <section class="scenario-panel" id="scene-inventory" role="tabpanel" aria-labelledby="scene-tab-inventory" hidden>
+    <div class="scenario-intro"><div><h3>可復原的物品管理</h3><p>選取 → 調整順序 → 刪除確認 → 撤銷</p></div><button class="catalog-button" type="button" id="inventory-reset">重設物品流程</button></div>
+    <ul id="scenario-items" class="scenario-items" aria-label="物品清單"></ul>
+    <div class="scenario-actions"><button class="btn btn-secondary" id="inventory-delete" type="button" disabled>刪除所選</button><button class="catalog-button" id="inventory-undo" type="button" hidden>撤銷上次刪除</button></div>
+    <p id="inventory-message" class="scenario-message" role="status" aria-live="polite"></p>
+    <p class="scenario-links">元件組合：<a href="#u23-checkbox">多選</a> · <a href="#u12-drag-sort">排序</a> · <a href="#u14-modal">確認視窗</a> · <a href="#u26-undo">撤銷</a></p>
+  </section>
+  <section class="scenario-panel" id="scene-battle" role="tabpanel" aria-labelledby="scene-tab-battle" hidden>
+    <div class="scenario-intro"><div><h3>每次行動都有回饋</h3><p>行動點 → 施放技能 → 冷卻 → 回合恢復</p></div><button class="catalog-button" id="battle-reset" type="button">重新戰鬥</button></div>
+    <div class="battle-grid"><div class="battle-unit"><span>旅人</span><strong id="battle-player-value">100 / 100</strong><meter id="battle-player" min="0" max="100" value="100" aria-label="旅人生命值"></meter></div><div class="battle-unit"><span>訓練守衛</span><strong id="battle-enemy-value">100 / 100</strong><meter id="battle-enemy" min="0" max="100" value="100" aria-label="守衛生命值"></meter></div></div>
+    <p class="battle-resource">第 <strong id="battle-round">1</strong> 回合 · 行動點 <strong id="battle-ap">3 / 3</strong></p>
+    <div class="scenario-actions"><button class="btn btn-primary" id="battle-attack" type="button">普通攻擊 · 1 點</button><button class="btn btn-secondary" id="battle-skill" type="button">重擊 · 2 點</button><button class="catalog-button" id="battle-next" type="button">結束回合</button></div>
+    <p id="battle-message" class="scenario-message" role="status" aria-live="polite"></p>
+    <ol class="battle-log" id="battle-log" aria-label="戰鬥紀錄"></ol>
+    <p class="scenario-links">元件組合：<a href="#u28-health">生命值</a> · <a href="#u27-cooldown">技能冷卻</a> · <a href="#u41-action-points">行動點</a> · <a href="#u35-hit">命中回饋</a></p>
+  </section>
+  <details class="version-history" id="version-history"><summary>版本紀錄 <span>目前 v5.0 · 2026-10-28</span></summary><ol><li><strong>v5.0 · 原始碼模組化</strong><p>每個元件拆成獨立資料夾（規格、標記、樣式、互動），由零相依建置腳本組成單檔；匯出只帶該元件實際用到的 CSS 與 JavaScript；元件內的 ID 依實例自動產生，同一頁可放多個相同元件。</p></li><li><strong>v4.0 · 通用規範集</strong><p>新增 18 個通用元件與「資料展示」分類（共 62 個）；每個元件加上「適用／避免」使用規範並可搜尋；示範文案去除專案專屬內容；計數改為自動；匯出沿用正確分類色；移除舊版無作用的覆蓋層。</p></li><li><strong>v3.0 · 設計系統與情境</strong><p>全域樣式、偏好保存、樣式匯出、三個完整流程與版本紀錄。</p></li><li><strong>v2.0 · 可取用的元件</strong><p>44 個元件的狀態預覽、獨立重設、鍵盤／觸控與程式碼匯出。</p></li><li><strong>v1.1 · 圖鑑導覽</strong><p>關鍵字搜尋、分類篩選、獨立連結、全部重設及窄螢幕調整。</p></li><li><strong>v1.0 · 互動圖鑑</strong><p>44 個可操作範例、六大分類與深淺色模式。</p></li></ol></details>
+</section>
+
+
+<footer>UI LAB v5 — 單檔、零相依的互動規範集 · 支援深淺色、鍵盤與觸控 · 每個元件皆可匯出獨立 HTML</footer>
+
+
+
+<!--@scripts-->
+</body>
+</html>

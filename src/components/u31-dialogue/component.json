@@ -1,0 +1,14 @@
+{
+  "number": 31,
+  "slug": "dialogue",
+  "title": "對話選項",
+  "desc": "Dialogue Choice，打字機效果 + 分支選項",
+  "category": "game",
+  "aliases": "dialogue dialog npc 對話 剧情 選項",
+  "guide": {
+    "use": "劇情分支與 NPC 互動。",
+    "avoid": "打字機效果無法略過。"
+  },
+  "states": ["complete"],
+  "note": ""
+}

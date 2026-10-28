@@ -1,0 +1,14 @@
+{
+  "number": 47,
+  "slug": "combobox",
+  "title": "自動完成搜尋",
+  "desc": "Combobox，輸入時即時篩選建議",
+  "category": "input",
+  "aliases": "autocomplete combobox search 自動完成 建議 搜尋",
+  "guide": {
+    "use": "選項很多（超過 15 個）且使用者知道要找什麼。",
+    "avoid": "使用者需要瀏覽全部選項才能決定時。"
+  },
+  "states": ["expanded", "empty"],
+  "note": "combobox + listbox：上下鍵移動建議、Enter 選取、Esc 關閉；以 aria-activedescendant 回報目前建議，比對文字以粗體標示。"
+}

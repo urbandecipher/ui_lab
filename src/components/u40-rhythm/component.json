@@ -1,0 +1,14 @@
+{
+  "number": 40,
+  "slug": "rhythm",
+  "title": "節奏判定條",
+  "desc": "Rhythm Timing，於正確時機點擊判定",
+  "category": "game",
+  "aliases": "rhythm timing 節奏 节奏 判定",
+  "guide": {
+    "use": "時機判定的小遊戲。",
+    "avoid": "無法暫停，或沒有減少動態的替代方式。"
+  },
+  "states": ["success", "error"],
+  "note": "提供暫停；減少動態效果模式預設暫停，可手動開始。"
+}

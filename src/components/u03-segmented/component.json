@@ -1,0 +1,14 @@
+{
+  "number": 3,
+  "slug": "segmented",
+  "title": "分段控制",
+  "desc": "Segmented Control，單選模式切換",
+  "category": "nav",
+  "aliases": "segmented 分段 選擇",
+  "guide": {
+    "use": "2–5 個互斥、同層級的檢視切換，例如日／週／月。",
+    "avoid": "選項超過 5 個或標籤過長，改用下拉選單或分頁籤。"
+  },
+  "states": ["selected"],
+  "note": ""
+}

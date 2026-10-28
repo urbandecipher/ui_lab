@@ -1,0 +1,14 @@
+{
+  "number": 5,
+  "slug": "accordion",
+  "title": "摺疊面板",
+  "desc": "Accordion，點擊標題展開內容",
+  "category": "nav",
+  "aliases": "accordion 折叠 展開 收合",
+  "guide": {
+    "use": "FAQ、長表單分段等可略讀、可延後閱讀的內容。",
+    "avoid": "使用者需要同時比對多個段落時。"
+  },
+  "states": ["expanded"],
+  "note": ""
+}

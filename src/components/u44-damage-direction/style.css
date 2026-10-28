@@ -1,0 +1,37 @@
+.dmgdir-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+.dmgdir-ring {
+  position: relative;
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  border: 1.5px solid var(--line-2);
+  background: var(--panel-2);
+}
+.dmgdir-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--text-dim);
+  font-size: calc(10px * var(--font-scale));
+  font-weight: 600;
+}
+.dmgdir-arc {
+  position: absolute;
+  width: 22px;
+  height: 5px;
+  background: var(--err);
+  border-radius: 3px;
+  top: 50%;
+  left: 50%;
+  margin-top: -2.5px;
+  transform-origin: 0 50%;
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}

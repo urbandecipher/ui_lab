@@ -1,0 +1,23 @@
+{
+  "default": "預設",
+  "disabled": "停用",
+  "loading": "處理中",
+  "success": "成功／完成",
+  "error": "失敗／錯誤",
+  "on": "開啟",
+  "selected": "已選取",
+  "expanded": "展開",
+  "maximum": "最大範圍",
+  "reordered": "已重新排序",
+  "flipped": "背面",
+  "empty": "空白／無結果",
+  "partial": "部分選取",
+  "deleted": "已刪除，可撤銷",
+  "cooldown": "冷卻中",
+  "low": "低生命值",
+  "long": "長路徑（自動收合）",
+  "last": "最後一頁",
+  "filled": "已有內容",
+  "complete": "對話完整顯示",
+  "active": "作用中"
+}

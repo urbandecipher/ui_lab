@@ -1,0 +1,14 @@
+{
+  "number": 60,
+  "slug": "tree",
+  "title": "樹狀清單",
+  "desc": "Tree View，多層階層的展開與選取",
+  "category": "display",
+  "aliases": "tree 樹狀 檔案 階層 資料夾",
+  "guide": {
+    "use": "檔案、分類等多層階層資料。",
+    "avoid": "只有一層時，改用一般清單。"
+  },
+  "states": ["expanded", "selected"],
+  "note": "依 WAI-ARIA Tree 模式：上下移動、右鍵展開／進入、左鍵收合／返回上層、Enter 開啟，使用 roving tabindex。"
+}

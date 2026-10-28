@@ -1,0 +1,14 @@
+{
+  "number": 45,
+  "slug": "radio",
+  "title": "單選群組",
+  "desc": "Radio Group，互斥選項全部可見",
+  "category": "input",
+  "aliases": "radio 單選 選項 方案",
+  "guide": {
+    "use": "2–6 個互斥選項，且使用者需要同時看到全部選項。",
+    "avoid": "選項很多時，改用下拉選單或自動完成搜尋。"
+  },
+  "states": ["selected"],
+  "note": "使用原生 radio：方向鍵在選項間移動並選取，整張卡片皆可點擊。"
+}

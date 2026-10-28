@@ -1,0 +1,50 @@
+.crumbs-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  width: 100%;
+}
+.crumbs ol {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+  font-size: calc(13px * var(--font-scale));
+}
+.crumbs li {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.crumbs li + li::before {
+  content: '/';
+  color: var(--line-2);
+  margin-right: 2px;
+}
+.crumbs a {
+  color: var(--text-dim);
+  text-decoration: none;
+  padding: 4px 2px;
+  border-radius: 4px;
+}
+.crumbs a:hover {
+  color: var(--text);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.crumbs [aria-current] {
+  font-weight: 600;
+  color: var(--text);
+}
+.crumb-more {
+  border: 1px solid var(--line-2);
+  background: var(--panel);
+  color: var(--text-dim);
+  border-radius: 6px;
+  padding: 0 7px;
+  cursor: pointer;
+  font: inherit;
+  line-height: 1.6;
+}

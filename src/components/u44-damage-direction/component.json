@@ -1,0 +1,14 @@
+{
+  "number": 44,
+  "slug": "damage-direction",
+  "title": "方向傷害指示",
+  "desc": "Directional Damage Indicator，標示受擊方位",
+  "category": "game",
+  "aliases": "direction damage 方向 傷害 受擊",
+  "guide": {
+    "use": "第一／第三人稱的受擊方位提示。",
+    "avoid": "作為唯一提示；應搭配音效或震動。"
+  },
+  "states": ["active"],
+  "note": ""
+}

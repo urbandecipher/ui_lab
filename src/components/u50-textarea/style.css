@@ -1,0 +1,14 @@
+.ta-foot {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: calc(11.5px * var(--font-scale));
+  color: var(--text-dim);
+}
+.ta-count {
+  font-variant-numeric: tabular-nums;
+}
+.ta-count.warn {
+  color: var(--warn);
+  font-weight: 700;
+}

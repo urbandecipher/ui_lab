@@ -1,0 +1,69 @@
+.hit-wrap {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+}
+.hit-target {
+  position: relative;
+  width: 72px;
+  height: 72px;
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(11.5px * var(--font-scale));
+  font-weight: 600;
+  color: var(--text-dim);
+  overflow: visible;
+}
+.hit-target.flash {
+  animation: hitFlash 0.25s ease;
+}
+@keyframes hitFlash {
+  0% {
+    background: color-mix(in srgb, var(--err) 55%, var(--panel-2));
+  }
+  100% {
+    background: var(--panel-2);
+  }
+}
+.hit-target.shake {
+  animation: hitShake 0.3s ease;
+}
+@keyframes hitShake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-4px);
+  }
+  75% {
+    transform: translateX(4px);
+  }
+}
+.dmg-popup {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--err);
+  font-weight: 700;
+  font-size: calc(16px * var(--font-scale));
+  font-variant-numeric: tabular-nums;
+  pointer-events: none;
+  animation: dmgRise 0.8s ease forwards;
+}
+@keyframes dmgRise {
+  from {
+    opacity: 1;
+    top: 0;
+  }
+  to {
+    opacity: 0;
+    top: -36px;
+  }
+}

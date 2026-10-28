@@ -1,0 +1,14 @@
+{
+  "number": 4,
+  "slug": "tabs",
+  "title": "分頁籤",
+  "desc": "Tabs，切換顯示不同內容區塊",
+  "category": "nav",
+  "aliases": "tabs 页签 分頁 導航",
+  "guide": {
+    "use": "同一頁面內平行的內容區塊切換。",
+    "avoid": "步驟有先後順序（改用步驟精靈），或切換會換頁（改用導覽連結）。"
+  },
+  "states": ["selected"],
+  "note": ""
+}

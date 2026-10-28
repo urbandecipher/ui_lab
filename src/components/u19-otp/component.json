@@ -1,0 +1,14 @@
+{
+  "number": 19,
+  "slug": "otp",
+  "title": "驗證碼輸入",
+  "desc": "OTP / PIN，自動跳至下一格",
+  "category": "input",
+  "aliases": "otp verification 驗證 验证码 登入",
+  "guide": {
+    "use": "固定長度的一次性數字驗證碼。",
+    "avoid": "可變長度或含字母的代碼；不可阻擋整組貼上與自動填入。"
+  },
+  "states": ["success"],
+  "note": "支援數字輸入、整組驗證碼貼上、方向鍵與退格鍵。"
+}

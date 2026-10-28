@@ -1,0 +1,14 @@
+{
+  "number": 43,
+  "slug": "turn-order",
+  "title": "回合順序軌",
+  "desc": "Turn Order Tracker，回合制行動順序佇列",
+  "category": "game",
+  "aliases": "turn order 回合 順序",
+  "guide": {
+    "use": "回合制戰鬥的行動佇列。",
+    "avoid": "佇列過長，看不出目前輪到誰。"
+  },
+  "states": ["selected"],
+  "note": ""
+}

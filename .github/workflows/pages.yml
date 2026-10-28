@@ -1,0 +1,30 @@
+# 手動執行：私人 repo 需付費方案才能使用 GitHub Pages；改為公開或升級後，可把 push 觸發加回來。
+name: Deploy to GitHub Pages
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: true
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: node build.mjs
+      - run: mkdir -p _site && cp dist/ui-lab-minimal.html _site/index.html && cp dist/ui-lab-minimal.html _site/ui-lab-minimal.html
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - id: deployment
+        uses: actions/deploy-pages@v4

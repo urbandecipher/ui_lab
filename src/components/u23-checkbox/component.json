@@ -1,0 +1,14 @@
+{
+  "number": 23,
+  "slug": "checkbox",
+  "title": "複選框群組",
+  "desc": "Checkbox，含全選 / 不確定狀態",
+  "category": "input",
+  "aliases": "checkbox indeterminate 多選 全選",
+  "guide": {
+    "use": "多選、需要全選或部分選取的清單。",
+    "avoid": "互斥選項，改用單選群組。"
+  },
+  "states": ["partial", "selected"],
+  "note": ""
+}

@@ -1,0 +1,14 @@
+{
+  "number": 6,
+  "slug": "tooltip",
+  "title": "提示氣泡",
+  "desc": "Tooltip，滑鼠懸停顯示說明",
+  "category": "feedback",
+  "aliases": "tooltip 提示 說明",
+  "guide": {
+    "use": "圖示按鈕的名稱、一句話以內的補充說明。",
+    "avoid": "放入連結、按鈕或必要資訊；觸控不易觸發，改用彈出層。"
+  },
+  "states": ["expanded"],
+  "note": ""
+}

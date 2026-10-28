@@ -1,0 +1,14 @@
+{
+  "number": 24,
+  "slug": "range",
+  "title": "雙滑桿範圍",
+  "desc": "Dual Range，設定最小 / 最大值",
+  "category": "input",
+  "aliases": "dual range 範圍 区间 價格",
+  "guide": {
+    "use": "篩選價格、時間等區間。",
+    "avoid": "需要精確數值時只給滑桿；應同時提供數字輸入。"
+  },
+  "states": ["maximum"],
+  "note": ""
+}

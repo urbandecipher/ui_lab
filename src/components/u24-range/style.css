@@ -1,0 +1,48 @@
+.dual-label {
+  display: flex;
+  justify-content: space-between;
+  font-size: calc(12px * var(--font-scale));
+  font-weight: 500;
+  color: var(--text-dim);
+  margin-bottom: 12px;
+}
+.dual-label .val {
+  color: var(--text);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+.dual-range {
+  position: relative;
+  width: 100%;
+  height: 20px;
+}
+.dual-range .track {
+  position: absolute;
+  top: 8px;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--line-2);
+  border-radius: var(--pill);
+}
+.dual-range .range-fill {
+  position: absolute;
+  top: 8px;
+  height: 4px;
+  background: var(--accent);
+  border-radius: var(--pill);
+}
+.dual-range input[type='range'] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 20px;
+  background: transparent;
+  pointer-events: none;
+  margin: 0;
+}
+.dual-range input[type='range']::-webkit-slider-thumb {
+  pointer-events: auto;
+  margin-top: 0;
+}

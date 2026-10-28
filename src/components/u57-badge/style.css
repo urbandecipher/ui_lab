@@ -1,0 +1,78 @@
+.badge-demo {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+}
+.badge-bell {
+  position: relative;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 1px solid var(--line-2);
+  background: var(--panel);
+  color: var(--text);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+}
+.badge-bell:hover {
+  background: var(--panel-2);
+}
+.badge-bell svg {
+  width: 19px;
+  height: 19px;
+}
+.badge-count {
+  position: absolute;
+  top: -5px;
+  right: -7px;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 5px;
+  border-radius: 999px;
+  background: var(--err);
+  color: #fff;
+  font: 700 10.5px var(--sans);
+  display: grid;
+  place-items: center;
+  border: 2px solid var(--panel);
+  font-variant-numeric: tabular-nums;
+}
+.badge-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  width: 100%;
+}
+.pill {
+  font-size: calc(11px * var(--font-scale));
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: var(--pill);
+  background: var(--panel-2);
+  color: var(--text-dim);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+.pill::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+.pill-ok {
+  background: color-mix(in srgb, var(--ok) 12%, transparent);
+  color: var(--ok);
+}
+.pill-warn {
+  background: color-mix(in srgb, var(--warn) 14%, transparent);
+  color: var(--warn);
+}
+.pill-err {
+  background: color-mix(in srgb, var(--err) 11%, transparent);
+  color: var(--err);
+}

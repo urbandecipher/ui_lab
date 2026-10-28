@@ -1,0 +1,14 @@
+{
+  "number": 32,
+  "slug": "joystick",
+  "title": "虛擬搖桿",
+  "desc": "Virtual Joystick，拖曳輸出方向座標",
+  "category": "game",
+  "aliases": "joystick 搖桿 摇杆 移動",
+  "guide": {
+    "use": "觸控裝置上的方向輸入。",
+    "avoid": "桌面環境；應以鍵盤或手把為主。"
+  },
+  "states": ["active"],
+  "note": "指標拖曳或方向鍵控制，放開、取消或失焦回到中心。"
+}

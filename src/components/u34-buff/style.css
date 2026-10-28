@@ -1,0 +1,70 @@
+.buff-row {
+  display: flex;
+  gap: 12px;
+}
+.buff-icon {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(17px * var(--font-scale));
+  cursor: default;
+}
+.buff-icon.debuff {
+  border-color: color-mix(in srgb, var(--err) 55%, transparent);
+}
+.buff-ring {
+  position: absolute;
+  inset: -1px;
+  border-radius: 50%;
+  background: conic-gradient(var(--cat-color, var(--text)) 0deg, transparent 0deg);
+  animation: buffDrain var(--dur) linear infinite;
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2.5px), #000 calc(100% - 2.5px));
+  mask: radial-gradient(farthest-side, transparent calc(100% - 2.5px), #000 calc(100% - 2.5px));
+}
+@keyframes buffDrain {
+  from {
+    background: conic-gradient(var(--cat-color, var(--text)) 360deg, transparent 0deg);
+  }
+  to {
+    background: conic-gradient(var(--cat-color, var(--text)) 0deg, transparent 0deg);
+  }
+}
+.buff-tip {
+  position: absolute;
+  bottom: calc(100% + 9px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  background: var(--text);
+  color: var(--bg);
+  font-size: calc(11px * var(--font-scale));
+  font-weight: 600;
+  padding: 6px 10px;
+  border-radius: 8px;
+  white-space: nowrap;
+  box-shadow: var(--shadow-md);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.15s ease;
+}
+.buff-icon:hover .buff-tip {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+.buff-icon:focus .buff-tip,
+.buff-icon.tip-open .buff-tip {
+  opacity: 1;
+}
+@media (prefers-reduced-motion: reduce) {
+  .buff-ring {
+    animation: none !important;
+  }
+}
+:root[data-motion='reduced'] .buff-ring {
+  animation: none !important;
+}

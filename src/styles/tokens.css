@@ -1,0 +1,22 @@
+/* 設計變數：顏色、分類色、圓角、間距、動態時間。深色模式與外觀設定只改這些變數。 */
+:root {
+  --font-scale: 1;
+  --space-card: 22px;
+  --space-grid: 20px;
+  --motion-fast: 0.16s;
+  --motion-normal: 0.3s;
+}
+:root[data-density='compact'] {
+  --space-card: 16px;
+  --space-grid: 12px;
+}
+:root[data-corners='square'] {
+  --radius: 5px;
+  --radius-s: 4px;
+  --pill: 5px;
+}
+:root[data-corners='round'] {
+  --radius: 28px;
+  --radius-s: 20px;
+  --pill: 999px;
+}

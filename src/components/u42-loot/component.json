@@ -1,0 +1,14 @@
+{
+  "number": 42,
+  "slug": "loot",
+  "title": "戰利品開箱",
+  "desc": "Loot Reveal，稀有度分級光暈與掃光效果",
+  "category": "game",
+  "aliases": "loot reward chest 寶箱 宝箱 獎勵 掉落",
+  "guide": {
+    "use": "獎勵揭曉的情緒高點。",
+    "avoid": "稀有度只靠顏色區分；應同時顯示文字。"
+  },
+  "states": ["success"],
+  "note": ""
+}

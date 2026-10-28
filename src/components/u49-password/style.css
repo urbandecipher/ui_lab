@@ -1,0 +1,29 @@
+.pw-row {
+  display: flex;
+  gap: 8px;
+}
+.pw-row input {
+  flex: 1;
+  min-width: 0;
+}
+.pw-meter {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+}
+.pw-meter span {
+  height: 4px;
+  border-radius: var(--pill);
+  background: var(--line-2);
+  transition: background-color var(--motion-normal) ease;
+}
+.pw-meter[data-level='1'] span.on {
+  background: var(--err);
+}
+.pw-meter[data-level='2'] span.on {
+  background: var(--warn);
+}
+.pw-meter[data-level='3'] span.on,
+.pw-meter[data-level='4'] span.on {
+  background: var(--ok);
+}

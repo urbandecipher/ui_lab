@@ -1,0 +1,14 @@
+{
+  "number": 8,
+  "slug": "slider",
+  "title": "滑桿控制",
+  "desc": "Range Slider，即時數值回饋",
+  "category": "input",
+  "aliases": "slider range 音量 範圍",
+  "guide": {
+    "use": "連續數值且需要即時看到結果，例如音量、亮度。",
+    "avoid": "需要精確數值時，應搭配數字步進器或輸入框。"
+  },
+  "states": ["maximum"],
+  "note": ""
+}

@@ -1,0 +1,14 @@
+{
+  "number": 22,
+  "slug": "hold-confirm",
+  "title": "長按確認",
+  "desc": "Press &amp; Hold，避免誤觸的破壞性操作",
+  "category": "action",
+  "aliases": "hold confirm delete 刪除 删除 長按 安全",
+  "guide": {
+    "use": "不可復原的破壞性操作。",
+    "avoid": "可以復原的操作；復原提示的體驗更好。"
+  },
+  "states": ["success"],
+  "note": "滑鼠、觸控或 Enter／空白鍵按住 2 秒；放開、移出或失去焦點即取消。"
+}

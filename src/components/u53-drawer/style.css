@@ -1,0 +1,32 @@
+.drawer-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 20px;
+  border-bottom: 1px solid var(--line);
+}
+.drawer-head h3 {
+  font-size: calc(16px * var(--font-scale));
+}
+.drawer-body {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  overflow: auto;
+  font-size: calc(13.5px * var(--font-scale));
+}
+.drawer-body .check-row input {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--accent);
+}
+.drawer-foot {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  padding: 16px 20px;
+  border-top: 1px solid var(--line);
+}

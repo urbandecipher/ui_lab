@@ -1,0 +1,14 @@
+{
+  "number": 57,
+  "slug": "badge",
+  "title": "通知徽章",
+  "desc": "Badge，未讀數量與狀態標籤",
+  "category": "feedback",
+  "aliases": "badge 徽章 未讀 通知 標記 紅點",
+  "guide": {
+    "use": "未讀數量與狀態標記；超過 99 顯示 99+。",
+    "avoid": "到處加紅點製造焦慮；狀態不可只靠顏色，需有文字。"
+  },
+  "states": ["maximum", "empty"],
+  "note": "數字徽章對讀屏隱藏，改由按鈕名稱讀出未讀數；狀態標籤附圓點與文字，不只靠顏色。"
+}

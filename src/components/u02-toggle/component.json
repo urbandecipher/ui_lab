@@ -1,0 +1,14 @@
+{
+  "number": 2,
+  "slug": "toggle",
+  "title": "開關切換",
+  "desc": "Toggle Switch，點擊改變啟用狀態",
+  "category": "action",
+  "aliases": "toggle switch 开关 設定",
+  "guide": {
+    "use": "按下即生效的二元設定，例如通知開／關。",
+    "avoid": "需要按「儲存」才生效的表單選項，改用複選框。"
+  },
+  "states": ["on"],
+  "note": ""
+}

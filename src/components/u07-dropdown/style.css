@@ -1,0 +1,30 @@
+.dropdown.open .dd-trigger .arrow {
+  transform: rotate(180deg);
+}
+.dd-menu {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  right: 0;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-s);
+  overflow: hidden;
+  z-index: 5;
+  display: none;
+  box-shadow: var(--shadow-md);
+  padding: 4px;
+}
+.dropdown.open .dd-menu {
+  display: block;
+}
+.dd-menu div {
+  padding: 9px 11px;
+  cursor: pointer;
+  color: var(--text);
+  border-radius: 8px;
+  font-weight: 500;
+}
+.dd-menu div:hover {
+  background: var(--panel-2);
+}

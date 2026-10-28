@@ -1,0 +1,14 @@
+{
+  "number": 38,
+  "slug": "lock",
+  "title": "鎖定目標",
+  "desc": "Lock-On Reticle，點擊鎖定並持續旋轉標記",
+  "category": "game",
+  "aliases": "lock target 鎖定 锁定",
+  "guide": {
+    "use": "明確標示當前目標。",
+    "avoid": "鎖定狀態只靠動畫表達。"
+  },
+  "states": ["selected"],
+  "note": ""
+}

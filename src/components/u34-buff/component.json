@@ -1,0 +1,14 @@
+{
+  "number": 34,
+  "slug": "buff",
+  "title": "狀態效果列",
+  "desc": "Buff/Debuff Tray，環形倒數 + 懸停說明",
+  "category": "game",
+  "aliases": "buff debuff status 增益 減益 狀態",
+  "guide": {
+    "use": "顯示增益／減益與剩餘時間。",
+    "avoid": "圖示沒有說明；需提供懸停或點擊說明。"
+  },
+  "states": ["empty"],
+  "note": ""
+}

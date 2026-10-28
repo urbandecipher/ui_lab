@@ -1,0 +1,14 @@
+{
+  "number": 10,
+  "slug": "rating",
+  "title": "星級評分",
+  "desc": "Star Rating，點擊評分",
+  "category": "input",
+  "aliases": "rating star 評價 收藏 星星",
+  "guide": {
+    "use": "快速、粗略的主觀評價。",
+    "avoid": "需要知道原因時只給星等；應於評分後追問文字回饋。"
+  },
+  "states": ["selected"],
+  "note": ""
+}

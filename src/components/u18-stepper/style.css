@@ -1,0 +1,46 @@
+.stepper-wrap {
+  width: 100%;
+}
+.step .circle {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 1.5px solid var(--line-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(11.5px * var(--font-scale));
+  font-weight: 600;
+  color: var(--text-dim);
+  background: var(--panel);
+  z-index: 1;
+  transition: all 0.2s ease;
+}
+.step.active .circle {
+  border-color: var(--accent);
+  color: var(--text);
+}
+.step.done .circle {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--on-accent);
+}
+.step .line {
+  position: absolute;
+  top: 13px;
+  left: 50%;
+  width: 100%;
+  height: 1.5px;
+  background: var(--line-2);
+  z-index: 0;
+}
+.step:last-child .line {
+  display: none;
+}
+.step.done .line {
+  background: var(--accent);
+}
+.stepper-actions {
+  display: flex;
+  justify-content: space-between;
+}

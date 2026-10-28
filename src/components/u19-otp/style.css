@@ -1,0 +1,24 @@
+.otp-row {
+  display: flex;
+  gap: 9px;
+}
+.otp-row input {
+  width: 40px;
+  height: 48px;
+  text-align: center;
+  font-size: calc(19px * var(--font-scale));
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  background: var(--panel);
+  border: 1px solid var(--line-2);
+  border-radius: var(--radius-s);
+  color: var(--text);
+  outline: none;
+  transition:
+    border-color 0.15s,
+    box-shadow 0.15s;
+}
+.otp-row input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 10%, transparent);
+}

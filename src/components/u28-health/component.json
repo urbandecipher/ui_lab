@@ -1,0 +1,14 @@
+{
+  "number": 28,
+  "slug": "health",
+  "title": "生命值條",
+  "desc": "HP Bar，傷害瞬間扣除 + 延遲拖尾",
+  "category": "game",
+  "aliases": "health hp damage 生命 血量 受傷",
+  "guide": {
+    "use": "即時資源量，延遲拖尾讓扣除量可被察覺。",
+    "avoid": "只用紅綠色區分；應附數值。"
+  },
+  "states": ["low", "empty"],
+  "note": ""
+}

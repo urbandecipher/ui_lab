@@ -1,0 +1,14 @@
+{
+  "number": 7,
+  "slug": "dropdown",
+  "title": "下拉選單",
+  "desc": "Dropdown，自訂樣式選單",
+  "category": "input",
+  "aliases": "dropdown select 下拉 選擇",
+  "guide": {
+    "use": "5–15 個互斥選項且版面空間有限。",
+    "avoid": "少於 5 個（改用單選群組）或超過 15 個（改用自動完成搜尋）。"
+  },
+  "states": ["expanded", "selected"],
+  "note": ""
+}

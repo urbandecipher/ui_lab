@@ -1,0 +1,14 @@
+{
+  "number": 56,
+  "slug": "empty-state",
+  "title": "空狀態",
+  "desc": "Empty State，首次使用／無結果／失敗",
+  "category": "feedback",
+  "aliases": "empty state 空狀態 無資料 無結果",
+  "guide": {
+    "use": "首次使用、查無結果、載入失敗，三種情境各自給出下一步。",
+    "avoid": "只寫「沒有資料」卻不給任何行動。"
+  },
+  "states": ["filled", "error"],
+  "note": "三種空狀態（首次使用、無結果、失敗）各自提供一個明確的下一步。"
+}

@@ -1,0 +1,14 @@
+{
+  "number": 17,
+  "slug": "command",
+  "title": "命令面板",
+  "desc": "Command Palette，支援鍵盤快捷鍵與模糊搜尋",
+  "category": "nav",
+  "aliases": "command palette cmdk 搜尋 指令",
+  "guide": {
+    "use": "功能繁多的工具型產品，讓熟練使用者快速執行。",
+    "avoid": "當成唯一入口；所有指令仍需在介面上可見。"
+  },
+  "states": ["expanded", "empty"],
+  "note": "使用上下方向鍵選擇、Enter 執行示範、Esc 關閉；Ctrl／⌘ K 開啟。"
+}

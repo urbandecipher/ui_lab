@@ -1,0 +1,22 @@
+.dropzone {
+  width: 100%;
+  border: 1.5px dashed var(--line-2);
+  border-radius: 14px;
+  padding: 24px 12px;
+  text-align: center;
+  font-size: calc(12px * var(--font-scale));
+  font-weight: 500;
+  color: var(--text-dim);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.dropzone.dragover {
+  border-color: var(--accent);
+  color: var(--text);
+  background: color-mix(in srgb, var(--accent) 5%, transparent);
+}
+.dropzone .fname {
+  color: var(--ok);
+  font-weight: 600;
+  margin-top: 6px;
+}

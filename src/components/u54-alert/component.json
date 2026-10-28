@@ -1,0 +1,14 @@
+{
+  "number": 54,
+  "slug": "alert",
+  "title": "提示橫幅",
+  "desc": "Alert Banner，四種語意等級、可關閉",
+  "category": "feedback",
+  "aliases": "alert banner 橫幅 警告 錯誤 提示",
+  "guide": {
+    "use": "需要注意、會持續存在的系統訊息。",
+    "avoid": "瞬間回饋（改用通知提示）。"
+  },
+  "states": ["empty"],
+  "note": "錯誤與成功不只靠顏色，皆附文字標籤；關閉後焦點移到下一則或「重新顯示」。"
+}

@@ -1,0 +1,42 @@
+.kbd {
+  font-family: var(--mono);
+  font-size: calc(10px * var(--font-scale));
+  font-weight: 600;
+  border: 1px solid var(--line-2);
+  border-bottom-width: 2px;
+  border-radius: 6px;
+  padding: 2px 6px;
+  color: var(--text-dim);
+  background: var(--panel);
+}
+.cmdk-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--panel);
+  border: 1px solid var(--line-2);
+  border-radius: var(--radius-s);
+  padding: 10px 14px;
+  color: var(--text-dim);
+  font-size: calc(12.5px * var(--font-scale));
+  font-weight: 500;
+  cursor: pointer;
+}
+.cmdk-trigger:hover {
+  border-color: var(--text-dim);
+}
+.demo-command-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 12px;
+}
+.demo-command-list [role='option'] {
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.demo-command-list .active {
+  background: var(--panel-2);
+}

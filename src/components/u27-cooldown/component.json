@@ -1,0 +1,14 @@
+{
+  "number": 27,
+  "slug": "cooldown",
+  "title": "技能冷卻按鈕",
+  "desc": "Skill Cooldown，圓形進度遮罩表示冷卻中",
+  "category": "game",
+  "aliases": "skill cooldown 技能 冷卻 冷却",
+  "guide": {
+    "use": "有冷卻時間的動作，讓剩餘時間一眼可見。",
+    "avoid": "只靠遮罩顏色表達；應搭配倒數數字。"
+  },
+  "states": ["cooldown"],
+  "note": ""
+}

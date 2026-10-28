@@ -1,0 +1,14 @@
+{
+  "number": 14,
+  "slug": "modal",
+  "title": "彈出視窗",
+  "desc": "Modal Dialog，確認類互動",
+  "category": "feedback",
+  "aliases": "modal dialog 確認 刪除确认 弹窗",
+  "guide": {
+    "use": "需要確認或專注完成的短任務。",
+    "avoid": "一般資訊或可復原的操作，改用通知或復原提示。"
+  },
+  "states": ["expanded"],
+  "note": "開啟後焦點移入視窗，Tab 留在視窗內；Esc 關閉並返回原按鈕。"
+}

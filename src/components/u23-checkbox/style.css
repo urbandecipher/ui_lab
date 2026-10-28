@@ -1,0 +1,12 @@
+.check-group {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+  width: 100%;
+  font-size: calc(13px * var(--font-scale));
+  font-weight: 500;
+}
+.check-row.child {
+  padding-left: 24px;
+  color: var(--text-dim);
+}

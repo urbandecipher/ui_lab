@@ -1,0 +1,45 @@
+.loot-wrap {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  width: 100%;
+}
+.loot-box {
+  width: 58px;
+  height: 58px;
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(27px * var(--font-scale));
+  cursor: pointer;
+  transition: transform 0.1s ease;
+}
+.loot-box:hover {
+  background: var(--panel);
+  box-shadow: var(--shadow-sm);
+}
+.loot-box.shake {
+  animation: lootShake 0.4s ease;
+}
+@keyframes lootShake {
+  0%,
+  100% {
+    transform: rotate(0);
+  }
+  25% {
+    transform: rotate(-8deg);
+  }
+  75% {
+    transform: rotate(8deg);
+  }
+}
+.loot-result {
+  font-size: calc(12.5px * var(--font-scale));
+  font-weight: 700;
+  color: var(--text-dim);
+  position: relative;
+  overflow: hidden;
+}

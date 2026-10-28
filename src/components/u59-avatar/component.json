@@ -1,0 +1,14 @@
+{
+  "number": 59,
+  "slug": "avatar",
+  "title": "頭像群組",
+  "desc": "Avatar Group，上線狀態與 +N 收合",
+  "category": "display",
+  "aliases": "avatar 頭像 头像 成員 使用者",
+  "guide": {
+    "use": "顯示協作者或參與者，超出數量以 +N 收合。",
+    "avoid": "需要完整名單與角色資訊時。"
+  },
+  "states": ["expanded"],
+  "note": "超出 4 位以 +N 按鈕展開，上線狀態同時寫入讀屏名稱。"
+}

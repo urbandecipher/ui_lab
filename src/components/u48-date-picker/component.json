@@ -1,0 +1,14 @@
+{
+  "number": 48,
+  "slug": "date-picker",
+  "title": "日期選擇器",
+  "desc": "Date Picker，月曆彈出與鍵盤導覽",
+  "category": "input",
+  "aliases": "date picker calendar 日期 日曆 行事曆 预约",
+  "guide": {
+    "use": "近期日期的挑選，例如預約、截止日。",
+    "avoid": "生日等遠期日期；直接輸入年月日更快。"
+  },
+  "states": ["expanded", "selected"],
+  "note": "方向鍵以日／週移動、PageUp／PageDown 換月、Enter 選取、Esc 關閉並返回觸發按鈕；今天以外框標示。"
+}

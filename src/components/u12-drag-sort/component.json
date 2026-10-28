@@ -1,0 +1,14 @@
+{
+  "number": 12,
+  "slug": "drag-sort",
+  "title": "拖曳排序",
+  "desc": "Drag &amp; Drop Reorder",
+  "category": "manip",
+  "aliases": "drag reorder 拖拽 排序",
+  "guide": {
+    "use": "使用者自訂順序的短清單。",
+    "avoid": "只能拖曳；必須同時提供按鈕或鍵盤排序。"
+  },
+  "states": ["reordered"],
+  "note": "滑鼠可拖曳；觸控與鍵盤可使用上移／下移按鈕。"
+}

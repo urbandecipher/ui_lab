@@ -1,0 +1,14 @@
+{
+  "number": 30,
+  "slug": "inventory",
+  "title": "裝備欄拖曳",
+  "desc": "Inventory Grid，拖曳交換道具格",
+  "category": "game",
+  "aliases": "inventory equipment 背包 裝備 装备 拖曳",
+  "guide": {
+    "use": "格狀道具管理與交換。",
+    "avoid": "只能拖曳；應提供點選交換。"
+  },
+  "states": ["selected", "empty"],
+  "note": "拖曳交換，或依序點選兩格；鍵盤使用 Tab 與 Enter。"
+}

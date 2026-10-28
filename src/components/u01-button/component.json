@@ -1,0 +1,14 @@
+{
+  "number": 1,
+  "slug": "button",
+  "title": "按鈕狀態",
+  "desc": "Primary / Secondary / Disabled / Loading",
+  "category": "action",
+  "aliases": "button submit 提交 按钮 加載",
+  "guide": {
+    "use": "每個畫面只放一個主要按鈕，標示最重要的下一步；處理中鎖定按鈕並顯示進度文字。",
+    "avoid": "用停用狀態卻不說明原因；停用時應讓使用者知道如何解除。"
+  },
+  "states": ["loading", "success", "error"],
+  "note": ""
+}

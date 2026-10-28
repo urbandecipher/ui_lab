@@ -1,0 +1,14 @@
+{
+  "number": 13,
+  "slug": "validation",
+  "title": "表單驗證",
+  "desc": "即時輸入驗證回饋",
+  "category": "input",
+  "aliases": "form validation email 郵件 邮箱 錯誤",
+  "guide": {
+    "use": "格式明確的欄位，於輸入後或離開欄位時回饋。",
+    "avoid": "尚未輸入完就報錯；錯誤訊息要說明如何修正。"
+  },
+  "states": ["success", "error"],
+  "note": ""
+}

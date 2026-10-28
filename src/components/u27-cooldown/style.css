@@ -1,0 +1,39 @@
+.skill-slot {
+  position: relative;
+  width: 58px;
+  height: 58px;
+  background: var(--panel-2);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(25px * var(--font-scale));
+  cursor: pointer;
+  overflow: hidden;
+}
+.skill-mask {
+  position: absolute;
+  inset: 0;
+  background: conic-gradient(rgba(0, 0, 0, 0.58) var(--pct, 0%), transparent var(--pct, 0%));
+  pointer-events: none;
+}
+.skill-timer {
+  position: absolute;
+  bottom: 3px;
+  right: 6px;
+  font-size: calc(10px * var(--font-scale));
+  font-weight: 700;
+  color: #ffffff;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  font-variant-numeric: tabular-nums;
+}
+.skill-hint {
+  font-size: calc(11px * var(--font-scale));
+  font-weight: 500;
+  color: var(--text-dim);
+  margin-left: 14px;
+}
+.module-body:has(.skill-slot) {
+  gap: 0;
+}

@@ -1,0 +1,14 @@
+{
+  "number": 51,
+  "slug": "breadcrumb",
+  "title": "麵包屑",
+  "desc": "Breadcrumb，階層路徑與過長收合",
+  "category": "nav",
+  "aliases": "breadcrumb 麵包屑 面包屑 路徑 階層",
+  "guide": {
+    "use": "三層以上的階層網站，提供返回上層的路徑。",
+    "avoid": "扁平結構或有先後順序的流程。"
+  },
+  "states": ["long"],
+  "note": "超過 4 層時收合中段，以「…」按鈕展開；目前頁面使用 aria-current=\"page\"。"
+}

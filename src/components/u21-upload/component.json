@@ -1,0 +1,14 @@
+{
+  "number": 21,
+  "slug": "upload",
+  "title": "檔案拖放上傳",
+  "desc": "File Drop Zone，拖曳或點擊選擇檔案",
+  "category": "input",
+  "aliases": "upload file drop 檔案 文件 上传",
+  "guide": {
+    "use": "檔案上傳的主要入口，並同時支援點擊選取。",
+    "avoid": "未事先說明格式與大小限制。"
+  },
+  "states": ["success", "error"],
+  "note": "支援拖入與點選，限制 10 MB；範例只選擇檔案，不上傳。"
+}

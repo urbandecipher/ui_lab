@@ -1,0 +1,14 @@
+{
+  "number": 20,
+  "slug": "tags",
+  "title": "標籤輸入",
+  "desc": "Chip / Tag Input，Enter 新增、點 × 移除",
+  "category": "input",
+  "aliases": "chip tag 標籤 标签",
+  "guide": {
+    "use": "自由輸入多個短關鍵字。",
+    "avoid": "選項固定且有限時，改用複選框群組。"
+  },
+  "states": ["empty"],
+  "note": ""
+}

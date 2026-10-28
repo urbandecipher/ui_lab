@@ -1,1 +1,5 @@
-assets/demo/
+node_modules/
+__pycache__/
+tests/output/
+_site/
+.DS_Store

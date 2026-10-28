@@ -1,0 +1,14 @@
+{
+  "number": 16,
+  "slug": "flip",
+  "title": "卡片翻轉",
+  "desc": "Flip Card，點擊查看背面",
+  "category": "manip",
+  "aliases": "flip 翻牌 卡片",
+  "guide": {
+    "use": "閃卡、正反面對照等學習情境。",
+    "avoid": "承載關鍵資訊；背面內容不易被發現。"
+  },
+  "states": ["flipped"],
+  "note": ""
+}

@@ -1,0 +1,44 @@
+[
+  {
+    "key": "action",
+    "name": "觸發動作",
+    "en": "ACTION",
+    "desc": "按下即發生的直接操作"
+  },
+  {
+    "key": "input",
+    "name": "資料輸入",
+    "en": "INPUT",
+    "desc": "使用者提供資料或設定數值"
+  },
+  {
+    "key": "nav",
+    "name": "導覽結構",
+    "en": "NAVIGATION",
+    "desc": "在畫面與內容層級之間移動"
+  },
+  {
+    "key": "feedback",
+    "name": "狀態回饋",
+    "en": "FEEDBACK",
+    "desc": "系統對使用者操作的回應"
+  },
+  {
+    "key": "manip",
+    "name": "操控排序",
+    "en": "MANIPULATION",
+    "desc": "直接操作物件的排列或狀態"
+  },
+  {
+    "key": "display",
+    "name": "資料展示",
+    "en": "DATA DISPLAY",
+    "desc": "呈現、比較與瀏覽資料集合"
+  },
+  {
+    "key": "game",
+    "name": "遊戲特化",
+    "en": "GAME MECHANICS",
+    "desc": "源自遊戲介面的專屬互動機制"
+  }
+]

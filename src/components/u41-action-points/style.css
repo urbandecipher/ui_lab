@@ -1,0 +1,23 @@
+.ap-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 100%;
+}
+.ap-row {
+  display: flex;
+  gap: 9px;
+}
+.ap-pip {
+  width: 20px;
+  height: 20px;
+  background: var(--panel-2);
+  border: 1.5px solid var(--line-2);
+  border-radius: 6px;
+  transform: rotate(45deg);
+  transition: all 0.2s ease;
+}
+.ap-pip.full {
+  background: var(--cat-color, var(--text));
+  border-color: var(--cat-color, var(--text));
+}

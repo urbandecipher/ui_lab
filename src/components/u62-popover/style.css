@@ -1,0 +1,44 @@
+.pop-wrap {
+  position: relative;
+}
+.pop-panel {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  z-index: 6;
+  width: 248px;
+  max-width: calc(100vw - 48px);
+  padding: 14px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-s);
+  box-shadow: var(--shadow-md);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: calc(12.5px * var(--font-scale));
+}
+.pop-panel::before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  left: 24px;
+  width: 10px;
+  height: 10px;
+  background: var(--panel);
+  border-left: 1px solid var(--line);
+  border-top: 1px solid var(--line);
+  transform: rotate(45deg);
+}
+.pop-panel p {
+  color: var(--text-dim);
+}
+.pop-panel .check-row input {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--accent);
+}
+.pop-actions {
+  display: flex;
+  justify-content: flex-end;
+}

@@ -1,0 +1,14 @@
+{
+  "number": 35,
+  "slug": "hit",
+  "title": "命中回饋",
+  "desc": "Hit Feedback，震動 + 傷害數字彈出",
+  "category": "game",
+  "aliases": "hit damage 命中 受傷 傷害",
+  "guide": {
+    "use": "即時確認命中與傷害量。",
+    "avoid": "過度震動造成不適；需尊重減少動態設定。"
+  },
+  "states": ["active"],
+  "note": ""
+}
